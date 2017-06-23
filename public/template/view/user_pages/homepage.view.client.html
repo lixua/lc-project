@@ -2,7 +2,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand"><img src="static/resources/logo.png" class="home-logo"></img></a>
+            <a class="navbar-brand"><img src="static/resources/logo-2.png" class="home-logo"></img></a>
             <div class="pull-right header-button-container">
                 <a href="#!/login"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
                 <a href="#!/user/cart"><img src="static/resources/cart.png" class="shopping-cart-image"><img></a>
@@ -11,37 +11,26 @@
     </div>
 </nav>
 
-
 <div class="main-container">
     <div class="content-container">
+        <div class="slideshow-container">
+          <div class="mySlides">
+            <img src="static/resources/amazon-echo.jpg" class="slide-image">
+          </div>
+          <div class="mySlides">
+            <img src="static/resources/alienware.jpg" class="slide-image">
+          </div>
+          <div class="mySlides">
+            <img src="static/resources/fitbit.jpg" class="slide-image">
+          </div>
+          <div class="mySlides">
+            <img src="static/resources/oreo.jpg" class="slide-image">
+          </div>
+          <a class="prev" ng-click="model.plusSlides(-1)">&#10094;</a>
+          <a class="next" ng-click="model.plusSlides(1)">&#10095;</a>
+        </div>
         <div class="row">
             <div class="col-sm-12">
-                <h1>{{model.error}}</h1>
-
-                <!-- <div class="slideshow-container">
-                  <div class="mySlides fade">
-                    <img src="static/resources/amazon-echo.jpg" style="width:100%">
-                  </div>
-                  <div class="mySlides fade">
-                    <img src="static/resources/alienware.jpg" style="width:100%">
-                  </div>
-                  <div class="mySlides fade">
-                    <img src="static/resources/fitbit.jpg" style="width:100%">
-                  </div>
-                  <div class="mySlides fade">
-                    <img src="static/resources/oreo.jpg" style="width:100%">
-                  </div>
-                  <a class="prev" ng-click="model.plusSlides(-1)">&#10094;</a>
-                  <a class="next" ng-click="model.plusSlides(1)">&#10095;</a>
-                </div> -->
-                <!-- <br>
-                <div style="text-align:center">
-                  <span class="dot" ng-click="model.currentSlide(1)"></span>
-                  <span class="dot" ng-click="model.currentSlide(2)"></span>
-                  <span class="dot" ng-click="model.currentSlide(3)"></span>
-                  <span class="dot" ng-click="model.currentSlide(4)"></span>
-                </div> -->
-                <a ng-click="plusSlides(1)">sag</a>
             </div>
         </div>
     </div>
