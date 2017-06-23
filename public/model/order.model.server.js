@@ -10,6 +10,8 @@ orderModel.findOrderById = findOrderById;
 orderModel.findOrderBySellerId = findOrderBySellerId;
 orderModel.findOrderByBuyerId = findOrderByBuyerId;
 orderModel.findAll = findAll;
+orderModel.sendOut = sendOut;
+orderModel.delivery = delivery;
 
 module.exports = orderModel;
 
@@ -33,3 +35,10 @@ function findAll(){
     return orderModel.find({});
 }
 
+function sendOut(orderId){
+    return orderModel.update({_id:orderId},{sendDate:Date.now})
+}
+
+function delivery(orderId){
+    return orderModel.update({_id:orderId},{deliveryDate:Date.now})
+}
