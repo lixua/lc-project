@@ -1,7 +1,11 @@
 var express = require('express');
 var app = express();
-
+var mongoose = require("mongoose");
 var bodyParser = require('body-parser');
+var port = process.env.PORT || 3000;
+
+require('./public/model/aa.model')(mongoose);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -16,9 +20,9 @@ if(process.env.MLAB_USERNAME_WEBDEV) { // check if running remotely
     connectionString += '@ds143340.mlab.com:43340/heroku_vqfxvvh9'; // user yours
 }
 
-var mongoose = require("mongoose");
+
 mongoose.connect(connectionString);
 
-var port = process.env.PORT || 3000;
+
 
 app.listen(port);
