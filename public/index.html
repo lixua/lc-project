@@ -1,30 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Web Dev Course Home Page</title>
-</head>
-<body>
-    <h1>Web Dev Course Home Page</h1>
-
-    <p>
-        Customize this home page to your linking.
-    </p>
-
-    <h2>Required links</h2>
-    <ul>
-        <li>
-            <a href="project/index.html">Project</a>
-        </li>
-        <li>
-            <a href="assignment/index.html">Assignment</a>
-        </li>
-        <li>
-            <a href="test/index.html">Test MongoDB</a>
-        </li>
-        <li>
-            <a href="https://github.com/jannunzi/web-dev-template">Your public repository at GitHub.com</a>
-        </li>
-    </ul>
-</body>
+<html lang="en" ng-app="OnlineWebStore">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=no">
+        <link href="static/style.css" rel="stylesheet" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+        <script src="template/javascript_library/angular.min.js"></script>
+        <script src="template/javascript_library/angular.route.min.js"></script>
+        <script src="app.js"></script>
+        <script src="config.js"></script>
+        <!-- User pages -->
+        <script src="template/controller/user_controller/homepageController.js"></script>
+        <script src="template/controller/user_controller/loginController.js"></script>
+        <script src="template/controller/user_controller/profileController.js"></script>
+        <script src="template/controller/user_controller/registerController.js"></script>
+        <script src="template/controller/user_controller/otherProfileController.js"></script>
+        <script src="template/controller/user_controller/cartController.js"></script>
+        <!-- admin pages-->
+        <script src="template/controller/admin_controller/adminCreateController.js"></script>
+        <script src="template/controller/admin_controller/adminEditItemController.js"></script>
+        <script src="template/controller/admin_controller/adminEditUserController.js"></script>
+        <script src="template/controller/admin_controller/adminHomepageController.js"></script>
+        <script src="template/controller/admin_controller/adminItemlistController.js"></script>
+        <script src="template/controller/admin_controller/adminLoginController.js"></script>
+        <script src="template/controller/admin_controller/adminOrderlistController.js"></script>
+        <script src="template/controller/admin_controller/adminUserlistController.js"></script>
+        <!--order pages-->
+        <script src="template/controller/order_controller/orderDetailController.js"></script>
+        <script src="template/controller/order_controller/orderListController.js"></script>
+        <!--order pages-->
+        <script src="template/controller/item_controller/itemCompareController.js"></script>
+        <script src="template/controller/item_controller/itemCreateController.js"></script>
+        <script src="template/controller/item_controller/itemDetailController.js"></script>
+        <script src="template/controller/item_controller/itemEditController.js"></script>
+        <script src="template/controller/item_controller/itemListController.js"></script>
+    </head>
+    <body>
+        <div ng-view></div>
+    </body>
 </html>
