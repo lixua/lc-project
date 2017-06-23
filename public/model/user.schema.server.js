@@ -11,7 +11,7 @@ var userSchema = mongoose.Schema({
     email: String,
     dob: Date,
     createDate: {type:Date,default: Date.now},
-    role: [{type:String, default: 'BUYER',enum:['BUYER','SELLER']}],
+    role: {type:String, default: 'BUYER',enum:['BUYER','SELLER']},
     followList: {
         type: [mongoose.Schema.Types.ObjectId],
         ref:"userModel"

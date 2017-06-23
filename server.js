@@ -3,9 +3,9 @@ var app = express();
 var mongoose = require("mongoose");
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 3000;
+mongoose.Promise = require('q').Promise;
 
-require('./public/model/aa.model')(mongoose);
-
+require('./public/model/aa.model');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

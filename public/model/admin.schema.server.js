@@ -7,6 +7,6 @@ var adminSchema = mongoose.Schema({
     password: {type: String, require: true},
     createDate: {type:Date,default: Date.now},
     rate:{type: Number, default: 0}
-},{collection:"admin"});
+},{collection:"adminAccount"});
 
 module.exports = adminSchema;

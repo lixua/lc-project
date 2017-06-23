@@ -5,8 +5,7 @@ var bcrypt = require("bcrypt-nodejs");
 var mongoose = require('mongoose');
 var userSchema = require('./user.schema.server');
 var userModel = mongoose.model('userModel',userSchema);
-
-userModel.findUserById = findById;
+userModel.findUserById = findUserById;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.createUser = createUser;
 userModel.deleteUser = deleteUser;
@@ -21,7 +20,7 @@ userModel.findAll = findAll;
 
 module.exports = userModel;
 
-function findById(userId){
+function findUserById(userId){
     return userModel.findById(userId);
 }
 
@@ -29,9 +28,12 @@ function findUserByCredentials(username, password){
     return userModel
         .findOne({username: username})
         .then(function (user) {
+
             if(user && bcrypt.compareSync(password, user.password)) {
+                console.log("SUCCESS")
                 return user;
             } else {
+                console.log("FAIL")
                 return null;
             }
         });
@@ -126,3 +128,4 @@ function isBlock(userId, checkId){
 function findAll(){
     return userModel.find({});
 }
+

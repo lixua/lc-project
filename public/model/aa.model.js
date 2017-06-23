@@ -1,8 +1,8 @@
 /**
  * Created by xuanyuli on 6/23/17.
  */
-module.exports = function(mongoose){
-    mongoose.Promise = require('q').Promise;
+
+module.exports = function(){
     require('./admin.model.server');
     require('./admin.schema.server');
     require('./item.model.server');
@@ -11,4 +11,5 @@ module.exports = function(mongoose){
     require('./order.schema.server');
     require('./user.model.server');
     require('./user.schema.server');
-};
+}();
+

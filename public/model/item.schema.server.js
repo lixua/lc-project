@@ -7,7 +7,7 @@ var itemSchema = mongoose.Schema({
     price: {type: Number, require: true},
     description: String,
     count: {type: Number, require: true},
-    category:[{type: String, default:'OTHER', enum:['HOME',"ELECTRONICS","MEDIA",'FOOD','SPORT','OTHER']}],
+    category:{type: String, default:'OTHER', enum:['HOME',"ELECTRONICS","MEDIA",'FOOD','SPORT','OTHER']},
     postBy: {
         type:mongoose.Schema.Types.ObjectId,
         ref:"userModel",
