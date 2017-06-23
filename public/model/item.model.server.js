@@ -28,7 +28,7 @@ function findItems(input){
         return itemModel.find({category:input.toUpperCase()});
     } else {
         return itemModel.find({name: new RegExp('^' + input + '$', "i")}, function(err, doc){
-            console.log(doc)
+            console.log(doc);
             return doc;
         })
     }
