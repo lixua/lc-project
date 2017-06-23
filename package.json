@@ -22,8 +22,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "begin": "nodemon server.js"
   },
-  "author": "Jose G. Annunziato",
+  "author": "Li Xuanyu & Chen Wenbin",
   "license": "ISC"
 }
