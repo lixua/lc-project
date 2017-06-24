@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand"><img src="static/resources/logo-3.png" class="home-logo"></img></a>
+            <div class="pull-right header-button-container">
+                <a href="#!/login"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
+                <a href="#!/user/cart"><img src="static/resources/cart.png" class="shopping-cart-image"><img></a>
+            </div>
+            <input class="header-search" placeholder="Search by Name/Department" ng-model="val">
+            <a href="#!/s/val"><div class="search-block"></div></a></input>
+            <i class="fa fa-search"></i>
+        </div>
+    </div>
+</nav>
+<div class="main-container">
+    <div class="content-container">
+        <div class="api-page-container">
+            <h1> Search Results: </h1>
+            <input type="text" class="form-control"  placeholder="Search" ng-model="api">
+            <a class="btn btn-danger btn-block btn-login" ng-click="model.findItemsByKeywords(api)">Search</a>
+            <div ng-repeat="product in model.items" ng-show="$index<10" class="list-group">
+                <a href="{{product.viewItemURL[0]}}" class="list-group-item">
+                    <div class="student-info-container">
+                        <h4>ProductName:</h4> {{product.title[0]}}<br>
+                        <h4>Price:</h4> {{product.sellingStatus[0].currentPrice[0].__value__}}<br>
+                        <h4>ShopName:</h4> {{product.condition[0].conditionDisplayName[0]}}<br>
+                    </div>
+                </a>
+            </div>
+            <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."> -->
+        </div>
+    </div>
+</div>
