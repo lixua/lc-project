@@ -77,7 +77,51 @@
 }
 
 .following-list-container {
-    margin-top: 15px;
+
+    .list-group {
+        margin-top: 20px;
+        &:last-child {
+            border-bottom: 1pt;
+        }
+    }
+
+    .list-group-item {
+        height: 140px;
+        padding: 0px 0px 0px 0px;
+        border: solid;
+        border-width: 0.5pt;
+        &:hover {
+            background-color: darken(rgb(220,220,220), 3);
+        }
+    }
+
+    .btn-danger {
+        width: 90px;
+    }
+}
+
+.cart-option-container {
+    margin-top: 10px;
+
+    .form-control {
+        width: 100px;
+    }
+}
+
+.image-in-list {
+    display: inline-block;
+    position: relative;
+    height: 90px;
+    margin-bottom: 1px;
+}
+
+.in-list-header {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.in-list-description {
+    font-size: 0.8em;
 }
 
 .profile-page-inner-container {
