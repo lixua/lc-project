@@ -5862,9 +5862,20 @@ button.close {
 .home-logo {
   width: 150px; }
 
+.homepage-container .col-sm-12, .homepage-container .col-md-6, .homepage-container .col-lg-4 {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0; }
+
+.search-block {
+  position: absolute;
+  width: 45px;
+  height: 40px;
+  top: 75px;
+  background-color: #e2e211; }
+
 .slide-image {
   width: 100%;
-  height: 180px; }
+  height: 30vh; }
 
 .profile-image {
   height: 35px;
@@ -5887,6 +5898,145 @@ button.close {
 .choices {
   text-align: center;
   margin-top: -20px; }
+
+.header-search {
+  margin-top: 10px;
+  width: 90vw;
+  height: 40px;
+  text-indent: 50px; }
+
+.fa-search {
+  color: black;
+  position: absolute;
+  top: 85px;
+  left: 28px; }
+
+.cataglory-text {
+  height: 100%;
+  width: 100%;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.6);
+  visibility: hidden;
+  text-align: center;
+  padding-top: calc(13vh / 2 - 0.75em); }
+
+.cataglory-container-home {
+  height: 13vh;
+  width: 100%;
+  background-image: url("resources/home.png");
+  background-size: cover;
+  background-position: center; }
+  .cataglory-container-home:hover .cataglory-text {
+    visibility: visible; }
+  @media only screen and (min-width: 776px) {
+    .cataglory-container-home {
+      height: 18vh; } }
+  @media only screen and (min-width: 776px) {
+    .cataglory-container-home {
+      height: 25vh; } }
+
+.cataglory-container-electronic {
+  height: 13vh;
+  width: 100%;
+  background-image: url("resources/eletronic.png");
+  background-size: cover;
+  background-position: center; }
+  .cataglory-container-electronic:hover .cataglory-text {
+    visibility: visible; }
+  @media only screen and (min-width: 776px) {
+    .cataglory-container-electronic {
+      height: 18vh; } }
+  @media only screen and (min-width: 776px) {
+    .cataglory-container-electronic {
+      height: 25vh; } }
+
+.cataglory-container-sport {
+  height: 13vh;
+  width: 100%;
+  background-image: url("resources/sport.png");
+  background-size: cover;
+  background-position: center; }
+  .cataglory-container-sport:hover .cataglory-text {
+    visibility: visible; }
+  @media only screen and (min-width: 776px) {
+    .cataglory-container-sport {
+      height: 18vh; } }
+  @media only screen and (min-width: 776px) {
+    .cataglory-container-sport {
+      height: 25vh; } }
+
+.cataglory-container-media {
+  height: 13vh;
+  width: 100%;
+  background-image: url("resources/media.png");
+  background-size: cover;
+  background-position: center; }
+  .cataglory-container-media:hover .cataglory-text {
+    visibility: visible; }
+  @media only screen and (min-width: 776px) {
+    .cataglory-container-media {
+      height: 18vh; } }
+  @media only screen and (min-width: 776px) {
+    .cataglory-container-media {
+      height: 25vh; } }
+
+.cataglory-container-food {
+  height: 13vh;
+  width: 100%;
+  background-image: url("resources/food.png");
+  background-size: cover;
+  background-position: center; }
+  .cataglory-container-food:hover .cataglory-text {
+    visibility: visible; }
+  @media only screen and (min-width: 776px) {
+    .cataglory-container-food {
+      height: 18vh; } }
+  @media only screen and (min-width: 776px) {
+    .cataglory-container-food {
+      height: 25vh; } }
+
+.cataglory-container-others {
+  height: 13vh;
+  width: 100%;
+  background-image: url("resources/others.png");
+  background-size: cover;
+  background-position: center; }
+  .cataglory-container-others:hover .cataglory-text {
+    visibility: visible; }
+  @media only screen and (min-width: 776px) {
+    .cataglory-container-others {
+      height: 18vh; } }
+  @media only screen and (min-width: 776px) {
+    .cataglory-container-others {
+      height: 25vh; } }
+
+@media only screen and (min-width: 776px) {
+  .cataglory-text {
+    font-size: 2em;
+    padding-top: calc(18vh / 2 - 0.75em); }
+  .header-search {
+    width: 95vw; } }
+
+@media only screen and (min-width: 1200px) {
+  .navbar {
+    height: 160px; }
+  .header-search {
+    height: 60px;
+    width: 98vw;
+    text-indent: 70px; }
+  .search-block {
+    height: 60px;
+    width: 60px; }
+  .fa-search {
+    top: 100px;
+    left: 40px; }
+  .slide-image {
+    height: 40vh; }
+  .cataglory-text {
+    font-size: 2.5em;
+    padding-top: calc(25vh / 2 - 0.75em); } }
 
 .slideshow-container {
   position: relative;

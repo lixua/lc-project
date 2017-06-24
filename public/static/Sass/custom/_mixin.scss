@@ -1,0 +1,21 @@
+@mixin cataglory-generator($url) {
+    height: 13vh;
+    width: 100%;
+    background-image: url($url);
+    background-size: cover;
+    background-position: center;
+
+    &:hover {
+        .cataglory-text {
+            visibility: visible;
+        }
+    }
+
+    @media only screen and (min-width: $screen-sm) {
+        height: 18vh;
+    }
+
+    @media only screen and (min-width: $screen-sm) {
+        height: 25vh;
+    }
+}

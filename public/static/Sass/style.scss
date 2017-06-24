@@ -1,4 +1,5 @@
 @import 'stylesheets/bootstrap';
 
-@import 'custom/Global-variables',
+@import 'custom/mixin',
+        'custom/Global-variables',
         'custom/User-pages'
