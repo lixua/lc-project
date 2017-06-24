@@ -9,7 +9,10 @@
                 .when('/', {
                     templateUrl: 'template/view/user_pages/homepage.view.client.html',
                     controller: 'homepageController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser : checkLoggedIn2
+                    }
                 })//NO LOGIN
                 .when('/login', {
                     templateUrl: 'template/view/user_pages/login.view.client.html',
@@ -41,10 +44,7 @@
                 .when('/s/ulist', {
                     templateUrl: 'template/view/user_pages/list-users.view.client.html',
                     controller: 'userListController',
-                    controllerAs: 'model',
-                    resolve:{
-                        currentUser: checkLoggedIn
-                    }
+                    controllerAs: 'model'
                 })
                 .when('/user/cart', {
                     templateUrl: 'template/view/user_pages/shoppingCart.view.client.html',
@@ -155,7 +155,19 @@
                 } else {
                     deferred.resolve(user);
                 }
-            })
+            });
+        return deferred.promise;
+    }
+    function checkLoggedIn2(userService, $q, $location){
+        var deferred = $q.defer();
+        userService
+            .checkLoggedIn()
+            .then(function(user){
+                $location.url('/')
+                console.log("checklog2")
+                console.log(user);
+                    deferred.resolve(user);
+            });
         return deferred.promise;
     }
 })()

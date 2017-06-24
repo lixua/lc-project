@@ -12,6 +12,7 @@ passport.deserializeUser(deserializeUser);
 
 app.get('/api/user/:userId', findUserById);
 app.get('/api/user/findUserByCredentials', findUserByCredentials);
+app.get('/api/username',findUserByUsername);
 app.post('/api/user/create', createUser);
 app.delete('/api/user/delete/:userId', deleteUser);
 app.put('/api/user/update/:userId',updateUser);
@@ -27,20 +28,21 @@ app.get('/api/checkLoggedIn', checkLoggedIn);
 app.post('/api/logout',logout);
 app.post('/api/register',register);
 
+console.log('ey')
+
 function localStrategy(username, password, done) {
     userModel
         .findUserByCredentials(username, password)
-        .then(
-            function(user) {
-                if (!user) {
-                    return done(null, false);
-                }
-                return done(null, user);
-            },
-            function(err) {
-                if (err) { return done(err); }
+        .then(function (user) {
+            if(user){
+                console.log("localStrategy")
+                done(null, user);
+            }else {
+                done(null, false);
             }
-        );
+        }, function(error){
+            done(error, false);
+        })
 }
 function serializeUser(user, done) {
     done(null, user);
@@ -81,6 +83,16 @@ function findUserByCredentials(req, res){
         }, function (err) {
             res.sendStatus(404);
         });
+}
+
+function findUserByUsername(req, res) {
+    var username = req.query['username'];
+    userModel
+        .findUserByUsername(username)
+        .then(function(user){
+            res.json(user);
+        })
+
 }
 function createUser(req, res){
     var user = req.body;
@@ -169,11 +181,13 @@ function isBlock(req, res){
 }
 
 function login(req, res) {
+    console.log("HERE???");
     var user = req.user;
     res.json(user);
 }
 function checkLoggedIn(req, res) {
     if(req.isAuthenticated()) {
+        console.log("herer")
         res.json(req.user);
     } else {
         res.send('0');
@@ -188,8 +202,10 @@ function register(req, res) {
     userModel
         .createUser(user)
         .then(function (user) {
-            req.login(user, function (status) {
-                res.json(user);
-            });
-        });
+            req
+                .login(user, function (status) {
+                    res.send(status);
+                })
+        })
+
 }

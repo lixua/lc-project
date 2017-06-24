@@ -7,6 +7,7 @@
         return {
             findUserById: findUserById,
             findUserByCredentials: findUserByCredentials,
+            findUserByUsername: findUserByUsername,
             createUser: createUser,
             deleteUser: deleteUser,
             updateUser: updateUser,
@@ -32,6 +33,13 @@
 
         function findUserByCredentials(username, password) {
             var url = "/api/user/findUserByCredentials?username=" + username + "&password=" + password;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+        function findUserByUsername(username) {
+            var url = "/api/username?username="+username;
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -116,8 +124,11 @@
                 username: username,
                 password: password
             };
+            console.log(username,password)
             return $http.post(url, credentials)
                 .then(function (response) {
+                    console.log("!@$#@$")
+                    console.log(response);
                     return response.data;
                 });
         }
@@ -136,9 +147,12 @@
                 });
         }
         function register(user) {
+            console.log("!!!!!!")
+            console.log(user)
             var url = "/api/register";
             return $http.post(url, user)
                 .then(function (response) {
+                    console.log(response.data);
                     return response.data;
                 });
         }

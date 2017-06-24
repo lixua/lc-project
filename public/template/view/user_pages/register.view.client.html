@@ -20,18 +20,29 @@
             <div class="col-sm-12">
                 <img src="static/resources/logo-test.png" class="login-logo"></img>
                 <div class="form-group">
+                    <div ng-show="model.error" class="alert alert-danger">
+                        {{model.error}}
+                    </div>
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" ng-model="username" placeholder="username" />
+                    <input ng-model = "username" type="text" class="form-control"  placeholder="username" />
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" ng-model="password" placeholder="password" />
+                    <input ng-model = "password"type="password" class="form-control"  placeholder="password" />
                     <label for="repassword">Repeat Password</label>
-                    <input type="password" class="form-control" ng-model="repassword" placeholder="password" />
+                    <input ng-model = "password2"type="password" class="form-control"  placeholder="password" />
                     <label for="email">Email address</label>
-                    <input type="email" class="form-control" ng-model="email" placeholder="password" />
+                    <input ng-model = "email"type="email" class="form-control"  placeholder="email" />
                     <label for="phone">Phone number</label>
-                    <input type="phone" class="form-control" ng-model="phone" placeholder="password" />
-                    <a href="#!/profile" class="btn btn-info btn-login btn-block">Register</a>
-                    <a href="#!/login" class="btn btn-info btn-register btn-block">Cancel</a>
+                    <input ng-model = "phone"type="tel" class="form-control" placeholder="phone" />
+                    <label for="dob">BirthDay</label>
+                    <input ng-model="dob" type = "date" class="form-control" />
+                    <label for="role">Type of User</label>
+                    <select ng-model ="role">
+                        <option value="BUYER" selected>Buyer</option>
+                        <option value="SELLER">Seller</option>
+                    </select>
+
+                    <a ng-click="model.register(username, password, password2, email, phone,dob, role)" class="btn btn-info btn-login btn-block">Register</a>
+                    <a href="#!/" class="btn btn-info btn-register btn-block">Cancel</a>
                 </div>
             </div>
         </div>

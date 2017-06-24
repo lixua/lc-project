@@ -1,16 +1,25 @@
-var express = require('express');
-var app = express();
+var app = require('./express');
 var mongoose = require("mongoose");
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 3000;
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var passport = require('passport');
 mongoose.Promise = require('q').Promise;
 
-require('./public/model/aa.model');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(session({
+    secret: 'sbcwb',
+    resave: true,
+    saveUninitialized: true}));
+app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 // configure a public directory to host static content
-app.use(express.static(__dirname + '/public'));
+app.use(app.express.static(__dirname + '/public'));
 
 var connectionString = 'mongodb://127.0.0.1:27017/lc-project'; // for local
 if(process.env.MLAB_USERNAME_WEBDEV) { // check if running remotely
@@ -23,6 +32,7 @@ if(process.env.MLAB_USERNAME_WEBDEV) { // check if running remotely
 
 mongoose.connect(connectionString);
 
-
+require('./public/model/aa.model');
+require('./public/backend-service/aa.service');
 
 app.listen(port);
