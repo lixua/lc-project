@@ -1,43 +1,65 @@
-(function () {
+(function (){
     angular
         .module('OnlineWebStore')
-        .factory('orderService', function ($http) {
-            return {
-                "createOrder" : function (order) {
-                    var url = '/api/order/create'
-                    return $http.post(url, order)
-                                .then(function (response) {
-                                    console.log("I'm orderCreate")
-                                })
-                },
-                "findOrderById" : function (id) {
-                    var url = '/api/order/' + id
-                    return $http.get(url)
-                                .then(function (response) {
-                                    console.log("I'm findOrderbyId")
-                                })
-                },
-                "findOrderBySellerId" : function (id) {
-                    var url = '/api/order/seller/' + id
-                    return $http.get(url)
-                                .then(function (response) {
-                                    console.log("im findOrdersellerId")
-                                })
-                },
-                "findOrderByBuyerId" : function (id) {
-                    var url = '/api/order/buyer/' + id
-                    return $http.get(url)
-                                .then(function (response) {
-                                    console.log('im findOrderByBuyerId')
-                                })
-                },
-                "findAll" : function () {
-                    var url = '/api/admin/order/all'
-                    return $http.get(url)
-                                .then(function (response) {
-                                    console.log('Im findAllOrders')
-                                })
-                }
-            }
-        })
-})()
+        .factory('orderService', orderService);
+
+    function orderService($http){
+        return {
+            createOrder: createOrder,
+            findOrderById : findOrderById,
+            findOrderBySellerId: findOrderBySellerId,
+            findOrderByBuyerId : findOrderByBuyerId,
+            sendOut : sendOut,
+            delivery : delivery
+        };
+
+        function createOrder(order) {
+            var url = "/api/order/create";
+            return $http.post(url, order)
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
+        function findOrderById(orderId){
+            var url = '/api/order/' + orderId;
+            return $http.get(url)
+                .then(function (response){
+                    return response.data;
+                })
+        }
+
+        function findOrderBySellerId(sellerId){
+            var url = '/api/orderseller/' + sellerId;
+            return $http.get(url)
+                .then(function (response){
+                    return response.data;
+                })
+        }
+
+        function findOrderByBuyerId(buyerId){
+            var url = '/api/orderbuyer/' + buyerId;
+            return $http.get(url)
+                .then(function (response){
+                    return response.data;
+                })
+        }
+
+        function sendOut(orderId){
+            var url = '/api/ordersend/' + orderId;
+            return $http.put(url)
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
+        function delivery(orderId){
+            var url = '/api/orderdelivery/' + orderId;
+            return $http.put(url)
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
+    }
+})();
