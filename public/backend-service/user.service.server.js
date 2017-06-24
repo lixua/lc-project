@@ -19,8 +19,8 @@ app.put('/api/user/follow/:userId', follow);
 app.put('/api/user/unfollow/:userId', unfollow);
 app.put('/api/user/block/:userId', block);
 app.put('/api/user/unblock/:userId', unblock);
-app.get('/api/user/isFollow/:userId',isFollow);
-app.get('/api/user/isBlock/:userId',isBlock);
+app.get('/api/userIsFollow/:userId',isFollow);
+app.get('/api/userIsBlock/:userId',isBlock);
 
 app.post('/api/login', passport.authenticate('local'), login);
 app.get('/api/checkLoggedIn', checkLoggedIn);
