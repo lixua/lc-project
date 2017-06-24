@@ -19,12 +19,19 @@
                 .when('/user/profile', {
                     templateUrl: 'template/view/user_pages/profile.view.client.html',
                     controller: 'profileController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser: checkLoggedIn
+                    }
                 })
                 .when('/user/o/profile', {
                     templateUrl: 'template/view/user_pages/others_profile.view.client.html',
                     controller: 'otherProfileController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser: checkLoggedIn
+                    }
+
                 })
                 .when('/register', {
                     templateUrl: 'template/view/user_pages/register.view.client.html',
@@ -34,12 +41,18 @@
                 .when('/s/ulist', {
                     templateUrl: 'template/view/user_pages/list-users.view.client.html',
                     controller: 'userListController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser: checkLoggedIn
+                    }
                 })
                 .when('/user/cart', {
                     templateUrl: 'template/view/user_pages/shoppingCart.view.client.html',
                     controller: 'cartController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser: checkLoggedIn
+                    }
                 })
 
                 // Admin pages
@@ -108,18 +121,41 @@
                 .when('/user/i/edit/:itemId', {
                     templateUrl: 'template/view/item_pages/editItem.view.client.html',
                     controller: 'itemEditController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser: checkLoggedIn
+                    }
                 })
                 // Order pages
                 .when('/user/olist', {
                     templateUrl: 'template/view/order_pages/order-list.view.client.html',
                     controller: 'orderListController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser: checkLoggedIn
+                    }
                 })
                 .when('/user/o/:orderId', {
                     templateUrl: 'template/view/order_pages/order-detail.view.client.html',
                     controller: 'orderDetailController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser: checkLoggedIn
+                    }
                 })
+    }
+    function checkLoggedIn(userService, $q, $location){
+        var deferred = $q.defer();
+        userService
+            .checkLoggedIn()
+            .then(function(user){
+                if(user ==='0'){
+                    deferred.reject();
+                    $location.url('/login')
+                } else {
+                    deferred.resolve(user);
+                }
+            })
+        return deferred.promise;
     }
 })()
