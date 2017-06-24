@@ -4,27 +4,27 @@
     background-position: center;
     // height: calc(100vh - 120px);
     // width: 100vw;
+
+    .form-control {
+        height: 60px;
+        border: none;
+        background-color: rgba(255,255,255,0.6);
+        margin-top: 10px;
+
+        &:hover {
+            background-color: darken(rgb(255,255,255), 6);
+        }
+    }
+
+    .form-group {
+        width: 90%;
+        margin-left: 5%;
+    }
 }
 
 .login-logo {
     width: 90vw;
     height: 17vh;
-    margin-left: 5%;
-}
-
-.form-control {
-    height: 60px;
-    border: none;
-    background-color: rgba(255,255,255,0.6);
-    margin-top: 10px;
-
-    &:hover {
-        background-color: darken(rgb(255,255,255), 6);
-    }
-}
-
-.form-group {
-    width: 90%;
     margin-left: 5%;
 }
 
@@ -38,24 +38,94 @@
     margin-top: 15px !important;
 }
 
-@media only screen and (min-width: $screen-sm) {
+.profile-container {
+    margin-top: 15px;
+    width: 90vw;
+    min-height: 20vh;
+    // border: solid;
+    // border-bottom-left-radius: 15px;
+    // border-bottom-right-radius: 15px;
+    // border-top-left-radius: 15px;
+    // border-top-right-radius: 15px;
+    // border-width: 1pt;
+    // margin-left: 5vw;
+
     .form-control {
-        height: 80px;
-        font-size: 1.5em;
+        border: none;
+        margin-top: -5px;
+        background-color: transparent;
     }
+
     .form-group {
-        width: 80%;
-        margin-left: 10%;
+        margin-left: 5px;
+    }
+}
+
+.function-split-bar {
+    height: 50px;
+    width: inherit;
+    border-top-style: groove;
+    border-bottom-style: groove;
+    border-width: 0.3pt;
+    padding: 5px 0px 5px 0px;
+    background-color: rgba(220,220,220,0.6)
+}
+
+.profile-icon {
+    height: 40px;
+    margin-left: calc(100vw / 12 * 1.5 - 30px);
+}
+
+.following-list-container {
+    margin-top: 15px;
+}
+
+.profile-page-inner-container {
+    padding: 0 5vw 0 5vw;
+}
+
+.profile-page-search {
+    .header-search {
+        width: 100%;
+    }
+    .search-block-k {
+        position: relative;
+        display: block;
+        background-color: #e2e211;
+        height: 60px;
+        width: (90vw / 12);
+        margin-top: 10px;
+    }
+    .col-xs-1,.col-xs-11 {
+        margin: 0 0 0 ;
+    }
+}
+
+@media only screen and (min-width: $screen-sm) {
+    .login-page-container {
+        .form-control {
+            height: 80px;
+            font-size: 1.5em;
+        }
+        .form-group {
+            width: 80%;
+            margin-left: 10%;
+        }
+    }
+    .profile-page-search {
+
     }
 }
 
 @media only screen and (min-width: $screen-md) {
-    .form-control {
-        height: 100px;
-        font-size: 1.5em;
-    }
-    .form-group {
-        width: 70%;
-        margin-left: 15%;
+    .login-page-container {
+        .form-control {
+            height: 100px;
+            font-size: 1.5em;
+        }
+        .form-group {
+            width: 70%;
+            margin-left: 15%;
+        }
     }
 }

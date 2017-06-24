@@ -38,7 +38,7 @@
                     controller: 'registerController',
                     controllerAs: 'model'
                 })//NO LOGIN
-                .when('/s/ulist', {
+                .when('/s/ulist/:val', {
                     templateUrl: 'template/view/user_pages/list-users.view.client.html',
                     controller: 'userListController',
                     controllerAs: 'model',
