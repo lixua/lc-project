@@ -1,0 +1,51 @@
+<!-- I'm the header -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand"><img src="static/resources/logo-3.png" class="home-logo"></img></a>
+            <div class="pull-right header-button-container">
+                <a href="#!/login"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
+                <a href="#!/user/cart"><img src="static/resources/cart.png" class="shopping-cart-image"><img></a>
+            </div>
+            <input class="header-search" placeholder="Search by Name/Department" ng-model="val">
+            <a href="#!/s/val"><div class="search-block"></div></a></input>
+            <i class="fa fa-search"></i>
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+    <div class="content-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="profile-container">
+                    <ul class="list-group">
+                        <label for="username" class="col-xs-12 col-sm-2">Username:</label>
+                        <div class="col-xs-12 col-sm-10"><div type="text" class="list-group-item" ng-model="username" placeholder="username" /></div></div>
+                        <label for="fname" class="col-xs-12 col-sm-2">First name:</label>
+                        <div class="col-xs-12 col-sm-10"><div type="text" class="list-group-item" ng-model="fname" placeholder="firstname" /></div></div>
+                        <label for="lname" c2lass="col-xs-12 col-sm-2">last name:</label>
+                        <div class="col-xs-12 col-sm-10"><div type="text" class="list-group-item" ng-model="lname" placeholder="lastname" /></div></div>
+                        <label for="dob" class="col-xs-12 col-sm-2">Date of Birth:</label>
+                        <div class="col-xs-12 col-sm-10"><div type="date" class="list-group-item" ng-model="dob" placeholder="01/01/1980" /></div></div>
+                        <label for="password" class="col-xs-12 col-sm-2">Password:</label>
+                        <div class="col-xs-12 col-sm-10"><div type="password" class="list-group-item" ng-model="password" placeholder="password" /></div></div>
+                        <label for="email" class="col-xs-12 col-sm-2">Email:</label>
+                        <div class="col-xs-12 col-sm-10"><div type="email" class="list-group-item" ng-model="email" placeholder="email" /></div></div>
+                        <label for="phone" class="col-xs-12 col-sm-2">Phone number:</label>
+                        <div class="col-xs-12 col-sm-10"><div type="text" class="list-group-item" ng-model="phone" placeholder="phone" /></div></div>
+                    </ult>
+                </div>
+                <div class="function-split-bar">
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-2"><a href="#!"><img src="home-icon.png"></img></a></div>
+                        <div class="col-xs-2"><a href="#!"><img src="check-icon.png"></img></a></div>
+                        <div class="col-xs-2"><a href="#!"><img src="followedBy-icon.png"></img></a></div>
+                        <div class="col-xs-2"><a href="#!"><img src="Blacklist-icon.png"></img></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

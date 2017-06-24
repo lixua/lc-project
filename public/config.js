@@ -22,10 +22,10 @@
                 .when('/user/profile', {
                     templateUrl: 'template/view/user_pages/profile.view.client.html',
                     controller: 'profileController',
-                    controllerAs: 'model',
-                    resolve:{
-                        currentUser: checkLoggedIn
-                    }
+                    controllerAs: 'model'
+                    // resolve:{
+                    //     currentUser: checkLoggedIn
+                    // }
                 })
                 .when('/user/o/profile', {
                     templateUrl: 'template/view/user_pages/others_profile.view.client.html',
@@ -41,7 +41,7 @@
                     controller: 'registerController',
                     controllerAs: 'model'
                 })//NO LOGIN
-                .when('/s/ulist', {
+                .when('/s/ulist/:val', {
                     templateUrl: 'template/view/user_pages/list-users.view.client.html',
                     controller: 'userListController',
                     controllerAs: 'model'
@@ -49,10 +49,10 @@
                 .when('/user/cart', {
                     templateUrl: 'template/view/user_pages/shoppingCart.view.client.html',
                     controller: 'cartController',
-                    controllerAs: 'model',
-                    resolve:{
-                        currentUser: checkLoggedIn
-                    }
+                    controllerAs: 'model'
+                    // resolve:{
+                    //     currentUser: checkLoggedIn
+                    // }
                 })
 
                 // Admin pages
