@@ -6036,7 +6036,9 @@ button.close {
     height: 40vh; }
   .cataglory-text {
     font-size: 2.5em;
-    padding-top: calc(25vh / 2 - 0.75em); } }
+    padding-top: calc(25vh / 2 - 0.75em); }
+  .content-container {
+    margin-top: 160px; } }
 
 .slideshow-container {
   position: relative;
@@ -6088,3 +6090,77 @@ button.close {
 
 .active, .dot:hover {
   background-color: #717171; }
+
+.login-page-container {
+  background-image: url("resources/supermarket.png");
+  background-size: cover;
+  background-position: center; }
+
+.login-logo {
+  width: 90vw;
+  height: 17vh;
+  margin-left: 5%; }
+
+.form-control {
+  height: 60px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin-top: 10px; }
+  .form-control:hover {
+    background-color: #f0f0f0; }
+
+.form-group {
+  width: 90%;
+  margin-left: 5%; }
+
+.btn-login {
+  margin-top: 15px;
+  height: 45px;
+  padding-top: 10px;
+  background-color: #5f9ea0;
+  border: none;
+  margin-top: 15px !important; }
+  @media only screen and (min-width: 776px) {
+    .btn-login {
+      height: 60px;
+      padding-top: 15px;
+      font-size: 1.3em; } }
+  @media only screen and (min-width: 1025px) {
+    .btn-login {
+      height: 70px;
+      padding-top: 15px;
+      font-size: 1.5em; } }
+
+.btn-register {
+  margin-top: 15px;
+  height: 45px;
+  padding-top: 10px;
+  background-color: #5f9ea0;
+  border: none;
+  margin-top: 15px !important; }
+  @media only screen and (min-width: 776px) {
+    .btn-register {
+      height: 60px;
+      padding-top: 15px;
+      font-size: 1.3em; } }
+  @media only screen and (min-width: 1025px) {
+    .btn-register {
+      height: 70px;
+      padding-top: 15px;
+      font-size: 1.5em; } }
+
+@media only screen and (min-width: 776px) {
+  .form-control {
+    height: 80px;
+    font-size: 1.5em; }
+  .form-group {
+    width: 80%;
+    margin-left: 10%; } }
+
+@media only screen and (min-width: 1025px) {
+  .form-control {
+    height: 100px;
+    font-size: 1.5em; }
+  .form-group {
+    width: 70%;
+    margin-left: 15%; } }

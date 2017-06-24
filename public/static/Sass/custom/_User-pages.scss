@@ -1,0 +1,61 @@
+.login-page-container {
+    background-image: url('resources/supermarket.png');
+    background-size: cover;
+    background-position: center;
+    // height: calc(100vh - 120px);
+    // width: 100vw;
+}
+
+.login-logo {
+    width: 90vw;
+    height: 17vh;
+    margin-left: 5%;
+}
+
+.form-control {
+    height: 60px;
+    border: none;
+    background-color: rgba(255,255,255,0.6);
+    margin-top: 10px;
+
+    &:hover {
+        background-color: darken(rgb(255,255,255), 6);
+    }
+}
+
+.form-group {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.btn-login {
+    @include button-maker(#5f9ea0);
+    margin-top: 15px !important;
+}
+
+.btn-register {
+    @include button-maker(#5f9ea0);
+    margin-top: 15px !important;
+}
+
+@media only screen and (min-width: $screen-sm) {
+    .form-control {
+        height: 80px;
+        font-size: 1.5em;
+    }
+    .form-group {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+@media only screen and (min-width: $screen-md) {
+    .form-control {
+        height: 100px;
+        font-size: 1.5em;
+    }
+    .form-group {
+        width: 70%;
+        margin-left: 15%;
+    }
+}
