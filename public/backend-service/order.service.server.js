@@ -12,6 +12,7 @@ app.get('/api/orderbuyer/:buyerId', findOrderByBuyerId);
 app.put('/api/ordersend/:orderId',sendOut);
 app.put('/api/orderdelivery/:orderId',delivery)
 
+app.post('/api/orderlist',findByListId);
 
 function createOrder(req, res){
     var order = req.body;
@@ -67,4 +68,12 @@ function delivery(req, res){
             res.sendStatus(200);
         })
 
+}
+function findByListId(req, res){
+    var list = req.body.list;
+    userModel
+        .findByListId(list)
+        .then(function (results){
+            res.json(results);
+        })
 }

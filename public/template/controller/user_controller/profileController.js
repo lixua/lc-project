@@ -24,7 +24,11 @@
                 return;
             }
 
-            var found = userService.findUserByUsername(username);
+            var found = userService
+                .findUserByUsername(username)
+                .then(function(get){
+                    found = get;
+                });
             if (typeof(found._id) === 'undefined' || found._id === model.userId) {
                 var newUser = {
                     username: username,
@@ -35,8 +39,8 @@
                     email: email,
                     phone: phone
                 };
-                userService.updateUser(model.userId, newUser);
-                $location.url('#!/profile');
+                userService.updateUser(model.userId, newUser)
+                $location.url('/')
 
             } else {
                 model.error = "sorry, that username is taken";

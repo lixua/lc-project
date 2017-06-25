@@ -28,7 +28,9 @@
             findUserOrderList:findUserOrderList,
             findUserCartList:findUserCartList,
             addCart: addCart,
-            removeCart: removeCart
+            removeCart: removeCart,
+            checkOut: checkOut,
+            findByListId: findByListId
 
         };
 
@@ -237,6 +239,23 @@
                 });
         }
 
+        function checkOut(userId){
+            var url = '/api/checkout/' + userId;
+            return $http.put(url)
+                .then(function (response){
+                    return response.data;
+                })
+        }
 
+        function findByListId(list){
+            var url = '/api/userlist';
+            var userlist = {
+                list:list
+            };
+            return $http.post(url, userlist)
+                .then(function (response){
+                    return response.data;
+                })
+        }
     }
 })();

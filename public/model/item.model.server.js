@@ -11,6 +11,8 @@ itemModel.findItems = findItems;
 itemModel.updateItem = updateItem;
 itemModel.deleteItem = deleteItem;
 itemModel.findAll = findAll;
+itemModel.checkOut = checkOut;
+itemModel.findByListId = findByListId;
 
 module.exports = itemModel;
 
@@ -28,7 +30,6 @@ function findItems(input){
         return itemModel.find({category:input.toUpperCase()});
     } else {
         return itemModel.find({name: new RegExp('^' + input + '$', "i")}, function(err, doc){
-            console.log(doc);
             return doc;
         })
     }
@@ -44,4 +45,16 @@ function deleteItem(itemId){
 
 function findAll(){
     return itemModel.find({});
+}
+
+function checkOut(itemId, number){
+    var count = itemModel.findById(itemId)
+        .then(function(get){
+            count = get.count;
+        })
+    return itemModel.update({_id:itemId},{count:count-number})
+}
+
+function findByListId(list){
+    return itemModel.find({_id :{$in:list}})
 }

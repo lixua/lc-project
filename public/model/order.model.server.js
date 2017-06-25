@@ -12,6 +12,7 @@ orderModel.findOrderByBuyerId = findOrderByBuyerId;
 orderModel.findAll = findAll;
 orderModel.sendOut = sendOut;
 orderModel.delivery = delivery;
+orderModel.findByListId = findByListId;
 
 module.exports = orderModel;
 
@@ -41,4 +42,8 @@ function sendOut(orderId){
 
 function delivery(orderId){
     return orderModel.update({_id:orderId},{deliveryDate:Date.now})
+}
+
+function findByListId(list){
+    return orderModel.find({_id :{$in:list}})
 }

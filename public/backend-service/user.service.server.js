@@ -28,6 +28,8 @@ app.get('/api/checkLoggedIn', checkLoggedIn);
 app.post('/api/logout',logout);
 app.post('/api/register',register);
 
+app.post('/api/userlist',findByListId);
+
 // app.get('/api/userfollowlist/:userId', findUserFollowList);
 // app.get('/api/userfollowedlist/:userId', findUserFollowedList);
 // app.get('/api/userblocklist/:uesrId', findUserBlockList);
@@ -36,6 +38,7 @@ app.post('/api/register',register);
 // app.get('/api/usercartlist/:userId',findUserCartList);
 app.put('/api/usercartadd/:userId',addCart);
 app.put('/api/usercartremove/:userId', removeCart);
+app.put('/api/checkout/:userId',checkOut);
 
 
 function localStrategy(username, password, done) {
@@ -285,5 +288,23 @@ function removeCart(req, res){
         .removeCart(userId, item._id)
         .then(function (status){
             res.sendStatus(200);
+        })
+}
+
+function checkOut(req, res){
+    var userId = req.params['userId'];
+    userModel
+        .checkOut(userId)
+        .then(function (status){
+            res.sendStatus(200);
+        })
+}
+
+function findByListId(req, res){
+    var list = req.body.list;
+    userModel
+        .findByListId(list)
+        .then(function (results){
+            res.json(results);
         })
 }

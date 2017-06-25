@@ -12,30 +12,12 @@ var userSchema = mongoose.Schema({
     dob: Date,
     createDate: {type:Date,default: Date.now},
     role: {type:String, default: 'BUYER',enum:['BUYER','SELLER']},
-    followList: {
-        type: [mongoose.Schema.Types.ObjectId],
-        ref:"userModel"
-    },
-    followedList:{
-        type: [mongoose.Schema.Types.ObjectId],
-        ref:"userModel"
-    },
-    blockList:{
-        type: [mongoose.Schema.Types.ObjectId],
-        ref:"userModel"
-    },
-    itemList:{
-        type: [mongoose.Schema.Types.ObjectId],
-        ref:"itemModel"
-    },
-    orderList:{
-        type: [mongoose.Schema.Types.ObjectId],
-        ref:"orderModel"
-    },
-    cartList:{
-        type: [mongoose.Schema.Types.ObjectId],
-        ref:"itemModel"
-    },
+    followList: [{ type: mongoose.Schema.Types.ObjectId, ref:"userModel1"}],
+    followedList:[{ type: mongoose.Schema.Types.ObjectId, ref:"userModel1"}],
+    blockList:[{ type: mongoose.Schema.Types.ObjectId, ref:"userModel1"}],
+    itemList:[{ type: mongoose.Schema.Types.ObjectId, ref:"itemModel"}],
+    orderList:[{ type: mongoose.Schema.Types.ObjectId, ref:"orderModel"}],
+    cartList:[{ type: mongoose.Schema.Types.ObjectId, ref:"itemModel"}],
     rate:{type: Number, default: 0}
 
 },{collection:"user"});

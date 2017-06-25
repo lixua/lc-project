@@ -9,8 +9,10 @@ app.get('/api/item/:itemId',findItemById);
 app.get('/api/item', findItems);
 app.put('/api/item/:itemId', updateItem);
 app.delete('/api/item/:itemId', deleteItem);
-
+app.put('/api/item/checkOut/:itemId', checkOut);
+app.post('/api/itemlist',findByListId);
 function createItem(req, res){
+    console.log("Server")
     var item = req.body;
     itemModel
         .createItem(item)
@@ -53,5 +55,23 @@ function deleteItem(req, res){
         .deleteItem(itemId)
         .then(function(status){
             res.sendStatus(200);
+        })
+}
+function checkOut(req, res){
+    var itemId = req.params['itemId'];
+    var number = req.body.number;
+    itemModel
+        .checkOut(itemId, number)
+        .then(function (status){
+            res.sendStatus(200);
+        })
+}
+
+function findByListId(req, res){
+    var list = req.body.list;
+    userModel
+        .findByListId(list)
+        .then(function (results){
+            res.json(results);
         })
 }

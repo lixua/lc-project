@@ -9,10 +9,13 @@
             findItemById : findItemById,
             findItems: findItems,
             updateItem: updateItem,
-            deleteItem: deleteItem
+            deleteItem: deleteItem,
+            checkOut: checkOut,
+            findByListId: findByListId
         };
 
         function createItem(item) {
+            console.log("CLIENT")
             var url = "/api/item/create";
             return $http.post(url, item)
                 .then(function (response) {
@@ -50,6 +53,26 @@
                 .then(function (response) {
                     return response.data;
                 });
+        }
+        function checkOut(itemId, number){
+            var url = "/api/item/checkOut/" + itemId;
+            var size = {
+                number : number
+            };
+            return $http.put(url, size)
+                .then(function (response){
+                    return response.data;
+                })
+        }
+        function findByListId(list){
+            var url = '/api/itemlist';
+            var itemList = {
+                list:list
+            };
+            return $http.post(url, itemList)
+                .then(function (response){
+                    return response.data;
+                })
         }
 
     }

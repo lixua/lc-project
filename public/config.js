@@ -44,7 +44,10 @@
                 .when('/s/ulist/:val', {
                     templateUrl: 'template/view/user_pages/list-users.view.client.html',
                     controller: 'userListController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser: checkLoggedIn
+                    }
                 })
                 .when('/user/cart', {
                     templateUrl: 'template/view/user_pages/shoppingCart.view.client.html',
@@ -101,22 +104,34 @@
                 .when('/s/:itemName', {
                     templateUrl: 'template/view/item_pages/list-item.view.client.html',
                     controller: 'itemListController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser: checkLoggedIn
+                    }
                 })//NO LOGIN
                 .when('/cp/:itemId', {
                     templateUrl: 'template/view/item_pages/price-compare.view.client.html',
                     controller: 'itemCompareController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser: checkLoggedIn
+                    }
                 })//NO LOGIN
                 .when('/i/:itemId', {
                     templateUrl: 'template/view/item_pages/item-detail.view.client.html',
                     controller: 'itemDetailController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser: checkLoggedIn
+                    }
                 })//NO LOGIN
                 .when('/user/i/create', {
                     templateUrl: 'template/view/item_pages/createItem.view.client.html',
                     controller: 'itemCreateController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser: checkLoggedIn
+                    }
                 })
                 .when('/user/i/edit/:itemId', {
                     templateUrl: 'template/view/item_pages/editItem.view.client.html',
@@ -168,4 +183,4 @@
             });
         return deferred.promise;
     }
-})()
+})();

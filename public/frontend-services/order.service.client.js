@@ -10,7 +10,8 @@
             findOrderBySellerId: findOrderBySellerId,
             findOrderByBuyerId : findOrderByBuyerId,
             sendOut : sendOut,
-            delivery : delivery
+            delivery : delivery,
+            findByListId: findByListId
         };
 
         function createOrder(order) {
@@ -57,6 +58,16 @@
             var url = '/api/orderdelivery/' + orderId;
             return $http.put(url)
                 .then(function (response) {
+                    return response.data;
+                })
+        }
+        function findByListId(list){
+            var url = '/api/orderlist';
+            var orderlist = {
+                list:list
+            };
+            return $http.post(url, orderlist)
+                .then(function (response){
                     return response.data;
                 })
         }

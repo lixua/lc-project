@@ -19,12 +19,8 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="following-list-container">
-                    <ul class="list-group">
-                        <li class="list-group-item active">Selling:</li>
-                        <li class="list-group-item">Flying cup</li>
-                        <li class="list-group-item">Gas Doll</li>
-                        <li class="list-group-item">Weed</li>
-                        <li class="list-group-item">HI</li>
+                    <ul ng-repeat="user in model.list" class="list-group">
+                       <a>{{user.username}}</a>
                     </ul>
                 </div>
             </div>

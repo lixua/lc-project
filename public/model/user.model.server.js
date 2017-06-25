@@ -5,6 +5,7 @@ var bcrypt = require("bcrypt-nodejs");
 var mongoose = require('mongoose');
 var userSchema = require('./user.schema.server');
 var userModel = mongoose.model('userModel',userSchema);
+
 userModel.findUserById = findUserById;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.findUserByUsername = findUserByUsername;
@@ -21,7 +22,9 @@ userModel.findAll = findAll;
 
 userModel.addCart = addCart;
 userModel.removeCart = removeCart;
+userModel.checkOut = checkOut;
 
+userModel.findByListId = findByListId;
 module.exports = userModel;
 
 function findUserById(userId){
@@ -150,3 +153,10 @@ function removeCart(userId, itemId){
         })
 }
 
+function checkOut(userId){
+    return userModel.update({_id: userId},{cartList:[]});
+}
+
+function findByListId(list){
+    return userModel.find({_id :{$in:list}})
+}
