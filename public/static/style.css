@@ -6173,26 +6173,34 @@ button.close {
   height: 40px;
   margin-left: calc(100vw / 12 * 1.5 - 30px); }
 
-.following-list-container .list-group {
+.cart-list-container .list-group {
   margin-top: 20px; }
-  .following-list-container .list-group:last-child {
+  .cart-list-container .list-group:last-child {
     border-bottom: 1pt; }
 
-.following-list-container .list-group-item {
+.cart-list-container .list-group-item {
   height: 140px;
   padding: 0px 0px 0px 0px;
   border: solid;
   border-width: 0.5pt; }
-  .following-list-container .list-group-item:hover {
+  .cart-list-container .list-group-item:hover {
     background-color: #d4d4d4; }
 
-.following-list-container .btn-danger {
+.cart-list-container .btn-danger {
   width: 90px; }
 
 .cart-option-container {
   margin-top: 10px; }
   .cart-option-container .form-control {
     width: 100px; }
+
+.following-list-container {
+  margin-top: 15px; }
+
+.user-search-bar {
+  margin-top: 10px;
+  width: 90vw;
+  height: 40px; }
 
 .image-in-list {
   display: inline-block;
