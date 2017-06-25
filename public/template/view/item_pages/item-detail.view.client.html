@@ -18,7 +18,68 @@
     <div class="content-container profile-page-inner-container">
         <div class="row">
             <div class="col-sm-12">
-                
+                <div class="item-detail-container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="item-image-container">
+                                <img src="static/resources/milk-1.jpg" class="item-image"></img>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="item-description-container">
+                                <div class="item-core-info">
+                                    <div class="item-name-container">Dean's dairy Milk 120oz, Sell by: <a> Annie</a></div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <div class="price-container">$9.99</div>/each
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <select class="form-control item-quantity" id="sell">
+                                              <option>1</option>
+                                              <option>2</option>
+                                              <option>3</option>
+                                              <option>4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="btn btn-warning btn-block">Add to Cart</div>
+                                    <div class="item-text-description-container"><b>Description: </b>
+                                        Our Reduced Fat 2% Milk is loaded with naturally occurring omega-3s and CLA. All we do is skim some of the butterfat off the top,
+                                        because when you start with milk this delicious,
+                                        you don’t have to change it.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-compare-section">
+                    <div class="price-compare-text">This item also sell by:</div>
+                    <div ng-repeat="product in model.items" ng-show="$index<3" class="list-group">
+                        <a href="{{product.viewItemURL[0]}}" class="list-group-item">
+                            <div class="student-info-container">
+                                <h4>ProductName:</h4> {{product.title[0]}}<br>
+                                <h4>Price:</h4> {{product.sellingStatus[0].currentPrice[0].__value__}}<br>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="comment-section-container">
+                        <span class="price-compare-text">Customer Review:</span>
+                        <div class="comments-container list-group">
+                            <div class="list-group-item">
+                                <h4>Ethan:</h4>
+                                <p>This milk fits me well.</p>
+                            </div>
+                        </div>
+                        <div class="comment-input-container">
+                            <span class="price-compare-text">Leave a review:</span>
+                            <textarea rows="5" class="form-control" placeholder="Input your review here"></textarea>
+                            <div class="button-hack">
+                                <div class="btn btn-warning btn-submit">Submit</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
