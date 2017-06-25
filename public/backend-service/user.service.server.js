@@ -20,8 +20,8 @@ app.put('/api/user/follow/:userId', follow);
 app.put('/api/user/unfollow/:userId', unfollow);
 app.put('/api/user/block/:userId', block);
 app.put('/api/user/unblock/:userId', unblock);
-app.get('/api/userIsFollow/:userId',isFollow);
-app.get('/api/userIsBlock/:userId',isBlock);
+// app.get('/api/userIsFollow/:userId',isFollow);
+// app.get('/api/userIsBlock/:userId',isBlock);
 
 app.post('/api/login', passport.authenticate('local'), login);
 app.get('/api/checkLoggedIn', checkLoggedIn);
@@ -130,7 +130,7 @@ function updateUser(req, res) {
 
 function follow(req, res){
     var userId = req. params['userId'];
-    var followId = req.body;
+    var followId = req.body.followId;
     userModel
         .follow(userId,followId)
         .then(function (status){
@@ -140,7 +140,7 @@ function follow(req, res){
 
 function unfollow(req, res){
     var userId = req. params['userId'];
-    var unfollowId = req.body;
+    var unfollowId = req.body.unfollowId;
     userModel
         .unfollow(userId,unfollowId)
         .then(function (status){
@@ -150,7 +150,7 @@ function unfollow(req, res){
 
 function block(req, res){
     var userId = req. params['userId'];
-    var blockId = req.body;
+    var blockId = req.body.blockId;
     userModel
         .block(userId,blockId)
         .then(function (status){
@@ -160,7 +160,7 @@ function block(req, res){
 
 function unblock(req, res){
     var userId = req. params['userId'];
-    var unblockId = req.body;
+    var unblockId = req.body.unblockId;
     userModel
         .unblock(userId,unblockId)
         .then(function (status){
@@ -168,24 +168,24 @@ function unblock(req, res){
         });
 }
 
-function isFollow(req, res){
-    var userId = req. params['userId'];
-    var checkId = req.body;
-    userModel
-        .isFollow(userId,checkId)
-        .then(function (result){
-            res.send(result);
-        })
-}
-function isBlock(req, res){
-    var userId = req. params['userId'];
-    var checkId = req.body;
-    userModel
-        .isBlock(userId,checkId)
-        .then(function (result){
-            res.send(result);
-        })
-}
+// function isFollow(req, res){
+//     var userId = req. params['userId'];
+//     var checkId = req.body;
+//     userModel
+//         .isFollow(userId,checkId)
+//         .then(function (result){
+//             res.send(result);
+//         })
+// }
+// function isBlock(req, res){
+//     var userId = req. params['userId'];
+//     var checkId = req.body;
+//     userModel
+//         .isBlock(userId,checkId)
+//         .then(function (result){
+//             res.send(result);
+//         })
+// }
 
 function login(req, res) {
     var user = req.user;
@@ -270,9 +270,9 @@ function register(req, res) {
 
 function addCart(req, res){
     var userId = req. params['userId'];
-    var itemId = req.body;
+    var item = req.body;
     userModel
-        .addCart(userId, itemId)
+        .addCart(userId, item._id)
         .then(function (status){
             res.sendStatus(200);
         })
@@ -280,9 +280,9 @@ function addCart(req, res){
 
 function removeCart(req, res){
     var userId = req. params['userId'];
-    var itemId = req.body;
+    var item = req.body;
     userModel
-        .removeCart(userId, itemId)
+        .removeCart(userId, item._id)
         .then(function (status){
             res.sendStatus(200);
         })

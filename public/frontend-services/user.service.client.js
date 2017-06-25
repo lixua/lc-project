@@ -15,8 +15,8 @@
             unfollow: unfollow,
             block: block,
             unblock: unblock,
-            isFollow: isFollow,
-            isBlock: isBlock,
+            // isFollow: isFollow,
+            // isBlock: isBlock,
             login: login,
             checkLoggedIn: checkLoggedIn,
             logout: logout,
@@ -82,15 +82,22 @@
 
         function follow(userId, followId) {
             var url = "/api/user/follow/" + userId;
-            return $http.put(url, followId)
+            var follow = {
+                followId: followId
+            }
+            return $http.put(url, follow)
                 .then(function (response) {
+                    console.log(response.data)
                     return response.data;
                 });
         }
 
         function unfollow(userId, unfollowId){
             var url = "/api/user/unfollow/" + userId;
-            return $http.put(url, unfollowId)
+            var unfollow = {
+                unfollowId : unfollowId
+            }
+            return $http.put(url, unfollow)
                 .then(function (response) {
                     return response.data;
                 });
@@ -98,7 +105,10 @@
 
         function block(userId, blockId){
             var url = "/api/user/block/" + userId;
-            return $http.put(url, blockId)
+            var block = {
+                blockId: blockId
+            };
+            return $http.put(url, block)
                 .then(function (response) {
                     return response.data;
                 });
@@ -106,34 +116,36 @@
 
         function unblock(userId, unblockId){
             var url = "/api/user/unblock/" + userId;
-            return $http.put(url, unblockId)
+            var unblock = {
+                unblockId: unblockId
+            }
+            return $http.put(url, unblock)
                 .then(function (response) {
                     return response.data;
                 });
         }
 
-        function isFollow(userId, checkId){
-            var url = '/api/userIsFollow/' + userId;
-            return $http.get(url, checkId)
-                .then(function (response){
-                    return response.data;
-                })
-        }
-
-        function isBlock(userId, checkId){
-            var url = '/api/userIsBlock/' + userId;
-            return $http.get(url, checkId)
-                .then(function (response){
-                    return response.data;
-                })
-        }
+        // function isFollow(userId, checkId){
+        //     var url = '/api/userIsFollow/' + userId;
+        //     return $http.get(url, checkId)
+        //         .then(function (response){
+        //             return response.data;
+        //         })
+        // }
+        //
+        // function isBlock(userId, checkId){
+        //     var url = '/api/userIsBlock/' + userId;
+        //     return $http.get(url, checkId)
+        //         .then(function (response){
+        //             return response.data;
+        //         })
+        // }
         function login(username, password) {
             var url = "/api/login";
             var credentials = {
                 username: username,
                 password: password
             };
-            console.log(username,password)
             return $http.post(url, credentials)
                 .then(function (response) {
                     return response.data;
@@ -209,17 +221,17 @@
             }
             return results;
         }
-        function addCart(userId, itemId){
+        function addCart(userId, item){
             var url = "/api/usercartadd/" + userId;
-            return $http.put(url, itemId)
+            return $http.put(url, item)
                 .then(function (response) {
                     return response.data;
                 });
         }
 
-        function removeCart(userId, itemid){
+        function removeCart(userId, item){
             var url = "/api/userremovecart/" + userId;
-            return $http.put(url, itemId)
+            return $http.put(url, item)
                 .then(function (response) {
                     return response.data;
                 });

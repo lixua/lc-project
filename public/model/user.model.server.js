@@ -15,8 +15,8 @@ userModel.follow = follow;
 userModel.unfollow = unfollow;
 userModel.block = block;
 userModel.unblock = unblock;
-userModel.isFollow = isFollow;
-userModel.isBlock = isBlock;
+// userModel.isFollow = isFollow;
+// userModel.isBlock = isBlock;
 userModel.findAll = findAll;
 
 userModel.addCart = addCart;
@@ -95,9 +95,6 @@ function block(userId, blockId){
         .findById(userId)
         .then(function(user){
             user.blockList.push(blockId);
-            if(isFollow(userId,blockId)){
-                user.unfollow(userId,blockId);
-            }
             return user.save();
         })
 }
@@ -112,23 +109,23 @@ function unblock(userId, blockId){
         })
 }
 
-function isFollow(userId, checkId){
-    return userModel
-        .findById(userId)
-        .then(function(user){
-            var index = user.followedList.indexOf(checkId);
-            return index !== -1;
-        })
-}
-
-function isBlock(userId, checkId){
-    return userModel
-        .findById(userId)
-        .then(function(user){
-            var index = user.blockList.indexOf(checkId);
-            return index !== -1;
-        })
-}
+// function isFollow(userId, checkId){
+//     return userModel
+//         .findById(userId)
+//         .then(function(user){
+//             var index = user.followedList.indexOf(checkId);
+//             return index !== -1;
+//         })
+// }
+//
+// function isBlock(userId, checkId){
+//     return userModel
+//         .findById(userId)
+//         .then(function(user){
+//             var index = user.blockList.indexOf(checkId);
+//             return index !== -1;
+//         })
+// }
 
 function findAll(){
     return userModel.find({});
@@ -148,7 +145,7 @@ function removeCart(userId, itemId){
         .findById(userId)
         .then(function (user){
             var index = user.cartList.indexOf(itemId);
-            user.cartList.splice(index,1);
+            user.cartList.splice(itemId);
             return user.save();
         })
 }

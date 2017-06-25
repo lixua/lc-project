@@ -15,36 +15,51 @@
 </nav>
 
 <div class="main-container">
-    <div class="content-container">
+    <div class="content-container profile-page-inner-container">
         <div class="row">
             <div class="col-sm-12">
                 <div class="profile-container">
-                    <ul class="list-group">
+                    <div class="form-group row">
                         <label for="username" class="col-xs-12 col-sm-2">Username:</label>
-                        <div class="col-xs-12 col-sm-10"><div type="text" class="list-group-item" ng-model="username" placeholder="username" /></div></div>
+                        <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="model.user.username" placeholder="username" readonly/></div>
                         <label for="fname" class="col-xs-12 col-sm-2">First name:</label>
-                        <div class="col-xs-12 col-sm-10"><div type="text" class="list-group-item" ng-model="fname" placeholder="firstname" /></div></div>
-                        <label for="lname" c2lass="col-xs-12 col-sm-2">last name:</label>
-                        <div class="col-xs-12 col-sm-10"><div type="text" class="list-group-item" ng-model="lname" placeholder="lastname" /></div></div>
-                        <label for="dob" class="col-xs-12 col-sm-2">Date of Birth:</label>
-                        <div class="col-xs-12 col-sm-10"><div type="date" class="list-group-item" ng-model="dob" placeholder="01/01/1980" /></div></div>
-                        <label for="password" class="col-xs-12 col-sm-2">Password:</label>
-                        <div class="col-xs-12 col-sm-10"><div type="password" class="list-group-item" ng-model="password" placeholder="password" /></div></div>
+                        <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="model.user.firstName" placeholder="firstname"  readonly/></div>
+                        <label for="lname" class="col-xs-12 col-sm-2">last name:</label>
+                        <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="model.user.lastName" placeholder="lastname" readonly /></div>
+                        <label for="dob" class="col-xs-12 col-sm-2">Birth:</label>
+                        <div class="col-xs-11 col-sm-10"><input type="date" class="form-control" ng-model="model.user.dob" placeholder="01/01/1980" readonly/></div>
                         <label for="email" class="col-xs-12 col-sm-2">Email:</label>
-                        <div class="col-xs-12 col-sm-10"><div type="email" class="list-group-item" ng-model="email" placeholder="email" /></div></div>
-                        <label for="phone" class="col-xs-12 col-sm-2">Phone number:</label>
-                        <div class="col-xs-12 col-sm-10"><div type="text" class="list-group-item" ng-model="phone" placeholder="phone" /></div></div>
-                    </ult>
-                </div>
-                <div class="function-split-bar">
-                    <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-2"><a href="#!"><img src="home-icon.png"></img></a></div>
-                        <div class="col-xs-2"><a href="#!"><img src="check-icon.png"></img></a></div>
-                        <div class="col-xs-2"><a href="#!"><img src="followedBy-icon.png"></img></a></div>
-                        <div class="col-xs-2"><a href="#!"><img src="Blacklist-icon.png"></img></a></div>
+                        <div class="col-xs-11 col-sm-10"><input type="email" class="form-control" ng-model="model.user.email" placeholder="email" /></div>
+                        <label for="phone" class="col-xs-12 col-sm-2">Phone:</label>
+                        <div class="col-xs-11 col-sm-10"><input type="tel" class="form-control" ng-model="model.user.phone" placeholder="phone" /></div>
+                        <label for="role" class="col-xs-12 col-sm-2">Type:</label>
+                        <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="model.user.role" readonly/></div>
                     </div>
                 </div>
+                <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+                <a ng-show="!model.isFollow && !model.isBlock"ng-click="model.follow()" class="btn btn-block btn-primary">Follow</a>
+                <a ng-show="model.isFollow"ng-click="model.unfollow()" class="btn btn-block btn-primary">Unfollow</a>
+                <a ng-show="!model.isBlock && !model.isFollow"ng-click="model.block()" class="btn btn-block btn-primary">Block</a>
+                <a ng-show="model.isBlock"ng-click="model.unblock()" class="btn btn-block btn-primary">Unblock</a>
+                <div class="following-list-container">
+                    <ul class="list-group">
+                        <li class="list-group-item active">Following:</li>
+                        <li class="list-group-item">Ethan</li>
+                        <li class="list-group-item">Mike</li>
+                        <li class="list-group-item">Lily</li>
+                        <li class="list-group-item">LiLei</li>
+                    </ul>
+                </div>
+                <div class="following-list-container">
+                    <ul class="list-group">
+                        <li class="list-group-item active">Bought:</li>
+                        <li class="list-group-item">Milk</li>
+                        <li class="list-group-item">Snack</li>
+                        <li class="list-group-item">Pipi Shrimp</li>
+                        <li class="list-group-item">XiangBaBang</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </div>

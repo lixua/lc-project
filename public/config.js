@@ -27,7 +27,7 @@
                         currentUser: checkLoggedIn
                     }
                 })
-                .when('/user/o/profile', {
+                .when('/user/o/profile/:val', {
                     templateUrl: 'template/view/user_pages/others_profile.view.client.html',
                     controller: 'otherProfileController',
                     controllerAs: 'model',

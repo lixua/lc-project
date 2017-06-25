@@ -9,6 +9,7 @@
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
         model.logout = logout;
+        model.findUser = findUser;
         model.followList = currentUser.followList;
         model.orderList = currentUser.orderList;
         model.itemList = userService.itemList;
@@ -59,6 +60,26 @@
                 .then(function(){
                     $location.url('/login')
                 })
+        }
+
+        function findUser(input){
+            if(input === model.user.username){
+                model.error = "The user you find is yourself";
+            }  else {
+                var found = userService
+                    .findUserByUsername(input)
+                    .then(function (find){
+                        found = find;
+                        if(found === null){
+                            model.error = 'User does not exist';
+                        } else {
+                            $location.url('/user/o/profile/' + found._id);
+                        }
+                    });
+            }
+
+
+
         }
     }
 
