@@ -20,7 +20,16 @@
             login: login,
             checkLoggedIn: checkLoggedIn,
             logout: logout,
-            register: register
+            register: register,
+            findUserFollowList: findUserFollowList,
+            findUserFollowedList:findUserFollowedList,
+            findUserBlockList:findUserBlockList,
+            findUserItemList:findUserItemList,
+            findUserOrderList:findUserOrderList,
+            findUserCartList:findUserCartList,
+            addCart: addCart,
+            removeCart: removeCart
+
         };
 
         function findUserById(userId){
@@ -127,8 +136,6 @@
             console.log(username,password)
             return $http.post(url, credentials)
                 .then(function (response) {
-                    console.log("!@$#@$")
-                    console.log(response);
                     return response.data;
                 });
         }
@@ -147,15 +154,77 @@
                 });
         }
         function register(user) {
-            console.log("!!!!!!")
-            console.log(user)
             var url = "/api/register";
             return $http.post(url, user)
                 .then(function (response) {
-                    console.log(response.data);
                     return response.data;
                 });
         }
+
+        function findUserFollowList(user){
+            var results = [];
+            for(var i in user.followList) {
+                return findUserById(user.followList[i])
+                    .then(function(result){
+                        return(result)
+                        console.log('1')
+                    })
+            }
+            // console.log(results)
+            // return results;
+        }
+
+        function findUserFollowedList(user){
+            var results = [];
+            for(var i in user.followedList){
+                results.push(findUserById(user.followedList[i]));
+            }
+            return results;
+        }
+        function findUserBlockList(user){
+            var results = [];
+            for(var i in user.blockList){
+                results.push(findUserById(user.blockList[i]));
+            }
+            return results;
+        }
+        function findUserItemList(user){
+            var results = [];
+            for(var i in user.itemList){
+                results.push(findUserById(user.itemList[i]));
+            }
+            return results;
+        }
+        function findUserOrderList(user){
+            var results = [];
+            for(var i in user.orderList){
+                results.push(findUserById(user.orderList[i]));
+            }
+            return results;
+        }
+        function findUserCartList(user){
+            var results = [];
+            for(var i in user.cartList){
+                results.push(findUserById(user.cartList[i]));
+            }
+            return results;
+        }
+        function addCart(userId, itemId){
+            var url = "/api/usercartadd/" + userId;
+            return $http.put(url, itemId)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function removeCart(userId, itemid){
+            var url = "/api/userremovecart/" + userId;
+            return $http.put(url, itemId)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
 
     }
 })();

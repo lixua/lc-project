@@ -28,14 +28,21 @@ app.get('/api/checkLoggedIn', checkLoggedIn);
 app.post('/api/logout',logout);
 app.post('/api/register',register);
 
-console.log('ey')
+// app.get('/api/userfollowlist/:userId', findUserFollowList);
+// app.get('/api/userfollowedlist/:userId', findUserFollowedList);
+// app.get('/api/userblocklist/:uesrId', findUserBlockList);
+// app.get('/api/useritemlist/:userId', findUserItemList);
+// app.get('/api/userorderlist/:userId',findUserOrderList);
+// app.get('/api/usercartlist/:userId',findUserCartList);
+app.put('/api/usercartadd/:userId',addCart);
+app.put('/api/usercartremove/:userId', removeCart);
+
 
 function localStrategy(username, password, done) {
     userModel
         .findUserByCredentials(username, password)
         .then(function (user) {
             if(user){
-                console.log("localStrategy")
                 done(null, user);
             }else {
                 done(null, false);
@@ -181,13 +188,11 @@ function isBlock(req, res){
 }
 
 function login(req, res) {
-    console.log("HERE???");
     var user = req.user;
     res.json(user);
 }
 function checkLoggedIn(req, res) {
     if(req.isAuthenticated()) {
-        console.log("herer")
         res.json(req.user);
     } else {
         res.send('0');
@@ -208,4 +213,77 @@ function register(req, res) {
                 })
         })
 
+}
+
+
+// function findUserFollowList(req, res){
+//     var userId = req. params['userId'];
+//     userModel
+//         .findUserFollowList(userId)
+//         .then(function (result){
+//             res.json(result);
+//         })
+// }
+//
+// function findUserFollowedList(req, res){
+//     var userId = req. params['userId'];
+//     userModel
+//         .findUserFollowedList(userId)
+//         .then(function (result){
+//             res.json(result);
+//         })
+// }
+//
+// function findUserBlockList(req, res){
+//     var userId = req. params['userId'];
+//     userModel
+//         .findUserBlockList(userId)
+//         .then(function (result){
+//             res.json(result);
+//         })
+// }
+//
+// function findUserItemList(req, res){
+//     var userId = req. params['userId'];
+//     userModel
+//         .findUserItemList(userId)
+//         .then(function (result){
+//             res.json(result);
+//         })
+// }
+// function findUserOrderList(req, res){
+//     var userId = req. params['userId'];
+//     userModel
+//         .findUserOrderList(userId)
+//         .then(function (result){
+//             res.json(result);
+//         })
+// }
+// function findUserCartList(req, res){
+//     var userId = req. params['userId'];
+//     userModel
+//         .findUserCartList(userId)
+//         .then(function (result){
+//             res.json(result);
+//         })
+// }
+
+function addCart(req, res){
+    var userId = req. params['userId'];
+    var itemId = req.body;
+    userModel
+        .addCart(userId, itemId)
+        .then(function (status){
+            res.sendStatus(200);
+        })
+}
+
+function removeCart(req, res){
+    var userId = req. params['userId'];
+    var itemId = req.body;
+    userModel
+        .removeCart(userId, itemId)
+        .then(function (status){
+            res.sendStatus(200);
+        })
 }

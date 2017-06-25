@@ -13,7 +13,7 @@
             model.goto = '#!/login'
         } else {
             model.ifLoggedin = user.username;
-            model.goto = '#!/profile'
+            model.goto = '#!/user/profile'
         }
         function search(input){
             if(typeof input === 'undefined'){

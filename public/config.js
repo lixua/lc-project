@@ -164,8 +164,6 @@
             .checkLoggedIn()
             .then(function(user){
                 $location.url('/')
-                console.log("checklog2")
-                console.log(user);
                     deferred.resolve(user);
             });
         return deferred.promise;

@@ -19,6 +19,9 @@ userModel.isFollow = isFollow;
 userModel.isBlock = isBlock;
 userModel.findAll = findAll;
 
+userModel.addCart = addCart;
+userModel.removeCart = removeCart;
+
 module.exports = userModel;
 
 function findUserById(userId){
@@ -50,7 +53,7 @@ function deleteUser(userId){
     return userModel.remove({_id: userId});
 }
 
-function updateUser(userId, newUser){
+function updateUser(userId, user){
     return userModel.update({_id: userId},{$set: user});
 }
 
@@ -129,5 +132,24 @@ function isBlock(userId, checkId){
 
 function findAll(){
     return userModel.find({});
+}
+
+function addCart(userId, itemId){
+    return userModel
+        .findById(userId)
+        .then(function (user){
+            user.cartList.push(itemId);
+            return user.save();
+        })
+}
+
+function removeCart(userId, itemId){
+    return userModel
+        .findById(userId)
+        .then(function (user){
+            var index = user.cartList.indexOf(itemId);
+            user.cartList.splice(index,1);
+            return user.save();
+        })
 }
 

@@ -21,24 +21,29 @@
                 <div class="profile-container">
                     <div class="form-group row">
                         <label for="username" class="col-xs-12 col-sm-2">Username:</label>
-                        <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="username" placeholder="username" /></div>
+                        <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="model.user.username" placeholder="username" /></div>
                         <label for="fname" class="col-xs-12 col-sm-2">First name:</label>
-                        <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="fname" placeholder="firstname" /></div>
+                        <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="model.user.firstName" placeholder="firstname" /></div>
                         <label for="lname" class="col-xs-12 col-sm-2">last name:</label>
-                        <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="lname" placeholder="lastname" /></div>
+                        <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="model.user.lastName" placeholder="lastname" /></div>
                         <label for="dob" class="col-xs-12 col-sm-2">Birth:</label>
-                        <div class="col-xs-11 col-sm-10"><input type="date" class="form-control" ng-model="dob" placeholder="01/01/1980" /></div>
+                        <div class="col-xs-11 col-sm-10"><input type="date" class="form-control" ng-model="model.user.dob" placeholder="01/01/1980" /></div>
                         <label for="password" class="col-xs-12 col-sm-2">Password:</label>
-                        <div class="col-xs-11 col-sm-10"><input type="password" class="form-control" ng-model="password" placeholder="password" /></div>
+                        <div class="col-xs-11 col-sm-10"><input type="password" class="form-control" ng-model="model.user.password" placeholder="password" /></div>
                         <label for="email" class="col-xs-12 col-sm-2">Email:</label>
-                        <div class="col-xs-11 col-sm-10"><input type="email" class="form-control" ng-model="email" placeholder="email" /></div>
+                        <div class="col-xs-11 col-sm-10"><input type="email" class="form-control" ng-model="model.user.email" placeholder="email" /></div>
                         <label for="phone" class="col-xs-12 col-sm-2">Phone:</label>
-                        <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="phone" placeholder="phone" /></div>
+                        <div class="col-xs-11 col-sm-10"><input type="tel" class="form-control" ng-model="model.user.phone" placeholder="phone" /></div>
+                        <div class = "form-control" ng-model ="model.user.role"></div>
                     </div>
                 </div>
                 <div class="function-split-bar">
                     <div class="row">
-                        <div class="col-xs-3"><div ng-click="model.update()"><img src="static/resources/check-icon.png" class="profile-icon"></img></div></div>
+                        <div class="col-xs-3">
+                            <a ng-click="model.updateUser(model.user.username,model.user.firstName,model.user.lastName,model.user.dob,model.user.password,model.user.email,model.user.phone)">
+                                <img src="static/resources/check-icon.png" class="profile-icon">
+                            </a>
+                        </div>
                         <div class="col-xs-3"><a href="#!"><img src="static/resources/home-icon.png" class="profile-icon"></img></a></div>
                         <div class="col-xs-3"><a href="#!/s/ulist/followedBy"><img src="static/resources/followedBy-icon.png" class="profile-icon"></img></a></div>
                         <div class="col-xs-3"><a href="#!/s/ulist/blackList"><img src="static/resources/blacklist-icon.png" class="profile-icon"></img></a></div>

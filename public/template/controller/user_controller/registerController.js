@@ -47,7 +47,6 @@
                     return userService
                         .register(newUser)
                         .then(function (user) {
-                            console.log(user)
                             $location.url('/');
                         });
                 } else {
