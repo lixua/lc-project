@@ -10,14 +10,14 @@
 
             function goto(){
                 if(currentUser ==='0'){
-                    $location.url('#!/login');
+                    $location.url('/login');
                 } else {
-                    $location.url('#!/user/profile')
+                    $location.url('/user/profile')
                 }
             }
             function logout(){
                 if(currentUser ==='0'){
-                    $location.url('#!/login');
+                    $location.url('/login');
                 } else {
                     userService
                         .logout()
