@@ -7,6 +7,7 @@
             findAdminByCredentials : findAdminByCredentials,
             findAllOrder: findAllOrder,
             findAllUser: findAllUser,
+            // checkLoggedIn: checkLoggedIn,
             findAllItem: findAllItem
         };
         function findAdminByCredentials(username, password) {
@@ -16,6 +17,13 @@
                     return response.data;
                 });
         }
+        // function checkLoggedIn() {
+        //     var url = "/api/admin/checkLoggedIn";
+        //     return $http.get(url)
+        //         .then(function (response) {
+        //             return response.data;
+        //         });
+        // }
         function findAllOrder(){
             var url = '/api/admin/allorder';
             return $http.get(url)

@@ -1,0 +1,44 @@
+<div class="admin-header">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#!/admin"><div class="header-text">ShopCheap administration</div></a>
+                <div class="admin-header-option">
+                    Welcome admin /
+                    <a>view site</a>
+                    /
+                    <a>logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="login-main-container container">
+    <div class="admin-home-container">
+        <h2>Items:</h2>
+        <div class="table-container">
+            <table class="table table-striped table-responsive">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Count</th>
+                  <th>Category</th>
+                  <th>Seller</th>
+                  <th>Create On</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in model.items" ng-click="model.clickPanel(item)">
+                      <td>{{ item.name }}</td>
+                      <td>{{ item.price }}</td>
+                      <td>{{ item.count }}</td>
+                      <td>{{ item.category }}</td>
+                      <td>{{ item.postBy }}</td>
+                      <td>{{ item.createDate }}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+</div>

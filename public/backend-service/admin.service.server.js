@@ -11,6 +11,16 @@ app.get('/api/admin/login', findAdminByCredentials);
 app.get('/api/admin/allorder',findAllOrder);
 app.get('/api/admin/alluser',findAllUser);
 app.get('/api/admin/allitem',findAllItem);
+// app.get('/api/admin/checkLoggedIn', checkLoggedIn);
+//
+//
+// function checkLoggedIn(req, res) {
+//     if(req.isAuthenticated()) {
+//         res.json(req.user);
+//     } else {
+//         res.send('0');
+//     }
+// }
 
 function findAdminByCredentials(req, res){
     var username = req.query['username'];

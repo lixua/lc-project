@@ -1,10 +1,11 @@
 <div class="login-main-container container">
     <div class="admin-login-container login-page-container">
         <div class="form-group">
+            <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
             <img src="static/resources/admin_log.png" class="admin-loging-logo">
-            <input class="form-control" type="text" placeholder="admin username">
-            <input class="form-control" type="password" placeholder="admin password">
-            <a href="#!/admin/homepage" class="btn btn-info btn block"></a>
+            <input class="form-control" type="text" placeholder="admin username" ng-model="username">
+            <input class="form-control" type="password" placeholder="admin password" ng-model="password">
+            <div ng-click="model.login(username, password)" class="btn btn-info btn-block">Login</div>
         </div>
     </div>
 </div>

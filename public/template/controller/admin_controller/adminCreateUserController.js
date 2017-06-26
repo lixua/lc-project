@@ -1,8 +1,7 @@
 (function () {
     angular
         .module('OnlineWebStore')
-        .controller('adminHomepageController', function (userService, $location) {
+        .controller('adminCreateUserController', function () {
             var model = this
-            
         })
 })()

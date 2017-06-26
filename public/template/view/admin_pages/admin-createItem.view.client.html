@@ -18,7 +18,7 @@
     <div class="admin-home-container">
         <div class="row">
             <div class="col-sm-12">
-                <h2>Edit Item</h2>
+                <h2>Create Item</h2>
                 <div class="form-group">
                     <label for="itemName">Item name</label>
                     <input type="text" class="form-control" ng-model="itemName" placeholder="Name" />
@@ -32,7 +32,7 @@
                     <input type="text" class="form-control" ng-model="catagory" placeholder="Home" />
                     <label for="count">Upload Image</label>
                     <input type="upload" class="form-control" ng-model="image"/>
-                    <a href="#!/user/profile" class="btn btn-info btn-login btn-block">Update</a>
+                    <a ng-click="model.create(itemName,price,desc, count,catagory,image)" class="btn btn-info btn-login btn-block">Create</a>
                     <a href="#!/user/profile" class="btn btn-info btn-register btn-block">Cancel</a>
                 </div>
             </div>

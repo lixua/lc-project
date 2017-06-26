@@ -5922,6 +5922,12 @@ button.close {
   text-align: center;
   padding-top: calc(13vh / 2 - 0.75em); }
 
+.table-container {
+  display: block !important;
+  overflow: scroll;
+  width: 90vw;
+  margin-left: -20px; }
+
 .cataglory-container-home {
   height: 13vh;
   width: 100%;
@@ -6019,7 +6025,9 @@ button.close {
   .header-search {
     width: 95vw; }
   .slide-image {
-    height: 35vh; } }
+    height: 35vh; }
+  .table-container {
+    margin-left: 0px; } }
 
 @media only screen and (min-width: 1200px) {
   .navbar {
@@ -6429,4 +6437,43 @@ button.close {
   -ms-flex-direction: column;
   flex-direction: column;
   overflow: scroll;
-  background-color: rgba(200, 200, 200, 0.8); }
+  background-color: rgba(220, 220, 220, 0.8); }
+  .login-main-container .btn {
+    margin-top: 15px;
+    height: 40px; }
+
+.admin-header .navbar {
+  height: 80px;
+  background-color: #417690; }
+
+.header-text {
+  color: #f5dd5d;
+  font-size: 1.2em;
+  margin-top: 15px;
+  position: relative; }
+
+.admin-header-option {
+  position: absolute;
+  right: 50px;
+  top: 45px;
+  color: #fff; }
+  .admin-header-option a {
+    color: #fff; }
+
+.admin-home-container {
+  margin: 120px 25px 25px 25px; }
+  .admin-home-container .list-group-item:hover {
+    background-color: #f2f2f2; }
+
+@media only screen and (min-width: 776px) {
+  .header-text {
+    font-size: 2em; }
+  .admin-home-container .list-group-item {
+    font-size: 1.2em; } }
+
+@media only screen and (min-width: 1025px) {
+  .login-main-container .btn {
+    padding-top: 15px;
+    height: 60px; }
+  .admin-home-container .list-group-item {
+    font-size: 1.5em; } }

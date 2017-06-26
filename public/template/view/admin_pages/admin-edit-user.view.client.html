@@ -1,0 +1,48 @@
+<div class="admin-header">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="header-text">ShopCheap administration</div>
+                <div class="admin-header-option">
+                    Welcome admin /
+                    <a>view site</a>
+                    /
+                    <a>logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="login-main-container container">
+    <div class="admin-home-container">
+        <div class="form-group">
+            <div ng-show="model.error" class="alert alert-danger">
+                {{model.error}}
+            </div>
+            <label for="username">Username</label>
+            <input ng-model = "username" type="text" class="form-control"  placeholder="username" />
+            <label for="fname">First name</label>
+            <input type="text" class="form-control" ng-model="fname" placeholder="first name" />
+            <label for="lname">Last name</label>
+            <input type="text" class="form-control" ng-model="lname" placeholder="last name" />
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control" ng-model="dob" placeholder="01/01/1990" />
+            <label for="email">Email address</label>
+            <input ng-model = "email"type="email" class="form-control"  placeholder="email" />
+            <label for="phone">Phone number</label>
+            <input ng-model = "phone"type="tel" class="form-control" placeholder="phone" />
+            <label for="dob">BirthDay</label>
+            <input ng-model="dob" type = "date" class="form-control" />
+            <label for="role">Type of User</label>
+            <select ng-model ="role">
+                <option value="BUYER" selected>Buyer</option>
+                <option value="SELLER">Seller</option>
+            </select>
+
+            <a ng-click="model.update(username, password, password2, email, phone,dob, role)" class="btn btn-info btn-login btn-block">Update</a>
+            <a ng-click="model.update(username, password, password2, email, phone,dob, role)" class="btn btn-info btn-login btn-block">Delete</a>
+            <a href="#!/admin/users" class="btn btn-info btn-register btn-block">Cancel</a>
+        </div>
+    </div>
+</div>

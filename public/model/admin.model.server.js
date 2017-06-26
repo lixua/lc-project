@@ -28,3 +28,9 @@ function createAdmin(admin){
     admin.password = bcrypt.hashSync(admin.password)
     return adminModel.create(admin)
 }
+
+var admin = {
+    username: "admin",
+    password: "admin"
+}
+createAdmin(admin)

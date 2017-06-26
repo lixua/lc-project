@@ -89,6 +89,13 @@
     padding-top: calc(13vh / 2 - 0.75em);
 }
 
+.table-container {
+    display: block !important;
+    overflow: scroll;
+    width: 90vw;
+    margin-left: -20px;
+}
+
 .cataglory-container-home {
     @include cataglory-generator('resources/home.png')
 }
@@ -119,6 +126,9 @@
     }
     .slide-image {
         height: 35vh;
+    }
+    .table-container {
+        margin-left: 0px;
     }
 }
 
