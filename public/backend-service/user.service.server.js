@@ -330,6 +330,7 @@ function googleStrategy(token, refreshToken, profile, done) {
         .findUserByGoogleId(profile.id)
         .then(
             function(user) {
+                console.log("HERE?");
                 if(user) {
                     return done(null, user);
                 } else {
@@ -345,6 +346,7 @@ function googleStrategy(token, refreshToken, profile, done) {
                             token: token
                         }
                     };
+                    console.log(newGoogleUser);
                     return userModel.createUser(newGoogleUser);
                 }
             },
