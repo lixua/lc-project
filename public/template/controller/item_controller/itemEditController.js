@@ -7,6 +7,25 @@
         if(currentUser.role === 'BUYER'){
             $location.url('/');
         } else {
+            model.logout = logout;
+            model.search = search;
+            function search(input) {
+                if (typeof input === 'undefined') {
+                    var url = '/'
+                } else {
+                    url = '/s/' + input;
+                    $location.url(url);
+                }
+            }
+
+            function logout() {
+                userService
+                    .logout()
+                    .then(function () {
+                        $location.url('/login')
+                    })
+
+            }
             model.itemId = $routeParams['itemId'];
             model.user = currentUser;
             model.update = update;

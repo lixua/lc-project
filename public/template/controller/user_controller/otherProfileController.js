@@ -27,6 +27,26 @@
         model.unfollow = unfollow;
         model.block = block;
         model.unblock = unblock;
+        model.logout = logout;
+        model.search = search;
+        function search(input){
+            if(typeof input === 'undefined'){
+                var url = '/'
+            } else {
+                url = '/s/'+input;
+                $location.url(url);
+            }
+        }
+
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url('/login')
+                })
+
+        }
+
         function follow() {
                 model.isFollow = true;
                 userService

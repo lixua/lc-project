@@ -4,7 +4,28 @@
         .controller('itemCreateController', itemCreateController);
     function itemCreateController(currentUser, itemService, $location) {
             var model = this;
-            if(currentUser.role === 'BUYER'){
+        model.logout = logout;
+        model.search = search;
+        function search(input) {
+            if (typeof input === 'undefined') {
+                var url = '/'
+            } else {
+                url = '/s/' + input;
+                $location.url(url);
+            }
+        }
+
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url('/login')
+                })
+
+        }
+
+
+        if(currentUser.role === 'BUYER'){
                 $location.url('/');
             } else {
                 model.user = currentUser;

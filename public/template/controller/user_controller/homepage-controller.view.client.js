@@ -6,27 +6,34 @@
         var model = this;
         model.plusSlides = plusSlides;
         model.search = search;
-        var user = currentUser;
-        var userId = user._id;
-        if(user ==='0'){
-            model.ifLoggedin = "Login";
-            model.goto = '#!/login'
-        } else {
-            model.ifLoggedin = user.username;
-            model.goto = '#!/user/profile'
+        model.goto = goto;
+        model.logout = logout;
+
+        function goto(){
+            if(currentUser ==='0'){
+                $location.url('#!/login');
+            } else {
+                $location.url('#!/user/profile')
+            }
+        }
+        function logout(){
+            if(currentUser ==='0'){
+                $location.url('#!/login');
+            } else {
+                userService
+                    .logout()
+                    .then(function () {
+                        $location.url('/login')
+                    })
+            }
         }
         function search(input){
-
             if(typeof input === 'undefined'){
                 var url = '/'
             } else {
-                console.log(input)
                 url = '/s/'+input;
-                console.log(url)
                 $location.url(url);
             }
-
-
         }
 
         function plusSlides(n) {

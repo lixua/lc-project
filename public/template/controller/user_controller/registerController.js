@@ -2,11 +2,14 @@
     angular
         .module('OnlineWebStore')
         .controller('registerController', registerController)
-    function registerController($location, userService) {
+    function registerController($location, userService,currentUser) {
+        var user = currentUser;
         var model = this;
+        if(currentUser !== '0'){
+            $location.url('/user/profile');
+        }
         model.register = register;
-        model.search = search;
-        function search(input) {
+        function searchUser(input) {
             var url = '/s/ulist?input=' + input;
             $location.url(url);
         }

@@ -2,33 +2,41 @@
     angular
         .module('OnlineWebStore')
         .controller('profileController', profileController);
-    function profileController(currentUser, $location, userService, itemService,orderService) {
-
+    function profileController(currentUser, $location, userService, itemService, orderService) {
         var model = this;
         model.user = currentUser;
         model.userId = currentUser._id;
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
-        model.logout = logout;
         model.findUser = findUser;
-            model.followList = userService
-                .findByListId(currentUser.followList)
-                .then(function (found) {
-                    model.followList = found;
-                });
+        model.followList = userService
+            .findByListId(currentUser.followList)
+            .then(function (found) {
+                model.followList = found;
+            });
 
-            model.orderList = orderService
-                .findByListId(currentUser.orderList)
-                .then(function (found1) {
-                    model.orderList = found1;
-                    console.log(model.orderList)
-                });
-            model.itemList = itemService
-                .findByListId(currentUser.itemList)
-                .then(function (found2) {
-                    model.itemList = found2;
-                });
-            console.log(model.orderList[0])
+        model.orderList = orderService
+            .findByListId(currentUser.orderList)
+            .then(function (found1) {
+                model.orderList = found1;
+                console.log(model.orderList)
+            });
+        model.itemList = itemService
+            .findByListId(currentUser.itemList)
+            .then(function (found2) {
+                model.itemList = found2;
+            });
+        model.logout = logout;
+        model.search = search;
+        function search(input){
+            if(typeof input === 'undefined'){
+                var url = '/'
+            } else {
+                url = '/s/'+input;
+                $location.url(url);
+            }
+        }
+
         function updateUser(username, firstName, lastName, dob, password, email, phone) {
             if (username === null || username === '' || typeof username === 'undefined') {
                 model.error = 'username is required';

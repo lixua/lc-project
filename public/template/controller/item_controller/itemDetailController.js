@@ -3,6 +3,38 @@
         .module('OnlineWebStore')
         .controller('itemDetailController', function (orderService, $http, $sce, $routeParams, currentUser, $location, userService, itemService) {
             var model = this;
+            var user = currentUser;
+            model.search = search;
+            model.goto = goto;
+            model.logout = logout;
+
+            function goto(){
+                if(currentUser ==='0'){
+                    $location.url('#!/login');
+                } else {
+                    $location.url('#!/user/profile')
+                }
+            }
+            function logout(){
+                if(currentUser ==='0'){
+                    $location.url('#!/login');
+                } else {
+                    userService
+                        .logout()
+                        .then(function () {
+                            $location.url('/login')
+                        })
+                }
+            }
+            function search(input){
+                if(typeof input === 'undefined'){
+                    var url = '/'
+                } else {
+                    url = '/s/'+input;
+                    $location.url(url);
+                }
+            }
+
             model.user = currentUser;
             model.itemId = $routeParams['itemId'];
             model.item = itemService

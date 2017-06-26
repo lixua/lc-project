@@ -17,7 +17,10 @@
                 .when('/login', {
                     templateUrl: 'template/view/user_pages/login.view.client.html',
                     controller: 'loginController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser : checkLoggedIn2
+                    }
                 })//NO LOGIN
                 .when('/user/profile', {
                     templateUrl: 'template/view/user_pages/profile.view.client.html',
@@ -39,7 +42,10 @@
                 .when('/register', {
                     templateUrl: 'template/view/user_pages/register.view.client.html',
                     controller: 'registerController',
-                    controllerAs: 'model'
+                    controllerAs: 'model',
+                    resolve:{
+                        currentUser : checkLoggedIn2
+                    }
                 })//NO LOGIN
                 .when('/s/ulist/:val', {
                     templateUrl: 'template/view/user_pages/list-users.view.client.html',

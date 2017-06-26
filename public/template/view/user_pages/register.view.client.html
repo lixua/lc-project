@@ -1,14 +1,10 @@
 <!-- I'm the header -->
-<nav class="navbar navbar-default navbar-fixed-top">
+<<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand"><img src="static/resources/logo-3.png" class="home-logo"></img></a>
-            <div class="pull-right header-button-container">
-                <a href="#!/login"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
-                <a href="#!/user/cart"><img src="static/resources/cart.png" class="shopping-cart-image"><img></a>
-            </div>
-            <input class="header-search" placeholder="Search by Name/Department" ng-model="val">
-            <a href="#!/s/val"><div class="search-block"></div></a></input>
+            <a class="navbar-brand" href="/"><img src="static/resources/logo-3.png" class="home-logo"></img></a>
+            <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
+            <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>
             <i class="fa fa-search"></i>
         </div>
     </div>

@@ -1,11 +1,44 @@
 (function () {
     angular
         .module('OnlineWebStore')
-        .controller('itemCompareController', function ($http, $interval, $sce) {
+        .controller('itemCompareController', function (currentUser,$http, $interval, $sce) {
             var model = this
             model.name = "mname"
            model.type = "us"
            model.price = "3.00"
+
+            var user = currentUser;
+            model.search = search;
+            model.goto = goto;
+            model.logout = logout;
+
+            function goto(){
+                if(currentUser ==='0'){
+                    $location.url('#!/login');
+                } else {
+                    $location.url('#!/user/profile')
+                }
+            }
+            function logout(){
+                if(currentUser ==='0'){
+                    $location.url('#!/login');
+                } else {
+                    userService
+                        .logout()
+                        .then(function () {
+                            $location.url('/login')
+                        })
+                }
+            }
+            function search(input){
+                if(typeof input === 'undefined'){
+                    var url = '/'
+                } else {
+                    url = '/s/'+input;
+                    $location.url(url);
+                }
+            }
+
 
            function getJobId (form_data) {
                return $http.post('https://api.priceapi.com/jobs', form_data)

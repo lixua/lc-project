@@ -4,8 +4,9 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/"><img src="static/resources/logo-3.png" class="home-logo"></img></a>
             <div class="pull-right header-button-container">
-                <a href="{{model.goto}}"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
+                <a ng-click="model.goto()"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
                 <a href="#!/user/cart"><img src="static/resources/cart.png" class="shopping-cart-image"><img></a>
+                <a ng-click="model.logout()"><img src="static/resources/logout.png" class="shopping-cart-image"><img></a>
             </div>
             <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
             <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>
