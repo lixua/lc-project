@@ -80,8 +80,10 @@
                     sellerId: model.list[i].postBy,
                     buyerId: model.user._id,
                     price: model.list[i].price,
-                    count: model.list[i].count
+                    count: model.list[i].count,
+                    name: model.list[i].name
                 };
+                console.log(order);
                 orderService.createOrder(order)
                     .then(function (order) {
                         itemService.checkOut(model.list[i]._id, model.list[i].count)

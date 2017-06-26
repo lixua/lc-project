@@ -18,6 +18,7 @@ var orderSchema = mongoose.Schema({
     createDate: {type:Date,default: Date.now},
     sendDate: Date,
     deliveryDate: Date,
+    name:{type:String, require:true},
     price: {type:Number, require:true},
     count: {type:Number, require:true}
 },{collection:"order"});

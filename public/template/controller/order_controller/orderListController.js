@@ -1,23 +1,44 @@
 (function () {
     angular
         .module('OnlineWebStore')
-        .controller('orderListController', function () {
-            var model = this
-            var student = {
-                name : "a"
-            }
-            var student1 = {
-                name : "a"
-            }
-            model.orders = [student, student1]
+        .controller('orderListController', orderListController);
+    function orderListController($location,orderService,userService,currentUser) {
+        var model = this;
+        model.logout = logout;
+        model.search = search;
+        model.user = currentUser;
+        model.orderList = orderService
+            .findByListId(currentUser.orderList)
+            .then(function (found){
+                model.orderList = found;
+            });
 
-            model.expand = function (order, foo) {
-                if (order.isExpand === null || order.isExpand === undefined) {
-                    order.isExpand = true
-                } else {
-                    order.isExpand = !order.isExpand
-                }
-
+        function search(input) {
+            if (typeof input === 'undefined') {
+                var url = '/'
+            } else {
+                url = '/s/' + input;
+                $location.url(url);
             }
-        })
+        }
+
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url('/login')
+                })
+
+        }
+
+
+        model.expand = function (order, foo) {
+            if (order.isExpand === null || order.isExpand === undefined) {
+                order.isExpand = true
+            } else {
+                order.isExpand = !order.isExpand
+            }
+
+        }
+    }
 })()
