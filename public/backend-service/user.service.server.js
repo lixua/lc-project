@@ -8,10 +8,12 @@ var LocalStrategy = require('passport-local').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var googleConfig = {
-    clientID     : process.env.GOOGLE_CLIENT_ID,
-    clientSecret : process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL  : process.env.GOOGLE_CALLBACK_URL
-
+    // clientID     : process.env.GOOGLE_CLIENT_ID,
+    // clientSecret : process.env.GOOGLE_CLIENT_SECRET,
+    // callbackURL  : process.env.GOOGLE_CALLBACK_URL
+    clientID :'849892412635-p4m003eve6vih1si5ti0gt1v28s7i4t1.apps.googleusercontent.com',
+    clientSecret: 'C7NnAW8IxijcwMriuHRp3p3j',
+    callbackURL: 'https://lc-project.herokuapp.com/auth/google/callback'
 };
 
 passport.use(new LocalStrategy(localStrategy));
