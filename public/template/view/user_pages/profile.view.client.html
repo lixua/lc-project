@@ -17,7 +17,7 @@
 <div class="main-container">
     <div class="content-container profile-page-inner-container">
         <div class="row">
-            <div class="col-sm-12">
+            <li class="col-sm-12">
                 <div class="user-search-bar-container">
                     <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
                     <input class="user-search-bar" placeholder="Search for username" ng-model="model.findusername">
@@ -43,6 +43,39 @@
                         <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="model.user.role" readonly/></div>
                     </div>
                 </div>
+                <div class="following-list-container">
+                    <ul class="list-group">
+                        <li class="list-group-item active">FollowList:</li>
+                        <li ng-show="model.followList.length === 0">You do not follow anybody!</li>
+                        <li ng-repeat="follower in model.followList">
+                            {{follower.username}}
+                        </li>
+                    </ul>
+                </div>
+                <div  class="following-list-container">
+                    <ul class="list-group">
+                        <li class="list-group-item active">OrderList:</li>
+                        <li ng-show="model.orderList.length === 0">You do not have any order history!</li>
+                        <div ng-repeat="order in model.orderList"class = "row">
+                            <li >
+                                {{order.name}}
+                            </li>
+
+                        </div>
+                    </ul>
+                </div>
+                <div ng-show="model.user.role === 'SELLER'" class="following-list-container">
+                <ul class="list-group">
+                    <li class="list-group-item active">ItemList:</li>
+                    <li ng-show="model.itemList.length === 0">You do not post anything to sell!</li>
+                    <div ng-repeat="item in model.itemList"class = "row">
+                        <li >
+                            {{item.name}}
+                        </li>
+
+                    </div>
+                </ul>
+            </div>
                 <div class="function-split-bar">
                     <div class="row">
                         <div class="col-xs-3">
@@ -54,33 +87,6 @@
                         <div class="col-xs-3"><a href="#!/s/ulist/followedBy"><img src="static/resources/followedBy-icon.png" class="profile-icon"></img></a></div>
                         <div class="col-xs-3"><a href="#!/s/ulist/blackList"><img src="static/resources/blacklist-icon.png" class="profile-icon"></img></a></div>
                     </div>
-                </div>
-                <div class="following-list-container">
-                    <ul class="list-group">
-                        <li class="list-group-item active">Following:</li>
-                        <li class="list-group-item">Ethan</li>
-                        <li class="list-group-item">Mike</li>
-                        <li class="list-group-item">Lily</li>
-                        <li class="list-group-item">LiLei</li>
-                    </ul>
-                </div>
-                <div class="following-list-container">
-                    <ul class="list-group">
-                        <li class="list-group-item active">Bought:</li>
-                        <li class="list-group-item">Milk</li>
-                        <li class="list-group-item">Snack</li>
-                        <li class="list-group-item">Pipi Shrimp</li>
-                        <li class="list-group-item">XiangBaBang</li>
-                    </ul>
-                </div>
-                <div class="following-list-container">
-                    <ul class="list-group">
-                        <li class="list-group-item active">Selling:</li>
-                        <li class="list-group-item">Flying cup</li>
-                        <li class="list-group-item">Gas Doll</li>
-                        <li class="list-group-item">Weed</li>
-                        <li class="list-group-item">HI</li>
-                    </ul>
                 </div>
             </div>
         </div>

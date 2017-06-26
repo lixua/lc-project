@@ -16,13 +16,17 @@
             model.goto = '#!/user/profile'
         }
         function search(input){
+
             if(typeof input === 'undefined'){
                 var url = '/'
             } else {
-                url = '/s/ulist?input=' + input;
+                console.log(input)
+                url = '/s/'+input;
+                console.log(url)
+                $location.url(url);
             }
 
-            $location.url(url);
+
         }
 
         function plusSlides(n) {

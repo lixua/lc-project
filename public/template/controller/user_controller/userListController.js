@@ -24,7 +24,6 @@
                         console.log(result)
                     })
             }
-            console.log(model.list)
             function chooseUser(userId){
                 $location.url('/user/o/profile/' + userId);
             }

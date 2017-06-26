@@ -13,7 +13,20 @@
                 .then(function (results){
                     model.list = results;
                 });
-
+            model.orderList = orderService
+                .findByListId(model.user.orderList)
+                .then(function(results){
+                    var rebuylist = [];
+                    for(var i in results){
+                        var reItemId = results[i].itemId;
+                        rebuylist.push(reItemId);
+                    }
+                    itemService
+                        .findByListId(rebuylist)
+                        .then(function(got){
+                            model.orderList = got;
+                        })
+                });
             function removeCart(item){
                 userService.removeCart(item._id)
                     .then(function(status){
@@ -39,6 +52,10 @@
                     })
             }
             function checkOut(){
+                if(model.list.length === 0){
+                    model.error ="Buy something first, then check out!";
+                    return;
+                }
                 for(var i in model.list){
                     var order = {
                         itemId:model.list[i]._id,

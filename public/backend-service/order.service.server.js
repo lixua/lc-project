@@ -71,7 +71,7 @@ function delivery(req, res){
 }
 function findByListId(req, res){
     var list = req.body.list;
-    userModel
+    orderModel
         .findByListId(list)
         .then(function (results){
             res.json(results);

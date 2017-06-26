@@ -106,7 +106,7 @@
                     controller: 'itemListController',
                     controllerAs: 'model',
                     resolve:{
-                        currentUser: checkLoggedIn
+                        currentUser: checkLoggedIn2
                     }
                 })//NO LOGIN
                 .when('/cp/:itemId', {
@@ -122,7 +122,7 @@
                     controller: 'itemDetailController',
                     controllerAs: 'model',
                     resolve:{
-                        currentUser: checkLoggedIn
+                        currentUser: checkLoggedIn2
                     }
                 })//NO LOGIN
                 .when('/user/i/create', {
@@ -178,7 +178,6 @@
         userService
             .checkLoggedIn()
             .then(function(user){
-                $location.url('/')
                     deferred.resolve(user);
             });
         return deferred.promise;

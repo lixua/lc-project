@@ -2,7 +2,8 @@
     angular
         .module('OnlineWebStore')
         .controller('profileController', profileController);
-    function profileController(currentUser,$location, userService){
+    function profileController(currentUser, $location, userService, itemService,orderService) {
+
         var model = this;
         model.user = currentUser;
         model.userId = currentUser._id;
@@ -10,10 +11,24 @@
         model.deleteUser = deleteUser;
         model.logout = logout;
         model.findUser = findUser;
-        model.followList = currentUser.followList;
-        model.orderList = currentUser.orderList;
-        model.itemList = userService.itemList;
-        function updateUser(username,firstName, lastName, dob, password, email, phone ) {
+            model.followList = userService
+                .findByListId(currentUser.followList)
+                .then(function (found) {
+                    model.followList = found;
+                });
+
+            model.orderList = orderService
+                .findByListId(currentUser.orderList)
+                .then(function (found1) {
+                    model.orderList = found1;
+                });
+            model.itemList = itemService
+                .findByListId(currentUser.itemList)
+                .then(function (found2) {
+                    model.itemList = found2;
+                });
+            console.log(model.orderList[0])
+        function updateUser(username, firstName, lastName, dob, password, email, phone) {
             if (username === null || username === '' || typeof username === 'undefined') {
                 model.error = 'username is required';
                 return;
@@ -26,7 +41,7 @@
 
             var found = userService
                 .findUserByUsername(username)
-                .then(function(get){
+                .then(function (get) {
                     found = get;
                 });
             if (typeof(found._id) === 'undefined' || found._id === model.userId) {
@@ -39,7 +54,7 @@
                     email: email,
                     phone: phone
                 };
-                userService.updateUser(model.userId, newUser)
+                userService.updateUser(model.userId, newUser);
                 $location.url('/')
 
             } else {
@@ -48,40 +63,41 @@
             }
 
         }
-        function deleteUser(password1, password2){
-            if (password1 !== password2){
+
+        function deleteUser(password1, password2) {
+            if (password1 !== password2) {
                 model.error = "passwords must be verified to delete account";
-                return;
+
             } else {
                 userService.deleteUser(model.userId);
                 $location.url('/login');
             }
 
         }
-        function logout(){
+
+        function logout() {
             userService
                 .logout()
-                .then(function(){
+                .then(function () {
                     $location.url('/login')
                 })
         }
 
-        function findUser(input){
-            if(input === model.user.username){
+        function findUser(input) {
+            if (input === model.user.username) {
                 model.error = "The user you find is yourself";
-            }  else {
+            } else {
                 var found = userService
                     .findUserByUsername(input)
-                    .then(function (find){
+                    .then(function (find) {
                         found = find;
-                        if(found === null){
+                        if (found === null) {
                             model.error = 'User does not exist';
                         } else {
                             $location.url('/user/o/profile/' + found._id);
                         }
                     });
             }
-
 
 
         }

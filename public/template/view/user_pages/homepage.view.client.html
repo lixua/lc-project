@@ -2,7 +2,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand"><img src="static/resources/logo-3.png" class="home-logo"></img></a>
+            <a class="navbar-brand" href="/"><img src="static/resources/logo-3.png" class="home-logo"></img></a>
             <div class="pull-right header-button-container">
                 <a href="{{model.goto}}"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
                 <a href="#!/user/cart"><img src="static/resources/cart.png" class="shopping-cart-image"><img></a>
@@ -25,22 +25,22 @@
         </div>
         <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="cataglory-container-home"><div class="cataglory-text" href="#!/s/home">Home Department</div></div>
+                <div class="cataglory-container-home"><div class="cataglory-text" ng-click="model.search('HOME')">Home Department</div></div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="cataglory-container-electronic"><div class="cataglory-text" href="#!/s/electronic">Eletronics Department</div></div>
+                <div class="cataglory-container-electronic"><div class="cataglory-text" ng-click="model.search('ELECTRONICS')">Electronics Department</div></div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="cataglory-container-sport"><div class="cataglory-text" href="#!/s/sport">Sport Department</div></div>
+                <div class="cataglory-container-sport"><div class="cataglory-text" ng-click="model.search('SPORT')">Sport Department</div></div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="cataglory-container-media"><div class="cataglory-text" href="#!/s/media">Media Department</div></div>
+                <div class="cataglory-container-media"><div class="cataglory-text" ng-click="model.search('MEDIA')">Media Department</div></div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="cataglory-container-food"><div class="cataglory-text" href="#!/s/food">Food Department</div></div>
+                <div class="cataglory-container-food"><div class="cataglory-text" ng-click="model.search('FOOD')">Food Department</div></div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="cataglory-container-others"><div class="cataglory-text" href="#!/s/others">Others Department</div></div>
+                <div class="cataglory-container-others"><div class="cataglory-text" ng-click="model.search('OTHER')">Others Department</div></div>
             </div>
         </div>
     </div>

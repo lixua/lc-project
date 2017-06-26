@@ -69,7 +69,7 @@ function checkOut(req, res){
 
 function findByListId(req, res){
     var list = req.body.list;
-    userModel
+    itemModel
         .findByListId(list)
         .then(function (results){
             res.json(results);

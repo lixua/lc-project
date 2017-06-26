@@ -20,7 +20,7 @@
             <div class="col-sm-12">
                 <div class="following-list-container">
                     <ul ng-repeat="user in model.list" class="list-group">
-                       <a>{{user.username}}</a>
+                       <button ng-click="model.chooseUser(user._id)">{{user.username}}</button>
                     </ul>
                 </div>
             </div>
