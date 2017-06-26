@@ -1,0 +1,20 @@
+.admin-login-container {
+    margin-top: 20vh;
+    height: 50vh;
+    width:100%;
+    background-image: none;
+}
+
+.admin-loging-logo {
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 25px;
+}
+
+.login-main-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    background-color: rgba(200,200,200, 0.8);
+}
