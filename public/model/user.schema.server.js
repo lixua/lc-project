@@ -18,6 +18,10 @@ var userSchema = mongoose.Schema({
     itemList:[{ type: mongoose.Schema.Types.ObjectId, ref:"itemModel"}],
     orderList:[{ type: mongoose.Schema.Types.ObjectId, ref:"orderModel"}],
     cartList:[{ type: mongoose.Schema.Types.ObjectId, ref:"itemModel"}],
+    google:{
+        id: String,
+        token: String
+    },
     rate:{type: Number, default: 0}
 
 },{collection:"user"});

@@ -25,6 +25,8 @@ userModel.removeCart = removeCart;
 userModel.checkOut = checkOut;
 
 userModel.findByListId = findByListId;
+
+userModel.findUserByGoogleId =findUserByGoogleId;
 module.exports = userModel;
 
 function findUserById(userId){
@@ -159,4 +161,7 @@ function checkOut(userId){
 
 function findByListId(list){
     return userModel.find({_id :{$in:list}})
+}
+function findUserByGoogleId(Id) {
+    return userModel.findOne({'google.id': Id});
 }
