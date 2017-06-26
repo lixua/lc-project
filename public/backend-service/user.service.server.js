@@ -5,11 +5,21 @@ var app = require('../../express');
 var userModel = require('../model/user.model.server');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
+var googleConfig = {
+    // clientID     : process.env.GOOGLE_CLIENT_ID,
+    // clientSecret : process.env.GOOGLE_CLIENT_SECRET,
+    // callbackURL  : process.env.GOOGLE_CALLBACK_URL
+    clientID :'849892412635-p4m003eve6vih1si5ti0gt1v28s7i4t1.apps.googleusercontent.com',
+    clientSecret: 'C7NnAW8IxijcwMriuHRp3p3j',
+    callbackURL: 'https://lc-project.herokuapp.com/auth/google/callback'
+};
 
 passport.use(new LocalStrategy(localStrategy));
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
-
+passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 app.get('/api/user/:userId', findUserById);
 app.get('/api/user/findUserByCredentials', findUserByCredentials);
 app.get('/api/username',findUserByUsername);
@@ -30,6 +40,8 @@ app.post('/api/register',register);
 
 app.post('/api/userlist',findByListId);
 
+
+
 // app.get('/api/userfollowlist/:userId', findUserFollowList);
 // app.get('/api/userfollowedlist/:userId', findUserFollowedList);
 // app.get('/api/userblocklist/:uesrId', findUserBlockList);
@@ -39,8 +51,12 @@ app.post('/api/userlist',findByListId);
 app.put('/api/useraddcart/:userId',addCart);
 app.put('/api/userremovecart/:userId', removeCart);
 app.put('/api/checkout/:userId',checkOut);
-
-
+app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+        successRedirect: '/user/profile',
+        failureRedirect: '/login'
+    }));
 function localStrategy(username, password, done) {
     userModel
         .findUserByCredentials(username, password)
@@ -307,4 +323,41 @@ function findByListId(req, res){
         .then(function (results){
             res.json(results);
         })
+}
+
+function googleStrategy(token, refreshToken, profile, done) {
+    userModel
+        .findUserByGoogleId(profile.id)
+        .then(
+            function(user) {
+                if(user) {
+                    return done(null, user);
+                } else {
+                    var email = profile.emails[0].value;
+                    var emailParts = email.split("@");
+                    var newGoogleUser = {
+                        username:  emailParts[0],
+                        firstName: profile.name.givenName,
+                        lastName:  profile.name.familyName,
+                        email:     email,
+                        google: {
+                            id:    profile.id,
+                            token: token
+                        }
+                    };
+                    return userModel.createUser(newGoogleUser);
+                }
+            },
+            function(err) {
+                if (err) { return done(err); }
+            }
+        )
+        .then(
+            function(user){
+                return done(null, user);
+            },
+            function(err){
+                if (err) { return done(err); }
+            }
+        );
 }

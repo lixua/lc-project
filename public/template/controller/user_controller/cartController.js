@@ -81,22 +81,28 @@
                     buyerId: model.user._id,
                     price: model.list[i].price,
                     count: model.list[i].count,
-                    name: model.list[i].name
+                    name: model.list[i].name,
+                    buyerUsername: model.user.username
                 };
-                console.log(order);
-                orderService.createOrder(order)
-                    .then(function (order) {
-                        itemService.checkOut(model.list[i]._id, model.list[i].count)
-                            .then(function (status) {
-                                model.user.orderList.push(order._id);
-                                model.user.cartList.splice(i, 1);
-                                userService.updateUser(model.user._id, model.user);
-                                $location.url('/user/profile')
+                userService
+                    .findUserById(model.list[i].postBy)
+                    .then(function(found){
+                        order.sellerUsername = found;
+                        orderService.createOrder(order)
+                            .then(function (order) {
+                                itemService.checkOut(model.list[i]._id, model.list[i].count)
+                                    .then(function (status) {
+                                        model.user.orderList.push(order._id);
+                                        model.user.cartList.splice(i, 1);
+                                        userService.updateUser(model.user._id, model.user);
+                                        $location.url('/user/profile')
 
 
-                            })
+                                    })
 
-                    });
+                            });
+                    })
+
             }
         }
     }

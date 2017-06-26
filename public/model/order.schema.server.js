@@ -11,10 +11,12 @@ var orderSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "userModel",
         require: true},
+    sellerUsername:{type:String, require:true},
     buyerId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "userModel",
         require: true},
+    buyerUsername:{type:String, require:true},
     createDate: {type:Date,default: Date.now},
     sendDate: Date,
     deliveryDate: Date,
