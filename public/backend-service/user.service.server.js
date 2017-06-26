@@ -36,8 +36,8 @@ app.post('/api/userlist',findByListId);
 // app.get('/api/useritemlist/:userId', findUserItemList);
 // app.get('/api/userorderlist/:userId',findUserOrderList);
 // app.get('/api/usercartlist/:userId',findUserCartList);
-app.put('/api/usercartadd/:userId',addCart);
-app.put('/api/usercartremove/:userId', removeCart);
+app.put('/api/useraddcart/:userId',addCart);
+app.put('/api/userremovecart/:userId', removeCart);
 app.put('/api/checkout/:userId',checkOut);
 
 

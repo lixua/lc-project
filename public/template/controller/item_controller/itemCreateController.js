@@ -3,7 +3,6 @@
         .module('OnlineWebStore')
         .controller('itemCreateController', itemCreateController);
     function itemCreateController(currentUser, itemService, $location) {
-        console.log("HERE?")
             var model = this;
             if(currentUser.role === 'BUYER'){
                 $location.url('/');

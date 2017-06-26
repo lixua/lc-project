@@ -48,11 +48,13 @@ function findAll(){
 }
 
 function checkOut(itemId, number){
-    var count = itemModel.findById(itemId)
+    var count = 0;
+    return itemModel.findById(itemId)
         .then(function(get){
             count = get.count;
-        })
-    return itemModel.update({_id:itemId},{count:count-number})
+            return itemModel.update({_id:itemId},{count:count-number})
+        });
+
 }
 
 function findByListId(list){

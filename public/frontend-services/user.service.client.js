@@ -224,7 +224,8 @@
             return results;
         }
         function addCart(userId, item){
-            var url = "/api/usercartadd/" + userId;
+            console.log(item)
+            var url = "/api/useraddcart/" + userId;
             return $http.put(url, item)
                 .then(function (response) {
                     return response.data;

@@ -27,10 +27,10 @@
                         <div class="col-xs-12 col-sm-6">
                             <div class="item-description-container">
                                 <div class="item-core-info">
-                                    <div class="item-name-container">Dean's dairy Milk 120oz, Sell by: <a> Annie</a></div>
+                                    <div class="item-name-container">{{model.item.name}}<a>{{model.postby.username}}</a></div>
                                     <div class="row">
                                         <div class="col-xs-6">
-                                            <div class="price-container">$9.99</div>/each
+                                            <div class="price-container">${{model.item.price}}</div>/each
                                         </div>
                                         <div class="col-xs-6">
                                             <select class="form-control item-quantity" id="sell">
@@ -41,11 +41,9 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="btn btn-warning btn-block">Add to Cart</div>
+                                    <div ng-click="model.addCart()"class="btn btn-warning btn-block">Add to Cart</div>
                                     <div class="item-text-description-container"><b>Description: </b>
-                                        Our Reduced Fat 2% Milk is loaded with naturally occurring omega-3s and CLA. All we do is skim some of the butterfat off the top,
-                                        because when you start with milk this delicious,
-                                        you don’t have to change it.
+                                        {{model.item.description}}
                                     </div>
                                 </div>
                             </div>
@@ -54,6 +52,7 @@
                 </div>
                 <div class="price-compare-section">
                     <div class="price-compare-text">This item also sell by:</div>
+                    <div ng-show="model.message" class="list-group-item">{{model.message}}</div>
                     <div ng-repeat="product in model.items" ng-show="$index<3" class="list-group">
                         <a href="{{product.viewItemURL[0]}}" class="list-group-item">
                             <div class="student-info-container">
@@ -63,18 +62,19 @@
                         </a>
                     </div>
                     <div class="comment-section-container">
-                        <span class="price-compare-text">Customer Review:</span>
+                        <span  class="price-compare-text">Customer Review:</span>
                         <div class="comments-container list-group">
-                            <div class="list-group-item">
-                                <h4>Ethan:</h4>
-                                <p>This milk fits me well.</p>
+                            <div ng-show="model.item.comments.length === 0" class="list-group-item">No review</div>
+                            <div ng-repeat="comment in model.item.comments"class="list-group-item">
+                                <p>{{comment}}</p>
                             </div>
                         </div>
                         <div class="comment-input-container">
                             <span class="price-compare-text">Leave a review:</span>
-                            <textarea rows="5" class="form-control" placeholder="Input your review here"></textarea>
+                            <textarea ng-model="input"rows="5" class="form-control" placeholder="Input your review here"></textarea>
+                            <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
                             <div class="button-hack">
-                                <div class="btn btn-warning btn-submit">Submit</div>
+                                <div ng-click="model.reviewSubmit(input)"class="btn btn-warning btn-submit">Submit</div>
                             </div>
                         </div>
                     </div>

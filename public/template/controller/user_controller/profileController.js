@@ -21,6 +21,7 @@
                 .findByListId(currentUser.orderList)
                 .then(function (found1) {
                     model.orderList = found1;
+                    console.log(model.orderList)
                 });
             model.itemList = itemService
                 .findByListId(currentUser.itemList)

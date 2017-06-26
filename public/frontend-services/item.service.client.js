@@ -15,7 +15,6 @@
         };
 
         function createItem(item) {
-            console.log("CLIENT")
             var url = "/api/item/create";
             return $http.post(url, item)
                 .then(function (response) {
@@ -40,7 +39,7 @@
         }
 
         function updateItem(itemId, item) {
-            var url = "/api/item/update/" + itemId;
+            var url = "/api/item/" + itemId;
             return $http.put(url, item)
                 .then(function (response) {
                     return response.data;

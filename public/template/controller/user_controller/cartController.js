@@ -12,7 +12,10 @@
                 .findByListId(model.user.cartList)
                 .then(function (results){
                     model.list = results;
+                    console.log(model.list)
+                    console.log(model.list.length)
                 });
+
             model.orderList = orderService
                 .findByListId(model.user.orderList)
                 .then(function(results){
@@ -28,22 +31,16 @@
                         })
                 });
             function removeCart(item){
-                userService.removeCart(item._id)
-                    .then(function(status){
-                        var index = model.user.cartList.indexOf(item._id);
-                        model.user.cartList.splice(index, 1);
-                        model.list = itemService
-                            .findByListId(model.user.cartList)
-                            .then(function (results){
-                                model.list = results;
-                            })
-                    })
+                model.list.splice(model.list.indexOf(item),1);
+                userService.removeCart(model.user._id,item)
+
+
             }
 
             function addCart(item){
-                userService.addCart(item._id)
+                userService.addCart(model.user._id,item)
                     .then(function(status){
-                        model.user.cartList.push(item._id);
+                        model.user.cartList.push(item);
                         model.list = itemService
                             .findByListId(model.user.cartList)
                             .then(function (results){
@@ -71,6 +68,7 @@
                                         model.user.orderList.push(order._id);
                                         model.user.cartList.splice(i,1);
                                         userService.updateUser(model.user._id,model.user);
+                                        $location.url('/user/profile')
 
 
                                 })

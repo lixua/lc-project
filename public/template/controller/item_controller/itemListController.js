@@ -1,7 +1,7 @@
 (function () {
     angular
         .module('OnlineWebStore')
-        .controller('itemListController',itemListController)
+        .controller('itemListController',itemListController);
     function itemListController($routeParams,currentUser,$location,itemService) {
 
             var model = this;
@@ -13,7 +13,8 @@
                 });
             model.selectItem = selectItem;
             function selectItem(item){
-                $location.url('/i/' + item._id)
+                console.log(item)
+                $location.url('/i/' + item)
             }
         }
 })();
