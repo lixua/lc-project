@@ -112,6 +112,13 @@
     margin-top: 15px;
 }
 
+.ordering-list-container {
+    margin-top: 15px;
+    .list-group {
+        margin-bottom: 0px;
+    }
+}
+
 .user-search-bar {
     margin-top: 10px;
     width: 90vw;
@@ -186,7 +193,6 @@
 
 .comment-section-container {
     margin-top: 15px;
-    // margin: 15px 15px 15px 15px;
     .btn-submit {
         float: right;
         display: block;
@@ -247,6 +253,64 @@
     }
 }
 
+.order-image {
+    height: 80px;
+    margin-left: -15px;
+}
+
+.order-text {
+    margin-top: 10px;
+}
+
+.order-list {
+    padding: 0 0 0 0;
+    .col-xs-2 {
+        padding-left: 0px;
+    }
+}
+
+.order-info-container {
+    margin: 10px 0 0 0;
+}
+
+.order-text-ordernumber {
+    font-size: 0.8em;
+}
+
+.order-text-line {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.drop-arrow-container {
+    background-color: rgba(240,240,240,0.6);
+    height: 100px;
+    width: 40px;
+}
+
+.arrow-image {
+    margin-top: calc((100px - 30px) / 2);
+    margin-left: 7.5px;
+}
+
+.down-arrow {
+    background-image: url('resources/arrow-down.png');
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+}
+
+.right-arrow {
+    background-image: url('resources/arrow-right.png');
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+}
+
+.expanded-order {
+    margin-bottom: 10px;
+}
+
 @media only screen and (min-width: $screen-sm) {
     .login-page-container {
         .form-control {
@@ -283,6 +347,18 @@
 
     .btn-warning {
         height: 40px;
+    }
+
+    .expanded-order {
+        font-size: 1.2em;
+    }
+
+    .order-text-ordernumber {
+        font-size: 1em;
+    }
+
+    .order-text-line {
+        font-size: 1.2em;
     }
 }
 
@@ -324,6 +400,14 @@
     .btn-warning {
         height: 60px;
         padding-top: 15px;
+        font-size: 1.3em;
+    }
+
+    .expanded-order {
+        font-size: 1.3em;
+    }
+
+    .order-text-line {
         font-size: 1.3em;
     }
 }

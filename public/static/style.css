@@ -6197,6 +6197,11 @@ button.close {
 .following-list-container {
   margin-top: 15px; }
 
+.ordering-list-container {
+  margin-top: 15px; }
+  .ordering-list-container .list-group {
+    margin-bottom: 0px; }
+
 .user-search-bar {
   margin-top: 10px;
   width: 90vw;
@@ -6298,6 +6303,52 @@ button.close {
 .profile-page-search .col-xs-1, .profile-page-search .col-xs-11 {
   margin: 0 0 0; }
 
+.order-image {
+  height: 80px;
+  margin-left: -15px; }
+
+.order-text {
+  margin-top: 10px; }
+
+.order-list {
+  padding: 0 0 0 0; }
+  .order-list .col-xs-2 {
+    padding-left: 0px; }
+
+.order-info-container {
+  margin: 10px 0 0 0; }
+
+.order-text-ordernumber {
+  font-size: 0.8em; }
+
+.order-text-line {
+  font-weight: bold;
+  font-size: 1em; }
+
+.drop-arrow-container {
+  background-color: rgba(240, 240, 240, 0.6);
+  height: 100px;
+  width: 40px; }
+
+.arrow-image {
+  margin-top: calc((100px - 30px) / 2);
+  margin-left: 7.5px; }
+
+.down-arrow {
+  background-image: url("resources/arrow-down.png");
+  width: 30px;
+  height: 30px;
+  background-size: contain; }
+
+.right-arrow {
+  background-image: url("resources/arrow-right.png");
+  width: 30px;
+  height: 30px;
+  background-size: contain; }
+
+.expanded-order {
+  margin-bottom: 10px; }
+
 @media only screen and (min-width: 776px) {
   .login-page-container .form-control {
     height: 80px;
@@ -6318,7 +6369,13 @@ button.close {
   .item-description-container {
     margin-top: 50px; }
   .btn-warning {
-    height: 40px; } }
+    height: 40px; }
+  .expanded-order {
+    font-size: 1.2em; }
+  .order-text-ordernumber {
+    font-size: 1em; }
+  .order-text-line {
+    font-size: 1.2em; } }
 
 @media only screen and (min-width: 1025px) {
   .login-page-container .form-control {
@@ -6343,4 +6400,8 @@ button.close {
   .btn-warning {
     height: 60px;
     padding-top: 15px;
+    font-size: 1.3em; }
+  .expanded-order {
+    font-size: 1.3em; }
+  .order-text-line {
     font-size: 1.3em; } }

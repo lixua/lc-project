@@ -150,14 +150,6 @@
                         currentUser: checkLoggedIn
                     }
                 })
-                .when('/user/o/:orderId', {
-                    templateUrl: 'template/view/order_pages/order-detail.view.client.html',
-                    controller: 'orderDetailController',
-                    controllerAs: 'model',
-                    resolve:{
-                        currentUser: checkLoggedIn
-                    }
-                })
     }
     function checkLoggedIn(userService, $q, $location){
         var deferred = $q.defer();
