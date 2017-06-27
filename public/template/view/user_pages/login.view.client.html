@@ -5,7 +5,7 @@
             <a class="navbar-brand" href="/"><img src="static/resources/logo-3.png" class="home-logo"></img></a>
             <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
             <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>
-            <i class="fa fa-search"></i>
+            <i class="fa fa-search  fa-search-change"></i>
         </div>
     </div>
 </nav>
@@ -22,7 +22,7 @@
                     <label for="password">Password</label>
                     <input ng-maodel="password" type="password" class="form-control" ng-model="password" placeholder="password" />
                     <a ng-click="model.login(username, password)" class="btn btn-info btn-login btn-block">Login</a>
-                    <a href="/auth/google" class="btn btn-danger btn-block">
+                    <a href="/auth/google" class="btn btn-info btn-login btn-block">
                         <span class="fa fa-google-plus"></span>
                         Google
                     </a>

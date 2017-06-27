@@ -10,7 +10,7 @@
             </div>
             <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
             <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>
-            <i class="fa fa-search"></i>
+            <i class="fa fa-search fa-search-change"></i>
         </div>
     </div>
 </nav>
@@ -19,9 +19,30 @@
     <div class="content-container profile-page-inner-container">
         <div class="row">
             <div class="col-sm-12">
+                <div class="profile-container">
+                    <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+                    <div class="bar">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="profile-text">{{model.searchGroup}}</div>
+                            </div>
+                            <div class="col-xs-12 col-sm-8">
+                                <div class="search-field-container pull-right">
+                                    <div class="search-field-inner-wrapper">
+                                        <input class="search-box" placeholder="Search for username" ng-model="model.findusername">
+                                        <button class="icon icon-modify" ng-click="model.findUser(model.findusername)">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <hr class="split-line">
                 <div class="following-list-container">
+                    <div ng-show="model.list.length === 0" class="alert alert-danger">You don't have {{model.searchGroup}}!</div>
                     <ul ng-repeat="user in model.list" class="list-group">
-                       <button ng-click="model.chooseUser(user._id)">{{user.username}}</button>
+                       <li ng-click="model.chooseUser(user._id)" class="list-group-item">{{user.username}}</li>
                     </ul>
                 </div>
             </div>

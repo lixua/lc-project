@@ -2,12 +2,19 @@
     angular
         .module('OnlineWebStore')
         .controller('homepageController', homepageController)
-    function homepageController(currentUser, $location,userService){
+    function homepageController (currentUser, $location,userService) {
         var model = this;
         model.plusSlides = plusSlides;
         model.search = search;
         model.goto = goto;
         model.logout = logout;
+
+        model.loggedIn = (function () {
+            if (currentUser ==='0') {
+                return false
+            }
+            return true
+        })
 
         function goto(){
             if(currentUser ==='0'){

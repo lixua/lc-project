@@ -1,5 +1,5 @@
 @mixin cataglory-generator($url) {
-    height: 13vh;
+    height: 18vh;
     width: 100%;
     background-image: url($url);
     background-size: cover;
@@ -12,11 +12,11 @@
     }
 
     @media only screen and (min-width: $screen-sm) {
-        height: 18vh;
+        height: 25vh;
     }
 
     @media only screen and (min-width: $screen-sm) {
-        height: 25vh;
+        height: 30vh;
     }
 }
 

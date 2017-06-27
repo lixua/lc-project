@@ -6,26 +6,26 @@
             <div class="pull-right header-button-container">
                 <a ng-click="model.goto()"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
                 <a href="#!/user/cart"><img src="static/resources/cart.png" class="shopping-cart-image"><img></a>
-                <a ng-click="model.logout()"><img src="static/resources/logout.png" class="shopping-cart-image"><img></a>
+                <a ng-show="model.loggedIn()" ng-click="model.logout()"><img src="static/resources/logout.png" class="logout-image"><img></a>
             </div>
             <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
             <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>
-            <i class="fa fa-search"></i>
+            <i class="fa fa-search  fa-search-change"></i>
         </div>
     </div>
 </nav>
 
-<div class="main-container">
-    <div class="content-container homepage-container">
-        <div class="slideshow-container">
-            <div class="mySlides"><img src="static/resources/amazon-echo.jpg" class="slide-image"></div>
-            <div class="mySlides"><img src="static/resources/alienware.jpg" class="slide-image"></div>
-            <div class="mySlides"><img src="static/resources/fitbit.jpg" class="slide-image"></div>
-            <div class="mySlides"><img src="static/resources/oreo.jpg" class="slide-image"></div>
-            <a class="prev" ng-click="model.plusSlides(-1)">&#10094;</a>
-            <a class="next" ng-click="model.plusSlides(1)">&#10095;</a>
-        </div>
+<div class="main-container homepage-main-container">
+    <div class="content-container homepage-container container">
         <div class="row">
+            <div class="slideshow-container">
+                <div class="mySlides"><img src="static/resources/amazon-echo.jpg" class="slide-image"></div>
+                <div class="mySlides"><img src="static/resources/alienware.jpg" class="slide-image"></div>
+                <div class="mySlides"><img src="static/resources/fitbit.jpg" class="slide-image"></div>
+                <div class="mySlides"><img src="static/resources/oreo.jpg" class="slide-image"></div>
+                <a class="prev" ng-click="model.plusSlides(-1)">&#10094;</a>
+                <a class="next" ng-click="model.plusSlides(1)">&#10095;</a>
+            </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="cataglory-container-home"><div class="cataglory-text" ng-click="model.search('HOME')">Home Department</div></div>
             </div>

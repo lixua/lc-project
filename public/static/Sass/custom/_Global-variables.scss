@@ -3,6 +3,20 @@
     display: flex;
     flex-direction: column;
     overflow: scroll;
+    align-items: center;
+}
+
+.homepage-main-container {
+    background-color: #f8f8ff;
+    .container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.logout-image {
+    height: 35px;
+    width: 35px;
 }
 
 .content-container {
@@ -38,7 +52,7 @@
 .profile-image {
     height: 35px;
     width: 30px;
-    margin-right: 15px;
+    margin-right: 5px;
 }
 
 .navbar {
@@ -69,11 +83,21 @@
     text-indent: 50px;
 }
 
-.fa-search {
+.fa-search-change {
     color: black;
     position: absolute;
     top: 85px;
     left: 28px;
+}
+
+.profile-text {
+    font-size: 1.5em;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.bar {
+
 }
 
 .cataglory-text {
@@ -86,7 +110,7 @@
     background-color: rgba(255,255,255,0.6);
     visibility: hidden;
     text-align: center;
-    padding-top: calc(13vh / 2 - 0.75em);
+    padding-top: calc(18vh / 2 - 0.75em);
 }
 
 .table-container {
@@ -115,11 +139,10 @@
     @include cataglory-generator('resources/others.png')
 }
 
-
 @media only screen and (min-width: $screen-sm) {
     .cataglory-text {
         font-size: 2em;
-        padding-top: calc(18vh / 2 - 0.75em);
+        padding-top: calc(25vh / 2);
     }
     .header-search {
         width: 95vw;
@@ -150,14 +173,20 @@
         left: 40px;
     }
     .slide-image {
-        height: 40vh;
+        height: 45vh;
     }
     .cataglory-text {
         font-size: 2.5em;
-        padding-top: calc(25vh / 2 - 0.75em);
+        padding-top: calc(30vh / 2 - 1.25em);
     }
     .content-container {
         margin-top: 160px;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .container {
+        width: 1150px;
     }
 }
 // - - - - - -- - - - - - - - - - - - slide show

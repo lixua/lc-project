@@ -29,6 +29,7 @@
         }
 
         if (model.input === 'followedBy') {
+            model.searchGroup = "Followers:"
             model.list = userService.findByListId(currentUser.followedList)
                 .then(function (result) {
                     model.list = result;
@@ -36,6 +37,7 @@
 
         }
         if (model.input === 'blackList') {
+            model.searchGroup = "Blacklist:"
             model.list = userService.findByListId(currentUser.blockList)
                 .then(function (result) {
                     model.list = result;

@@ -5,6 +5,9 @@
     function profileController(currentUser, $location, userService, itemService, orderService) {
         var model = this;
         model.user = currentUser;
+        var date = model.user.dob.substring(0, model.user.dob.indexOf('T'))
+        model.user.dob = new Date(date.split("/"))
+
         model.userId = currentUser._id;
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
@@ -19,7 +22,6 @@
             .findByListId(currentUser.orderList)
             .then(function (found1) {
                 model.orderList = found1;
-                console.log(model.orderList)
             });
         model.itemList = itemService
             .findByListId(currentUser.itemList)
@@ -64,24 +66,16 @@
                     phone: phone
                 };
                 userService.updateUser(model.userId, newUser);
-                $location.url('/')
-
+                location.reload()
             } else {
                 model.error = "sorry, that username is taken";
-
             }
 
         }
 
-        function deleteUser(password1, password2) {
-            if (password1 !== password2) {
-                model.error = "passwords must be verified to delete account";
-
-            } else {
-                userService.deleteUser(model.userId);
-                $location.url('/login');
-            }
-
+        function deleteUser() {
+            userService.deleteUser(model.userId);
+            $location.url('/login');
         }
 
         function logout() {
@@ -107,9 +101,16 @@
                         }
                     });
             }
-
-
         }
+
+        model.itemClick = (function (item) {
+            $location.url('/i/' + item._id)
+        })
+
+        model.userClick = (function (user) {
+            console.log(user)
+            $location.url('/user/o/profile/' + user._id)
+        })
     }
 
 

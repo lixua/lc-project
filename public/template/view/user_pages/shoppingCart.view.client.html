@@ -10,7 +10,7 @@
             </div>
             <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
             <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>
-            <i class="fa fa-search"></i>
+            <i class="fa fa-search  fa-search-change"></i>
         </div>
     </div>
 </nav>
@@ -27,7 +27,7 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-5 col-sm-2">
-                                <img src="static/resources/milk.jpg" class="image-in-list"></img>
+                                <img src="{{item.image}}" class="image-in-list"></img>
                             </div>
                             <div class="col-xs-7 col-sm-8 col-md-9 col-lg-10">
                                 <div class="cart-text-container">
@@ -63,7 +63,7 @@
                     <li ng-repeat="order in model.orderList" class="list-group-item">
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="static/resources/milk.jpg" class="image-in-list"></img>
+                                <img src="order.image" class="image-in-list"></img>
                             </div>
                             <div class="col-md-8">
                                 <div class="cart-text-container">

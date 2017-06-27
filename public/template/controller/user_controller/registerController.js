@@ -14,7 +14,7 @@
             $location.url(url);
         }
 
-        function register(username, password, password2, email, phone, dob, role) {
+        function register(username, firstName, lastName, password, password2, email, phone, dob, role) {
             if (username === null || username === '' || typeof username === 'undefined') {
                 model.error = 'username is required';
                 return;
@@ -22,6 +22,21 @@
 
             if (password !== password2 || password === null || typeof password === 'undefined') {
                 model.error = "passwords must match";
+                return;
+            }
+
+            if (password === password.toUpperCase()) {
+                model.error = "password must have lower case"
+                return;
+            }
+
+            if (password === password.toLowerCase()) {
+                model.error = "password must have upper case"
+                return;
+            }
+
+            if (password.length < 6) {
+                model.error = "password must have at least 6 digits"
                 return;
             }
 
@@ -42,6 +57,8 @@
                     var newUser = {
                         username: username,
                         password: password,
+                        firstName: firstName,
+                        lastName: lastName,
                         email: email,
                         phone: phone,
                         dob: dob,

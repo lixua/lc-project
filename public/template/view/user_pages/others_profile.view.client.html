@@ -10,7 +10,7 @@
             </div>
             <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
             <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>
-            <i class="fa fa-search"></i>
+            <i class="fa fa-search  fa-search-change"></i>
         </div>
     </div>
 </nav>
@@ -19,7 +19,26 @@
     <div class="content-container profile-page-inner-container">
         <div class="row">
             <div class="col-sm-12">
+                <a class="btn btn-danger" href="#!/user/profile"><< Back</a>
                 <div class="profile-container">
+                    <div class="bar">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="profile-text">Profile</div>
+                            </div>
+                            <div class="col-xs-12 col-sm-8">
+                                <div class="search-field-container pull-right">
+                                    <div class="search-field-inner-wrapper">
+                                        <input class="search-box" placeholder="Search for username" ng-model="model.findusername">
+                                        <button class="icon icon-modify" ng-click="model.findUser(model.findusername)">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="split-line">
                     <div class="form-group row">
                         <label for="username" class="col-xs-12 col-sm-2">Username:</label>
                         <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="model.user.username" placeholder="username" readonly/></div>
@@ -37,12 +56,14 @@
                         <div class="col-xs-11 col-sm-10"><input type="text" class="form-control" ng-model="model.user.role" readonly/></div>
                     </div>
                 </div>
-                <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
-                <a ng-show="!model.isFollow && !model.isBlock"ng-click="model.follow()" class="btn btn-block btn-primary">Follow</a>
-                <a ng-show="model.isFollow"ng-click="model.unfollow()" class="btn btn-block btn-primary">Unfollow</a>
-                <a ng-show="!model.isBlock && !model.isFollow"ng-click="model.block()" class="btn btn-block btn-primary">Block</a>
-                <a ng-show="model.isBlock"ng-click="model.unblock()" class="btn btn-block btn-primary">Unblock</a>
-                <div class="following-list-container">
+                <div class="activity-option">
+                    <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+                    <a ng-show="!model.isFollow && !model.isBlock"ng-click="model.follow()" class="btn btn-block btn-primary">Follow</a>
+                    <a ng-show="model.isFollow"ng-click="model.unfollow()" class="btn btn-block btn-primary">Unfollow</a>
+                    <a ng-show="!model.isBlock && !model.isFollow"ng-click="model.block()" class="btn btn-block btn-primary">Block</a>
+                    <a ng-show="model.isBlock"ng-click="model.unblock()" class="btn btn-block btn-primary">Unblock</a>
+                </div>
+                <!-- <div class="following-list-container">
                     <ul class="list-group">
                         <li class="list-group-item active">Following:</li>
                         <li class="list-group-item">Ethan</li>
@@ -59,8 +80,7 @@
                         <li class="list-group-item">Pipi Shrimp</li>
                         <li class="list-group-item">XiangBaBang</li>
                     </ul>
-                </div>
-
+                </div> -->
             </div>
         </div>
     </div>
