@@ -4,10 +4,10 @@
             <div class="navbar-header">
                 <a href="#!/admin"><div class="header-text">ShopCheap administration</div></a>
                 <div class="admin-header-option">
-                    Welcome admin /
+                    Welcome {{model.admin.username}}/
                     <a>view site</a>
                     /
-                    <a>logout</a>
+                    <a href="#!/admin">logout</a>
                 </div>
             </div>
         </div>
@@ -32,8 +32,8 @@
               </thead>
               <tbody>
                 <tr ng-repeat="user in model.users" ng-click="model.clickPanel(user)">
-                      <td>{{ user.role }}</td>
                       <td>{{ user.username }}</td>
+                    <td>{{ user.role }}</td>
                       <td>{{ user.firstName }}</td>
                       <td>{{ user.lastName }}</td>
                       <td>{{ user.phone }}</td>

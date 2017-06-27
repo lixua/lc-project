@@ -4,26 +4,27 @@
             <div class="navbar-header">
                 <a href="#!/admin"><div class="header-text">ShopCheap administration</div></a>
                 <div class="admin-header-option">
-                    Welcome admin /
+                    Welcome {{model.admin.username}}/
                     <a>view site</a>
                     /
-                    <a>logout</a>
+                    <a href="#!/admin">logout</a>
                 </div>
             </div>
         </div>
     </nav>
 </div>
+
 <div class="login-main-container container">
     <div class="admin-home-container">
         <ul class="list-group">
           <li class="list-group-item active">User group</li>
-          <a href="#!/admin/users"><li class="list-group-item">View all users</li></a>
-          <a href="#!/admin/createUser"><li class="list-group-item">Create user</li></a>
+          <a href="#!/admin/{{model.adminId}}/users"><li class="list-group-item">View all users</li></a>
+          <a href="#!/admin/{{model.adminId}}/createUser"><li class="list-group-item">Create user</li></a>
           <li class="list-group-item active">Item group</li>
-          <a href="#!/admin/items"><li class="list-group-item">View all items</li></a>
-          <a href="#!/admin/createItem"><li class="list-group-item">Create item</li></a>
+          <a href="#!/admin/{{model.adminId}}/items"><li class="list-group-item">View all items</li></a>
+          <a href="#!/admin/{{model.adminId}}/createItem"><li class="list-group-item">Create item</li></a>
           <li class="list-group-item active">Order group</li>
-          <a href="#!/admin/orders"><li class="list-group-item">View all orders</li></a>
+          <a href="#!/admin/{{model.adminId}}/orders"><li class="list-group-item">View all orders</li></a>
         </ul>
     </div>
 </div>

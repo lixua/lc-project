@@ -2,12 +2,12 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <div class="header-text">ShopCheap administration</div>
+                <a href="#!/admin"><div class="header-text">ShopCheap administration</div></a>
                 <div class="admin-header-option">
-                    Welcome admin /
+                    Welcome {{model.admin.username}}/
                     <a>view site</a>
                     /
-                    <a>logout</a>
+                    <a href="#!/admin">logout</a>
                 </div>
             </div>
         </div>
@@ -32,8 +32,9 @@
                     <input type="text" class="form-control" ng-model="catagory" placeholder="Home" />
                     <label for="count">Upload Image</label>
                     <input type="upload" class="form-control" ng-model="image"/>
+                    <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
                     <a ng-click="model.create(itemName,price,desc, count,catagory,image)" class="btn btn-info btn-login btn-block">Create</a>
-                    <a href="#!/user/profile" class="btn btn-info btn-register btn-block">Cancel</a>
+                    <a href="#!/admin/{{model.adminId}}" class="btn btn-info btn-register btn-block">Cancel</a>
                 </div>
             </div>
         </div>

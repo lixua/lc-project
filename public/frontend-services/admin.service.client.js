@@ -7,23 +7,26 @@
             findAdminByCredentials : findAdminByCredentials,
             findAllOrder: findAllOrder,
             findAllUser: findAllUser,
-            // checkLoggedIn: checkLoggedIn,
-            findAllItem: findAllItem
+            findAllItem: findAllItem,
+            findAdminById: findAdminById
+
         };
+
+        function findAdminById(adminId){
+            var url = "/api/adminfindid/" + adminId;
+            return $http.get(url)
+                .then(function (response){
+                    return response.data;
+                })
+        }
         function findAdminByCredentials(username, password) {
-            var url = "/api/admin/login?username=" + username + "&password=" + password;
+            var url = "/api/admin?username=" + username + "&password=" + password;
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
                 });
         }
-        // function checkLoggedIn() {
-        //     var url = "/api/admin/checkLoggedIn";
-        //     return $http.get(url)
-        //         .then(function (response) {
-        //             return response.data;
-        //         });
-        // }
+
         function findAllOrder(){
             var url = '/api/admin/allorder';
             return $http.get(url)

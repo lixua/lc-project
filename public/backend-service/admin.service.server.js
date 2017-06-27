@@ -7,20 +7,20 @@ var userModel = require('../model/user.model.server');
 var itemModel = require('../model/item.model.server');
 var orderModel = require('../model/order.model.server');
 
-app.get('/api/admin/login', findAdminByCredentials);
+app.get('/api/admin', findAdminByCredentials);
 app.get('/api/admin/allorder',findAllOrder);
 app.get('/api/admin/alluser',findAllUser);
 app.get('/api/admin/allitem',findAllItem);
-// app.get('/api/admin/checkLoggedIn', checkLoggedIn);
-//
-//
-// function checkLoggedIn(req, res) {
-//     if(req.isAuthenticated()) {
-//         res.json(req.user);
-//     } else {
-//         res.send('0');
-//     }
-// }
+app.get('/api/adminfindid/:adminId',findAdminById);
+
+function findAdminById(req, res){
+    var adminId = req.params['adminId'];
+    adminModel
+        .findAdminById(adminId)
+        .then(function(admin){
+            res.json(admin);
+        })
+}
 
 function findAdminByCredentials(req, res){
     var username = req.query['username'];
@@ -32,10 +32,10 @@ function findAdminByCredentials(req, res){
             if(admin !== null) {
                 res.json(admin);
             } else {
-                res.sendStatus(404);
+                res.send("NotFound");
             }
         }, function (err) {
-            res.sendStatus(404);
+            res.send("NotFound");
         });
 }
 

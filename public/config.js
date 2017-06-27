@@ -70,69 +70,45 @@
                     controller: 'adminLoginController',
                     controllerAs: 'model'
                 })
-                .when('/admin/home', {
+                .when('/admin/:adminId', {
                     templateUrl: 'template/view/admin_pages/admin-home.view.client.html',
                     controller: 'adminHomepageController',
                     controllerAs: 'model'
-                    // resolve:{
-                    //     currentUser: checkLoggedIn3
-                    // }
                 })
-                .when('/admin/users', {
+                .when('/admin/:adminId/users', {
                     templateUrl: 'template/view/admin_pages/admin-list-user.view.client.html',
                     controller: 'adminUserlistController',
                     controllerAs: 'model'
-                    // resolve:{
-                    //     currentUser: checkLoggedIn3
-                    // }
                 })
-                .when('/admin/orders', {
+                .when('/admin/:adminId/orders', {
                     templateUrl: 'template/view/admin_pages/admin-list-orders.view.client.html',
                     controller: 'adminOrderlistController',
                     controllerAs: 'model'
-                    // resolve:{
-                    //     currentUser: checkLoggedIn3
-                    // }
                 })
-                .when('/admin/items', {
+                .when('/admin/:adminId/items', {
                     templateUrl: 'template/view/admin_pages/admin-list-item.view.client.html',
                     controller: 'adminItemlistController',
                     controllerAs: 'model'
-                    // resolve:{
-                    //     currentUser: checkLoggedIn3
-                    // }
                 })
-                .when('/admin/createUser', {
+                .when('/admin/:adminId/createUser', {
                     templateUrl: 'template/view/admin_pages/admin-createUser.view.client.html',
                     controller: 'adminCreateUserController',
                     controllerAs: 'model'
-                    // resolve:{
-                    //     currentUser: checkLoggedIn3
-                    // }
                 })
-                .when('/admin/createItem', {
+                .when('/admin/:adminId/createItem', {
                     templateUrl: 'template/view/admin_pages/admin-createItem.view.client.html',
                     controller: 'adminCreateItemController',
                     controllerAs: 'model'
-                    // resolve:{
-                    //     currentUser: checkLoggedIn3
-                    // }
                 })
-                .when('/admin/item/:itemId', {
+                .when('/admin/:adminId/item/:itemId', {
                     templateUrl: 'template/view/admin_pages/admin-edit-item.view.client.html',
                     controller: 'adminEditItemController',
                     controllerAs: 'model'
-                    // resolve:{
-                    //     currentUser: checkLoggedIn3
-                    // }
                 })
-                .when('/admin/user/:userId', {
+                .when('/admin/:adminId/user/:userId', {
                     templateUrl: 'template/view/admin_pages/admin-edit-user.view.client.html',
                     controller: 'adminEditUserController',
                     controllerAs: 'model'
-                    // resolve:{
-                    //     currentUser: checkLoggedIn3
-                    // }
                 })
 
                 //Item pages
@@ -209,18 +185,5 @@
             });
         return deferred.promise;
     }
-    function checkLoggedIn3(adminService, $q, $location) {
-        var deferred = $q.defer();
-        adminService
-            .checkLoggedIn()
-            .then(function(user){
-                if(user ==='0'){
-                    deferred.reject();
-                    $location.url('/admin')
-                } else {
-                    deferred.resolve(user);
-                }
-            });
-        return deferred.promise;
-    }
+
 })();

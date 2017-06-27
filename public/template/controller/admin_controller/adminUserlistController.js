@@ -1,23 +1,25 @@
 (function () {
     angular
         .module('OnlineWebStore')
-        .controller('adminUserlistController', function ($location, adminService) {
+        .controller('adminUserlistController', function ($location, adminService,$routeParams) {
             var model = this
             function init () {
-                adminService
+                model.adminId = $routeParams['adminId'];
+                model.admin = adminService
+                    .findAdminById(model.adminId)
+                    .then(function(found){
+                        model.admin = found;
+                    })
+                model.users = adminService
                     .findAllUser()
                     .then(function (result) {
-                        for (var u in result) {
-                            result[u].dob = result[u].dob.substring(0, result[u].dob.indexOf('T'))
-                            result[u].createDate = result[u].createDate.substring(0, result[u].createDate.indexOf('T'))
-                        }
                         model.users = result
                     })
             }
-            init()
+            init();
 
             model.clickPanel = (function (user) {
-                $location.url('/admin/user/' + user._id)
+                $location.url('/admin/'+model.adminId+'/user/' + user._id)
             })
         })
 })()

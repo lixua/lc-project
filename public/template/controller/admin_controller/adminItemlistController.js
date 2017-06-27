@@ -1,9 +1,17 @@
 (function () {
     angular
         .module('OnlineWebStore')
-        .controller('adminItemlistController', function ($location, adminService) {
-            var model = this
+        .controller('adminItemlistController', function ($location, adminService,$routeParams) {
+            var model = this;
+            model.adminId = $routeParams['adminId'];
+            model.admin = adminService
+                .findAdminById(model.adminId)
+                .then(function(found){
+                    model.admin = found;
+                })
+
             function init () {
+
                 adminService
                     .findAllOrder()
                     .then(function (result) {
@@ -18,7 +26,7 @@
             init()
 
             model.clickPanel = (function (item) {
-                $location.url('/admin/item/' + item._id)
+                $location.url('/admin/'+model.adminId+'/item/' + item._id)
             })
         })
 })()

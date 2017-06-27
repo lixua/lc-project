@@ -6,15 +6,16 @@
 
             model.login = (function (username, password) {
                 adminService
-                        .findAdminByCredentials(username, password)
-                        .then(function (result) {
-                            if (result !== null) {
-                                $location.url('admin/home')
-                            }
-                        },
-                    function(error) {
-                        model.error = 'Sorry this is an admin account'
-                    })
+                    .findAdminByCredentials(username, password)
+                    .then(login);
+                function login(found) {
+                    console.log(found);
+                    if (found !== "NotFound") {
+                        $location.url('/admin/' + found._id);
+                    } else {
+                        model.error = "sorry, please check username and password. please try again!";
+                    }
+                }
             })
         })
 })()

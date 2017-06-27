@@ -2,12 +2,12 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <div class="header-text">ShopCheap administration</div>
+                <a href="#!/admin"><div class="header-text">ShopCheap administration</div></a>
                 <div class="admin-header-option">
-                    Welcome admin /
+                    Welcome {{model.admin.username}}/
                     <a>view site</a>
                     /
-                    <a>logout</a>
+                    <a href="#!/admin">logout</a>
                 </div>
             </div>
         </div>
@@ -17,32 +17,30 @@
 <div class="login-main-container container">
     <div class="admin-home-container">
         <div class="form-group">
-            <div ng-show="model.error" class="alert alert-danger">
-                {{model.error}}
-            </div>
+
             <label for="username">Username</label>
-            <input ng-model = "username" type="text" class="form-control"  placeholder="username" />
+            <input ng-model = "model.user.username" type="text" class="form-control"  placeholder="username" />
             <label for="fname">First name</label>
-            <input type="text" class="form-control" ng-model="fname" placeholder="first name" />
+            <input type="text" class="form-control" ng-model="model.user.firstName" placeholder="first name" />
             <label for="lname">Last name</label>
-            <input type="text" class="form-control" ng-model="lname" placeholder="last name" />
+            <input type="text" class="form-control" ng-model="model.user.lastName" placeholder="last name" />
+            <label for="password" class="col-xs-12 col-sm-2">Password:</label>
+            <input type="password" class="form-control" ng-model="model.user.password" placeholder="password" />
             <label for="dob">Date of Birth</label>
-            <input type="date" class="form-control" ng-model="dob" placeholder="01/01/1990" />
+            <input type="date" class="form-control" ng-model="model.user.dob" placeholder="01/01/1990" />
             <label for="email">Email address</label>
-            <input ng-model = "email"type="email" class="form-control"  placeholder="email" />
+            <input ng-model = "model.user.email"type="email" class="form-control"  placeholder="email" />
             <label for="phone">Phone number</label>
-            <input ng-model = "phone"type="tel" class="form-control" placeholder="phone" />
-            <label for="dob">BirthDay</label>
-            <input ng-model="dob" type = "date" class="form-control" />
+            <input ng-model = "model.user.phone"type="tel" class="form-control" placeholder="phone" />
             <label for="role">Type of User</label>
-            <select ng-model ="role">
-                <option value="BUYER" selected>Buyer</option>
+            <select ng-model ="model.user.role">
+                <option value="BUYER">Buyer</option>
                 <option value="SELLER">Seller</option>
             </select>
-
-            <a ng-click="model.update(username, password, password2, email, phone,dob, role)" class="btn btn-info btn-login btn-block">Update</a>
-            <a ng-click="model.update(username, password, password2, email, phone,dob, role)" class="btn btn-info btn-login btn-block">Delete</a>
-            <a href="#!/admin/users" class="btn btn-info btn-register btn-block">Cancel</a>
+            <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+            <a ng-click="model.updateUser(model.user.username,model.user.firstName,model.user.lastName,model.user.password,model.user.dob,model.user.email,model.user.phone,model.user.role)" class="btn btn-info btn-login btn-block">Update</a>
+            <a ng-click="model.deleteUser()" class="btn btn-info btn-login btn-block">Delete</a>
+            <a href="#!/admin/{{model.adminId}}" class="btn btn-info btn-register btn-block">Cancel</a>
         </div>
     </div>
 </div>

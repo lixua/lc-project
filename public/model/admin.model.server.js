@@ -9,13 +9,20 @@ var adminModel = mongoose.model('adminModel',adminSchema);
 
 adminModel.findAdminByCredentials = findAdminByCredentials;
 adminModel.createAdmin = createAdmin;
+adminModel.findAdminById = findAdminById;
+
 module.exports = adminModel;
 
+function findAdminById(adminId){
+    return adminModel.findById(adminId)
+}
 
 function findAdminByCredentials(username, password){
+    console.log("MODELFIND")
     return adminModel
         .findOne({username:username})
         .then(function(admin){
+            console.log(admin);
             if(admin && bcrypt.compareSync(password, admin.password)){
                 return admin;
             } else {
@@ -29,8 +36,3 @@ function createAdmin(admin){
     return adminModel.create(admin)
 }
 
-var admin = {
-    username: "admin",
-    password: "admin"
-}
-createAdmin(admin)

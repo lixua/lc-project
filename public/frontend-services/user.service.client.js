@@ -143,6 +143,7 @@
         //         })
         // }
         function login(username, password) {
+            console.log("clientLogin")
             var url = "/api/login";
             var credentials = {
                 username: username,
