@@ -6,7 +6,7 @@
             <div class="pull-right header-button-container">
                 <a ng-click="model.goto()"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
                 <a href="#!/user/cart"><img src="static/resources/cart.png" class="shopping-cart-image"><img></a>
-                <a ng-click="model.logout()"><img src="static/resources/logout.png" class="shopping-cart-image"><img></a>
+                <a ng-show="model.loggedIn()" ng-click="model.logout()"><img src="static/resources/logout.png" class="logout-image"><img></a>
             </div>
             <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
             <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>
@@ -24,12 +24,12 @@
                     <div class="bar">
                         <div class="row">
                             <div class="col-xs-12 col-sm-4">
-                                <div class="profile-text">{{model.searchGroup}}</div>
+                                <div class="profile-text search-text">{{model.searchGroup}}</div>
                             </div>
                             <div class="col-xs-12 col-sm-8">
                                 <div class="search-field-container pull-right">
-                                    <div class="search-field-inner-wrapper">
-                                        <input class="search-box" placeholder="Search for username" ng-model="model.findusername">
+                                    <div class="search-field-inner-wrapper search-padding">
+                                        <input class="search-box" placeholder="Search for ItemName" ng-model="model.findusername">
                                         <button class="icon icon-modify" ng-click="model.findUser(model.findusername)">
                                             <i class="fa fa-search"></i>
                                         </button>
@@ -38,10 +38,21 @@
                             </div>
                         </div>
                     </div>
-                <hr class="split-line">
-                <div class="following-list-container">
-                    <ul ng-repeat = "item in model.list" class="list-group">
-                        <div ng-click="model.selectItem(item._id)">{{item.name}}</div>
+                    <hr class="split-line">
+                    <ul ng-repeat = "item in model.list" class="list-group enhanced-group-list">
+                        <li class="list-group-item" ng-click="model.selectItem(item._id)">
+                            <div class="row">
+                                <div class="col-xs-5 col-sm-3 col-md-4 col-lg-3">
+                                    <img src="{{item.image}}" class="image-in-list"></img>
+                                </div>
+                                <div class="col-xs-7 col-sm-9 col-md-8 col-lg-9">
+                                    <div class="cart-text-container">
+                                        <div class="in-list-header">{{item.name}}</div>
+                                        <div class="in-list-description">{{item.description}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

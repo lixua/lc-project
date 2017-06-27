@@ -15,80 +15,95 @@
     </div>
 </nav>
 
-<div class="main-container">
+<div class="main-container homepage-main-container">
     <div class="content-container profile-page-inner-container">
         <div class="cart-list-container">
-            <div class="col-xs-12 col-md-8">
-                <h3>Cart owns {{model.list.length}} Items:</h3>
-                <h4 ng-show="model.list.length === 0">Your cart is empty! GO SHOPPING!</h4>
-                <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
-                <div ng-click="model.checkOut()"class="btn btn-info btn-block">Proceed checkOut</div>
-                <ul ng-repeat = "item in model.list" class="list-group">
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-5 col-sm-2">
-                                <img src="{{item.image}}" class="image-in-list"></img>
-                            </div>
-                            <div class="col-xs-7 col-sm-8 col-md-9 col-lg-10">
-                                <div class="cart-text-container">
-                                    <div class="in-list-header">{{item.name}}</div>
-                                    <div class="in-list-description">{{item.description}}</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cart-option-container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8">
+                    <h3>Cart owns {{model.list.length}} Items:</h3>
+                    <h4 ng-show="model.list.length === 0">Your cart is empty! GO SHOPPING!</h4>
+                    <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+                    <ul ng-repeat = "item in model.list" class="list-group">
+                        <li class="list-group-item">
                             <div class="row">
-                                <div class="col-xs-5 col-sm-2">
-                                    <div ng-click="model.removeCart(item)"class="btn btn-danger">Delete</div>
+                                <div class="col-xs-5 col-sm-3 col-md-4 col-lg-3">
+                                    <img src="{{item.image}}" class="image-in-list"></img>
                                 </div>
-                                <div class="col-xs-5">
-                                    <select class="form-control" id="sel1">
-                                      <option>1</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                      <option>4</option>
-                                    </select>
+                                <div class="col-xs-7 col-sm-9 col-md-8 col-lg-9">
+                                    <div class="cart-text-container">
+                                        <div class="in-list-header">{{item.name}}</div>
+                                        <div class="in-list-description">{{item.description}}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
-
+                            <div class="cart-option-container">
+                                <div class="row">
+                                    <div class="col-md-4 col-lg-3 hidden-sm hideen-xs"></div>
+                                    <div class="col-xs-5 col-sm-3 col-md-4 col-lg-2">
+                                        <div ng-click="model.removeCart(item)"class="btn btn-danger">Delete</div>
+                                    </div>
+                                    <div class="col-xs-7 col-sm-9 col-md-4 col-lg-2">
+                                        <select class="form-control" id="sel1">
+                                          <option>1</option>
+                                          <option>2</option>
+                                          <option>3</option>
+                                          <option>4</option>
+                                          <option>5</option>
+                                          <option>6</option>
+                                          <option>7</option>
+                                          <option>8</option>
+                                          <option>9</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 hidden-sm hidden-xs">
+                    <h3 >Buy it again!</h3>
+                    <h4 ng-show="model.user.orderList.length === 0">You don't have anything bought yet!</h4>
+                    <ul class="list-group">
+                        <li ng-repeat="order in model.orderList" class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <img src="{{order.image}}" class="image-in-relist"></img>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="cart-text-container">
+                                        <div class="in-list-header">{{order.name}}</div>
+                                        <div class="in-list-description">{{order.description}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-option-container">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div ng-click="model.addCart(order)" class="btn btn-success">Add</div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <select class="form-control" id="sel1">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-md-4 hidden-sm hidden-xs">
-                <h3 >Buy it again!</h3>
-                <h4 ng-show="model.user.orderList.length === 0">You don't have anything bought yet!</h4>
-
-                <ul class="list-group">
-                    <li ng-repeat="order in model.orderList" class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="order.image" class="image-in-list"></img>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="cart-text-container">
-                                    <div class="in-list-header">{{order.name}}</div>
-                                    <div class="in-list-description">{{order.description}}</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cart-option-container">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div ng-click="model.addCart(order)" class="btn btn-success">Add</div>
-                                </div>
-                                <div class="col-md-8">
-                                    <select class="form-control" id="sel1">
-                                      <option>1</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                      <option>4</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+            <div class="row">
+                <div class="col-xs-12 col-md-8">
+                    <div ng-click="model.checkOut()"class="btn btn-info btn-block">Proceed checkOut</div>
+                </div>
             </div>
         </div>
     </div>

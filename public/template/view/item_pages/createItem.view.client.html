@@ -30,7 +30,14 @@
                     <label for="count">Quantity</label>
                     <input type="text" class="form-control" ng-model="count" placeholder="1" />
                     <label for="catagory">Catagory</label>
-                    <input type="text" class="form-control" ng-model="catagory" placeholder="Home" />
+                    <select ng-model ="catagory" class="form-control" placeholder="Home">
+                        <option value="HOME" selected>HOME</option>
+                        <option value="ELECTRONICS" selected>ELECTRONICS</option>
+                        <option value="MEDIA" selected>MEDIA</option>
+                        <option value="FOOD" selected>FOOD</option>
+                        <option value="SPORT" selected>SPORT</option>
+                        <option value="OTHER">OTHER</option>
+                    </select>
                     <label for="count">Upload Image</label>
                     <input type="upload" class="form-control" ng-model="image"/>
                     <a ng-click="model.create(itemName,price,desc, count,catagory,image)" class="btn btn-info btn-login btn-block">Create</a>

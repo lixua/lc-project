@@ -113,11 +113,13 @@
 }
 
 .cart-list-container {
-
     .list-group {
-        margin-top: 20px;
+        // margin-top: 20px;
         &:last-child {
             border-bottom: 1pt;
+        }
+        .list-group-item {
+            border: none;
         }
     }
 
@@ -131,9 +133,10 @@
         }
     }
 
-    .btn-danger {
+    .btn-danger, .btn-success {
         width: 90px;
     }
+
 }
 
 .cart-option-container {
@@ -365,6 +368,26 @@
     width: 25px;
 }
 
+.image-in-relist {
+    display: inline-block;
+    position: fixed;
+    height: 90px;
+    width: 90px;
+    margin-bottom: 1px;
+}
+
+.search-padding {
+    margin-top: 15px;
+}
+
+.search-text {
+    margin-top: 15px;
+}
+
+.enhanced-group-list {
+    height: 220px !important;
+}
+
 @media only screen and (min-width: $screen-sm) {
     .login-page-container {
         .form-control {
@@ -378,11 +401,12 @@
     }
 
     .item-image-container {
-        margin-left: calc(100vw / 6 - 130px);
+        margin-left:0px;
     }
 
     .item-image {
-        width: 350px;
+        width: 270px;
+        height: 270px;
     }
 
     .item-name-container {
@@ -454,11 +478,12 @@
     }
 
     .item-image-container {
-        margin-left: calc(100vw / 6 - 225px);
+        margin-left: 0px;
     }
 
     .item-image {
-        width: 450px;
+        width: 350px;
+        height: 350px;
     }
 
     .item-name-container {
@@ -491,7 +516,7 @@
     }
 
     .profile-page-inner-container {
-        margin: 150px 15vw 0 15vw !important;
+        margin: 140px 15vw 0 15vw !important;
     }
 
     .profile-icon {
@@ -507,5 +532,20 @@
     .profile-delete {
         width: 80%;
         margin-left: 10%;
+    }
+
+    .image-in-list {
+        width: 140px;
+        height: 140px;
+        display: inline-block;
+        position: fixed;
+    }
+
+    .cart-option-container {
+        margin-top: 50px;
+    }
+
+    .cart-list-container {
+
     }
 }

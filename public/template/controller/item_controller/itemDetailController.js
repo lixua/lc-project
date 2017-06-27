@@ -15,6 +15,14 @@
                     $location.url('/user/profile')
                 }
             }
+
+            model.loggedIn = (function () {
+                if (currentUser ==='0') {
+                    return false
+                }
+                return true
+            })
+            
             function logout(){
                 if(currentUser ==='0'){
                     $location.url('/login');

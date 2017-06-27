@@ -5856,7 +5856,7 @@ button.close {
   align-items: center; }
 
 .homepage-main-container {
-  background-color: #f8f8ff; }
+  background-color: #eeeeee; }
   .homepage-main-container .container {
     padding-left: 0px;
     padding-right: 0px; }
@@ -6233,10 +6233,11 @@ button.close {
   height: 40px;
   margin-left: calc(100vw / 12 * 1.5 - 30px); }
 
-.cart-list-container .list-group {
-  margin-top: 20px; }
-  .cart-list-container .list-group:last-child {
-    border-bottom: 1pt; }
+.cart-list-container .list-group:last-child {
+  border-bottom: 1pt; }
+
+.cart-list-container .list-group .list-group-item {
+  border: none; }
 
 .cart-list-container .list-group-item {
   height: 140px;
@@ -6246,7 +6247,7 @@ button.close {
   .cart-list-container .list-group-item:hover {
     background-color: #d4d4d4; }
 
-.cart-list-container .btn-danger {
+.cart-list-container .btn-danger, .cart-list-container .btn-success {
   width: 90px; }
 
 .cart-option-container {
@@ -6427,6 +6428,22 @@ button.close {
 .plus-image {
   width: 25px; }
 
+.image-in-relist {
+  display: inline-block;
+  position: fixed;
+  height: 90px;
+  width: 90px;
+  margin-bottom: 1px; }
+
+.search-padding {
+  margin-top: 15px; }
+
+.search-text {
+  margin-top: 15px; }
+
+.enhanced-group-list {
+  height: 220px !important; }
+
 @media only screen and (min-width: 776px) {
   .login-page-container .form-control {
     height: 80px;
@@ -6435,9 +6452,10 @@ button.close {
     width: 80%;
     margin-left: 10%; }
   .item-image-container {
-    margin-left: calc(100vw / 6 - 130px); }
+    margin-left: 0px; }
   .item-image {
-    width: 350px; }
+    width: 270px;
+    height: 270px; }
   .item-name-container {
     font-size: 1.5em;
     font-weight: bold;
@@ -6476,9 +6494,10 @@ button.close {
     width: 70%;
     margin-left: 15%; }
   .item-image-container {
-    margin-left: calc(100vw / 6 - 225px); }
+    margin-left: 0px; }
   .item-image {
-    width: 450px; }
+    width: 350px;
+    height: 350px; }
   .item-name-container {
     font-size: 1.8em;
     font-weight: bold;
@@ -6497,7 +6516,7 @@ button.close {
   .order-text-line {
     font-size: 1.3em; }
   .profile-page-inner-container {
-    margin: 150px 15vw 0 15vw !important; }
+    margin: 140px 15vw 0 15vw !important; }
   .profile-icon {
     margin-left: 80px; }
   .following-list-container {
@@ -6506,7 +6525,14 @@ button.close {
     margin-left: 10%; }
   .profile-delete {
     width: 80%;
-    margin-left: 10%; } }
+    margin-left: 10%; }
+  .image-in-list {
+    width: 140px;
+    height: 140px;
+    display: inline-block;
+    position: fixed; }
+  .cart-option-container {
+    margin-top: 50px; } }
 
 .admin-login-container {
   margin-top: 20vh;

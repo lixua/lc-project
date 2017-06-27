@@ -12,8 +12,6 @@
             .findByListId(model.user.cartList)
             .then(function (results) {
                 model.list = results;
-                console.log(model.list)
-                console.log(model.list.length)
             });
 
         model.orderList = orderService
@@ -82,7 +80,8 @@
                     price: model.list[i].price,
                     count: model.list[i].count,
                     name: model.list[i].name,
-                    buyerUsername: model.user.username
+                    buyerUsername: model.user.username,
+                    image: model.list[i].image
                 };
                 userService
                     .findUserById(model.list[i].postBy)
@@ -96,8 +95,6 @@
                                         model.user.cartList.splice(i, 1);
                                         userService.updateUser(model.user._id, model.user);
                                         $location.url('/user/profile')
-
-
                                     })
 
                             });

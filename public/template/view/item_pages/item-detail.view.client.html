@@ -6,7 +6,7 @@
             <div class="pull-right header-button-container">
                 <a ng-click="model.goto()"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
                 <a href="#!/user/cart"><img src="static/resources/cart.png" class="shopping-cart-image"><img></a>
-                <a ng-click="model.logout()"><img src="static/resources/logout.png" class="shopping-cart-image"><img></a>
+                <a ng-show="model.loggedIn()" ng-click="model.logout()"><img src="static/resources/logout.png" class="logout-image"><img></a>
             </div>
             <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
             <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>

@@ -22,6 +22,7 @@ var orderSchema = mongoose.Schema({
     deliveryDate: Date,
     name:{type:String, require:true},
     price: {type:Number, require:true},
-    count: {type:Number, require:true}
+    count: {type:Number, require:true},
+    image:{type:String, require:true}, 
 },{collection:"order"});
 module.exports = orderSchema;
