@@ -51,8 +51,6 @@ function checkOut(itemId, number){
     return itemModel.findById(itemId)
         .then(function(get){
             var count = get.count;
-            console.log(count);
-            console.log(number);
             return itemModel.update({_id:itemId},{count:count-number})
         });
 

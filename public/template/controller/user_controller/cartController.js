@@ -104,15 +104,16 @@
                                 itemService.checkOut(model.list[i]._id, model.list[i].count)
                                     .then(function (status) {
                                         model.user.orderList.push(order._id);
-                                        model.user.cartList.splice(i, 1);
                                         userService.updateUser(model.user._id, model.user);
-                                        $location.url('/user/profile')
                                     })
 
                             });
                     })
 
             }
+            model.user.cartList = [];
+            userService.updateUser(model.user._id, model.user);
+            $location.url('/user/profile')
         }
     }
 })();
