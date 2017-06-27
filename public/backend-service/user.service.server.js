@@ -57,6 +57,30 @@ app.get('/auth/google/callback',
         successRedirect: '/#!/user/profile',
         failureRedirect: '/#!/login'
     }));
+
+app.put('/api/userci/:userId',createItem);
+app.put('/api/userdi/:userId',deleteItem);
+
+function createItem(req, res) {
+    var userId = req.params['userId'];
+    var item = req.body;
+    console.log(item)
+    userModel
+        .createItem(userId, item)
+        .then(function (status){
+            res.sendStatus(200);
+        })
+}
+
+function deleteItem(req, res){
+    var userId = req.params['userId'];
+    var item = req.body;
+    userModel
+        .deleteItem(userId, item)
+        .then(function (status){
+            res.sendStatus(200);
+        })
+}
 function localStrategy(username, password, done) {
     userModel
         .findUserByCredentials(username, password)

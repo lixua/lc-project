@@ -30,10 +30,26 @@
             addCart: addCart,
             removeCart: removeCart,
             checkOut: checkOut,
-            findByListId: findByListId
+            findByListId: findByListId,
+            createItem: createItem,
+            deleteItem: deleteItem
 
         };
-
+        function createItem(userId, item){
+            console.log(item)
+            var url = '/api/userci/' + userId;
+            return $http.put(url, item)
+                .then(function (response){
+                    return response.data;
+                })
+        }
+        function deleteItem(userId, item){
+            var url = '/api/userdi/' + userId;
+            return $http.put(url, item)
+                .then(function (response){
+                    return response.data;
+                })
+        }
         function findUserById(userId){
             var url = '/api/user/' + userId;
             return $http.get(url)

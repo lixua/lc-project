@@ -2,7 +2,7 @@
     angular
         .module('OnlineWebStore')
         .controller('itemCreateController', itemCreateController);
-    function itemCreateController(currentUser, itemService, $location) {
+    function itemCreateController(currentUser, itemService, $location,userService) {
             var model = this;
         model.logout = logout;
         model.search = search;
@@ -71,8 +71,13 @@
                     }
                     itemService
                         .createItem(item)
-                        .then(function (status){
-                            $location.url('/')
+                        .then(function (got){
+                            userService
+                                .createItem(currentUser._id,got )
+                                .then(function (status) {
+                                    $location.url('/')
+                                })
+
                         })
 
 

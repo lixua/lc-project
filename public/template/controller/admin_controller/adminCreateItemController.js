@@ -48,7 +48,7 @@
                 category: category,
                 postBy: model.adminId,
                 image: image
-            }
+            };
             itemService
                 .createItem(item)
                 .then(function (status) {

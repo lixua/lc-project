@@ -2,13 +2,23 @@
     angular
         .module('OnlineWebStore')
         .controller('itemEditController', itemEditController);
-    function itemEditController(currentUser, itemService, $location,$routeParams) {
+    function itemEditController(currentUser, itemService, $location,$routeParams,userService) {
         var model = this;
         if(currentUser.role === 'BUYER'){
             $location.url('/');
         } else {
             model.logout = logout;
             model.search = search;
+            model.itemId = $routeParams['itemId'];
+            model.user = currentUser;
+            model.update = update;
+            model.cancel = cancel;
+            model.deleteItem = deleteItem;
+            model.item = itemService
+                .findItemById(model.itemId)
+                .then(function (found) {
+                    model.item = found;
+                })
             function search(input) {
                 if (typeof input === 'undefined') {
                     var url = '/'
@@ -26,10 +36,7 @@
                     })
 
             }
-            model.itemId = $routeParams['itemId'];
-            model.user = currentUser;
-            model.update = update;
-            model.cancel = cancel;
+
             function update(name, price, description, quantity, category, image){
                 if (name === null || name === '' || typeof name === 'undefined'){
                     model.error = "Name is required";
@@ -71,7 +78,7 @@
                 itemService
                     .updateItem(model.itemId,item)
                     .then(function (status){
-                        $location.url('/')
+                        $location.url('/user/profile')
                     })
 
 
@@ -79,6 +86,20 @@
             function cancel(){
                 $location.url('/')
             }
+            function deleteItem(){
+                itemService
+                    .deleteItem(model.item._id)
+                    .then(function (found) {
+                        userService
+                            .deleteItem(currentUser._id,model.item)
+                            .then(function (got){
+                                $location.url('/user/profile')
+                            })
+                    })
+
+            }
+
+
         }
     }
 })();

@@ -27,8 +27,31 @@ userModel.checkOut = checkOut;
 userModel.findByListId = findByListId;
 
 userModel.findUserByGoogleId =findUserByGoogleId;
+
+userModel.createItem = createItem;
+userModel.deleteItem = deleteItem;
+
+
 module.exports = userModel;
 
+function createItem(userId, item){
+    return userModel
+        .findById(userId)
+        .then(function (user){
+            user.itemList.push(item._id);
+            return user.save();
+        })
+}
+
+function deleteItem(userId, item){
+    return userModel
+        .findById(userId)
+        .then(function (user){
+            var index = user.itemList.indexOf(item._id);
+            user.itemList.splice(index,1);
+            return user.save();
+        })
+}
 function findUserById(userId){
     return userModel.findById(userId);
 }

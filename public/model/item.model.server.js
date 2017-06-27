@@ -40,7 +40,7 @@ function updateItem(itemId, item){
 }
 
 function deleteItem(itemId){
-    return itemModel.remove({_id:itemId});
+    return itemModel.update({_id:itemId},{count: 0});
 }
 
 function findAll(){

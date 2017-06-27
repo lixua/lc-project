@@ -22,18 +22,19 @@
                 <h2>Edit Item</h2>
                 <div class="form-group">
                     <label for="itemName">Item name</label>
-                    <input type="text" class="form-control" ng-model="itemName" placeholder="Name" />
+                    <input type="text" class="form-control" ng-model="model.item.name" placeholder="Name" />
                     <label for="price">Selling price</label>
-                    <input type="text" class="form-control" ng-model="price" placeholder="0.00" />
+                    <input type="text" class="form-control" ng-model="model.item.price" placeholder="0.00" />
                     <label for="desc">Item description</label>
-                    <input type="text" class="form-control" ng-model="desc" placeholder="description" />
+                    <input type="text" class="form-control" ng-model="model.item.description" placeholder="description" />
                     <label for="count">Quantity</label>
-                    <input type="text" class="form-control" ng-model="count" placeholder="1" />
+                    <input type="text" class="form-control" ng-model="model.item.count" placeholder="1" />
                     <label for="catagory">Catagory</label>
-                    <input type="text" class="form-control" ng-model="catagory" placeholder="Home" />
+                    <input type="text" class="form-control" ng-model="model.item.category" placeholder="Home" />
                     <label for="count">Upload Image</label>
-                    <input type="upload" class="form-control" ng-model="image"/>
-                    <a href="#!/user/profile" class="btn btn-info btn-login btn-block">Update</a>
+                    <input type="upload" class="form-control" ng-model="model.item.image"/>
+                    <a ng-click="model.update(model.item.name, model.item.price, model.item.description, model.item.count, model.item.category, model.item.image)" class="btn btn-info btn-login btn-block">Update</a>
+                    <a ng-click="model.delete()" class="btn btn-info btn-login btn-block">Delete</a>
                     <a href="#!/user/profile" class="btn btn-info btn-register btn-block">Cancel</a>
                 </div>
             </div>
