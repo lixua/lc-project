@@ -324,6 +324,7 @@ function addCart(req, res){
 function removeCart(req, res){
     var userId = req. params['userId'];
     var item = req.body;
+    console.log(item._id)
     userModel
         .removeCart(userId, item._id)
         .then(function (status){

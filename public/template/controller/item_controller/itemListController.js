@@ -65,7 +65,6 @@
             });
         model.selectItem = selectItem;
         function selectItem(item) {
-            console.log(item)
             $location.url('/i/' + item)
         }
     }

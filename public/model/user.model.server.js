@@ -173,7 +173,7 @@ function removeCart(userId, itemId){
         .findById(userId)
         .then(function (user){
             var index = user.cartList.indexOf(itemId);
-            user.cartList.splice(itemId);
+            user.cartList.splice(itemId,1);
             return user.save();
         })
 }
@@ -188,3 +188,4 @@ function findByListId(list){
 function findUserByGoogleId(Id) {
     return userModel.findOne({'google.id': Id});
 }
+

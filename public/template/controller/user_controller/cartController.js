@@ -8,10 +8,15 @@
         model.removeCart = removeCart;
         model.addCart = addCart;
         model.checkOut = checkOut;
+
         model.list = itemService
             .findByListId(model.user.cartList)
             .then(function (results) {
                 model.list = results;
+
+                for(var i in model.list){
+                    model.list[i].count = count(model.user.cartList, model.list[i]._id)
+                }
             });
 
         model.orderList = orderService
@@ -38,7 +43,14 @@
                 $location.url(url);
             }
         }
-
+        function count(array, find){
+            var result = 0;
+            for(var i = 0; i < array.length; ++i){
+                if(array[i] === find)
+                    result++;
+            }
+            return result;
+        }
         function logout() {
             userService
                 .logout()

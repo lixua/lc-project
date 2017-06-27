@@ -103,8 +103,17 @@
             }
 
             function addCart() {
-                userService
-                    .addCart(model.user._id, model.item);
+                if(model.count > model.item.count){
+                    model.error="The number you selected is more then in our website!"
+                } else {
+                    for (var i = 0; i < model.count; i++) {
+                        userService
+                            .addCart(model.user._id, model.item);
+                    }
+
+                }
+
+
             }
 
             model.findItemsByKeywords = findItemsByKeywords;

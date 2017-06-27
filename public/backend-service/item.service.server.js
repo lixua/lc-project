@@ -12,7 +12,6 @@ app.delete('/api/item/:itemId', deleteItem);
 app.put('/api/item/checkOut/:itemId', checkOut);
 app.post('/api/itemlist',findByListId);
 function createItem(req, res){
-    console.log("Server")
     var item = req.body;
     itemModel
         .createItem(item)

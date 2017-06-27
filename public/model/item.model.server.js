@@ -48,10 +48,11 @@ function findAll(){
 }
 
 function checkOut(itemId, number){
-    var count = 0;
     return itemModel.findById(itemId)
         .then(function(get){
-            count = get.count;
+            var count = get.count;
+            console.log(count);
+            console.log(number);
             return itemModel.update({_id:itemId},{count:count-number})
         });
 

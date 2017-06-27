@@ -34,18 +34,23 @@
                                             <div class="price-container">${{model.item.price}}</div>/each
                                         </div>
                                         <div class="col-xs-6">
-                                            <select class="form-control item-quantity" id="sell">
+                                            <select ng-model="model.count"class="form-control item-quantity" id="sell">
                                               <option>1</option>
                                               <option>2</option>
                                               <option>3</option>
                                               <option>4</option>
                                             </select>
                                         </div>
+                                        <div class="col-xs-6">
+                                            <h4>Number:{{model.item.count}}</h4>
+                                        </div>
                                     </div>
-                                    <div ng-click="model.addCart()"class="btn btn-warning btn-block">Add to Cart</div>
+
                                     <div class="item-text-description-container"><b>Description: </b>
                                         {{model.item.description}}
                                     </div>
+                                    <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+                                    <div ng-click="model.addCart()"class="btn btn-warning btn-block">Add to Cart</div>
                                 </div>
                             </div>
                         </div>
