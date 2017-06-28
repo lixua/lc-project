@@ -58,7 +58,6 @@
             var size = {
                 number : number
             };
-            console.log(number)
             return $http.put(url, size)
                 .then(function (response){
                     return response.data;

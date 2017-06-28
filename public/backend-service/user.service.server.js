@@ -64,7 +64,6 @@ app.put('/api/userdi/:userId',deleteItem);
 function createItem(req, res) {
     var userId = req.params['userId'];
     var item = req.body;
-    console.log(item)
     userModel
         .createItem(userId, item)
         .then(function (status){
@@ -324,7 +323,6 @@ function addCart(req, res){
 function removeCart(req, res){
     var userId = req. params['userId'];
     var item = req.body;
-    console.log(item._id)
     userModel
         .removeCart(userId, item._id)
         .then(function (status){
@@ -355,7 +353,6 @@ function googleStrategy(token, refreshToken, profile, done) {
         .findUserByGoogleId(profile.id)
         .then(
             function(user) {
-                console.log("HERE?");
                 if(user) {
                     return done(null, user);
                 } else {
@@ -371,7 +368,6 @@ function googleStrategy(token, refreshToken, profile, done) {
                             token: token
                         }
                     };
-                    console.log(newGoogleUser);
                     return userModel.createUser(newGoogleUser);
                 }
             },

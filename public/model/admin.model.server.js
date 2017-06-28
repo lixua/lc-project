@@ -18,11 +18,9 @@ function findAdminById(adminId){
 }
 
 function findAdminByCredentials(username, password){
-    console.log("MODELFIND")
     return adminModel
         .findOne({username:username})
         .then(function(admin){
-            console.log(admin);
             if(admin && bcrypt.compareSync(password, admin.password)){
                 return admin;
             } else {

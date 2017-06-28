@@ -9,7 +9,6 @@
                     .findAdminByCredentials(username, password)
                     .then(login);
                 function login(found) {
-                    console.log(found);
                     if (found !== "NotFound") {
                         $location.url('/admin/' + found._id);
                     } else {

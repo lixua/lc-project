@@ -64,7 +64,6 @@
             model.list.splice(model.list.indexOf(item), 1);
             for(var x = 0; x < item.count; x++){
                 userService.removeCart(model.user._id, item)
-                console.log(item);
             }
 
         }
@@ -76,8 +75,6 @@
                     model.list = itemService
                         .findByListId(model.user.cartList)
                         .then(function (results) {
-                            console.log(results);
-                            console.log(model.user.cartList);
                             model.list = results;
 
                             for(var i in model.list){

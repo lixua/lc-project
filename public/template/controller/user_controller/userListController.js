@@ -41,7 +41,6 @@
             model.list = userService.findByListId(currentUser.blockList)
                 .then(function (result) {
                     model.list = result;
-                    console.log(result)
                 })
         }
         function chooseUser(userId) {
