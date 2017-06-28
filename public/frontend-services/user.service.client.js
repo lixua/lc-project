@@ -36,7 +36,6 @@
 
         };
         function createItem(userId, item){
-            console.log(item)
             var url = '/api/userci/' + userId;
             return $http.put(url, item)
                 .then(function (response){
@@ -105,7 +104,6 @@
             }
             return $http.put(url, follow)
                 .then(function (response) {
-                    console.log(response.data)
                     return response.data;
                 });
         }
@@ -159,7 +157,6 @@
         //         })
         // }
         function login(username, password) {
-            console.log("clientLogin")
             var url = "/api/login";
             var credentials = {
                 username: username,
@@ -198,11 +195,8 @@
                 return findUserById(user.followList[i])
                     .then(function(result){
                         return(result)
-                        console.log('1')
                     })
             }
-            // console.log(results)
-            // return results;
         }
 
         function findUserFollowedList(user){
@@ -241,7 +235,6 @@
             return results;
         }
         function addCart(userId, item){
-            console.log(item)
             var url = "/api/useraddcart/" + userId;
             return $http.put(url, item)
                 .then(function (response) {

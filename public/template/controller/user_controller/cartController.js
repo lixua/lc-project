@@ -62,19 +62,30 @@
 
         function removeCart(item) {
             model.list.splice(model.list.indexOf(item), 1);
-            userService.removeCart(model.user._id, item)
-        }
+            for(var x = 0; x < item.count; x++){
+                userService.removeCart(model.user._id, item)
+                console.log(item);
+            }
 
+        }
         function addCart(item) {
             userService.addCart(model.user._id, item)
                 .then(function (status) {
-                    model.user.cartList.push(item);
+
+                    model.user.cartList.push(item._id);
                     model.list = itemService
                         .findByListId(model.user.cartList)
                         .then(function (results) {
+                            console.log(results);
+                            console.log(model.user.cartList);
                             model.list = results;
-                        })
+
+                            for(var i in model.list){
+                                model.list[i].count = count(model.user.cartList, model.list[i]._id)
+                            }
+                        });
                 })
+
         }
 
         function checkOut() {
