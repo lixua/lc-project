@@ -12,7 +12,7 @@
 
             function init () {
                 adminService
-                    .findAllOrder()
+                    .findAllItem()
                     .then(function (result) {
                         for (var u in result) {
                             result[u].createDate = result[u].createDate.substring(0, result[u].createDate.indexOf('T'))

@@ -89,9 +89,11 @@
                             <li class="list-group-item active">OrderList:</li>
                             <li ng-show="model.orderList.length === 0" class="list-group-item">You do not have any order history!</li>
                             <div ng-repeat="order in model.orderList">
-                                <li class="list-group-item" href="#!/user/olist">
-                                    {{order.name}}
-                                </li>
+                                <a href="#!/user/olist">
+                                    <li class="list-group-item">
+                                        {{order.name}}
+                                    </li>
+                                </a>
                             </div>
                         </ul>
                     </div>
