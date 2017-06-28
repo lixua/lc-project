@@ -18,8 +18,6 @@ app.use(passport.session());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
 // configure a public directory to host static content
 app.use(app.express.static(__dirname + '/public'));
 

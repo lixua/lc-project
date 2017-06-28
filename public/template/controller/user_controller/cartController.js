@@ -2,7 +2,7 @@
     angular
         .module('OnlineWebStore')
         .controller('cartController', cartController);
-    function cartController($location, userService, currentUser, orderService, itemService) {
+    function cartController($location, $window, userService, currentUser, orderService, itemService, paypalService) {
         var model = this;
         model.user = currentUser;
         model.removeCart = removeCart;
@@ -59,6 +59,18 @@
                 })
 
         }
+
+    model.paypal = (function () {
+    if (model.list.length === 0) {
+        model.error = "Buy something first, then check out!";
+        return;
+    }
+    return paypalService.paypalCheckout(model.list[0])
+        .then(function (result) {
+            console.log(result)
+            $window.location = "" + result.redirectUrl
+        })
+})
 
         function removeCart(item) {
             model.list.splice(model.list.indexOf(item), 1);

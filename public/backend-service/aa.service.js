@@ -6,4 +6,5 @@ module.exports = function(){
     require('./item.service.server');
     require('./order.service.server');
     require('./user.service.server');
+    require('./paypal.service.server');
 }();
