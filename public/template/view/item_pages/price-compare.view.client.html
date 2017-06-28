@@ -14,12 +14,12 @@
     </div>
 </nav>
 <div class="main-container">
-    <div class="content-container">
+    <div class="content-container container">
         <div class="api-page-container">
-            <h1> Search Results: </h1>
+            <h1> Search from ebay stores: </h1>
             <input type="text" class="form-control"  placeholder="Search" ng-model="api">
             <a class="btn btn-danger btn-block btn-login" ng-click="model.findItemsByKeywords(api)">Search</a>
-            <div ng-repeat="product in model.items" ng-show="$index<10" class="list-group">
+            <div ng-repeat="product in model.items" ng-show="$index<20" class="list-group">
                 <a href="{{product.viewItemURL[0]}}" class="list-group-item">
                     <div class="student-info-container">
                         <h4>ProductName:</h4> {{product.title[0]}}<br>
@@ -28,7 +28,6 @@
                     </div>
                 </a>
             </div>
-            <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."> -->
         </div>
     </div>
 </div>

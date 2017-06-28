@@ -87,6 +87,7 @@
                            getJsonData(data)
                                .then(function (data) {
                                    model.products = data.products[0].offers
+                                   console.log(model.products)
                                })
                        })
                })
