@@ -5,8 +5,11 @@
     function profileController(currentUser, $location, userService, itemService, orderService) {
         var model = this;
         model.user = currentUser;
-        var date = model.user.dob.substring(0, model.user.dob.indexOf('T'))
-        model.user.dob = new Date(date.split("/"))
+        if(typeof model.user.dob !== 'undefined'){
+            var date = model.user.dob.substring(0, model.user.dob.indexOf('T'))
+            model.user.dob = new Date(date.split("/"))
+        }
+
 
         model.userId = currentUser._id;
         model.updateUser = updateUser;
