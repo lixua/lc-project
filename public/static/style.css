@@ -5871,7 +5871,7 @@ button.close {
   -ms-flex: 1;
   flex: 1;
   font-size: 1em;
-  margin: 140px 0% 0 0%; }
+  margin-top: 140px; }
 
 .home-logo {
   width: 150px; }
@@ -6136,8 +6136,12 @@ button.close {
     .login-page-container .form-control:hover {
       background-color: #f0f0f0; }
   .login-page-container .form-group {
-    width: 90%;
+    width: 90vw;
     margin-left: 5%; }
+  .login-page-container .create-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 15px; }
 
 .login-logo {
   width: 90vw;
@@ -6184,6 +6188,8 @@ button.close {
   margin-top: 15px;
   max-width: 90vw;
   min-height: 20vh; }
+  .profile-container hr {
+    margin: 0 0 10px 0; }
   .profile-container .form-control {
     border: none;
     margin-top: -5px;
@@ -6442,7 +6448,10 @@ button.close {
   margin-top: 15px; }
 
 .enhanced-group-list {
-  height: 220px !important; }
+  padding: 0 15px 0 15px;
+  margin-bottom: 0px; }
+  .enhanced-group-list .list-group-item {
+    max-height: 160px; }
 
 @media only screen and (min-width: 776px) {
   .login-page-container .form-control {
@@ -6450,6 +6459,8 @@ button.close {
     font-size: 1.5em; }
   .login-page-container .form-group {
     width: 80%;
+    margin-left: 10%; }
+  .login-page-container .create-title {
     margin-left: 10%; }
   .item-image-container {
     margin-left: 0px; }
@@ -6484,7 +6495,14 @@ button.close {
   .profile-icon {
     margin-left: 15px; }
   .following-list-container {
-    margin-top: 25px; } }
+    margin-top: 25px; }
+  hr {
+    margin: 10px 0 15px 0; }
+  .create-title {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-left: 10%;
+    margin-bottom: 25px; } }
 
 @media only screen and (min-width: 1025px) {
   .login-page-container .form-control {
@@ -6493,6 +6511,11 @@ button.close {
   .login-page-container .form-group {
     width: 70%;
     margin-left: 15%; }
+  .login-page-container .create-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 15%;
+    margin-bottom: 25px; }
   .item-image-container {
     margin-left: 0px; }
   .item-image {
@@ -6530,9 +6553,11 @@ button.close {
     width: 140px;
     height: 140px;
     display: inline-block;
-    position: fixed; }
+    position: relative; }
   .cart-option-container {
-    margin-top: 50px; } }
+    margin-top: 50px; }
+  hr {
+    margin: 22px 0 22px 0; } }
 
 .admin-login-container {
   margin-top: 20vh;

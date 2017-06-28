@@ -33,17 +33,15 @@
                                     <div class="cart-text-container">
                                         <div class="in-list-header">{{item.name}}</div>
                                         <div class="in-list-description">{{item.description}}</div>
+                                        <div class="in-list-description">Count:{{item.count}}</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="cart-option-container">
-                                <div class="row">
-                                    <div class="col-md-4 col-lg-3 hidden-sm hideen-xs"></div>
-                                    <div class="col-xs-5 col-sm-3 col-md-4 col-lg-2">
-                                        <div ng-click="model.removeCart(item)"class="btn btn-danger">Delete</div>
-                                    </div>
-                                    <div class="col-xs-7 col-sm-9 col-md-4 col-lg-2">
-                                        <h3>Count:{{item.count}}</h3>
+                                <div class="cart-option-container">
+                                    <div class="row">
+                                        <!-- <div class="col-md-4 col-lg-3 hidden-sm hideen-xs"></div> -->
+                                        <div class="col-xs-5 col-sm-3 col-md-4 col-lg-2">
+                                            <div ng-click="model.removeCart(item)"class="btn btn-danger">Delete</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

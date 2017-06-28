@@ -15,8 +15,14 @@
     }
 
     .form-group {
-        width: 90%;
+        width: 90vw;
         margin-left: 5%;
+    }
+
+    .create-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 15px;
     }
 }
 
@@ -40,6 +46,10 @@
     margin-top: 15px;
     max-width: 90vw;
     min-height: 20vh;
+
+    hr {
+        margin: 0 0 10px 0;
+    }
 
     .form-control {
         border: none;
@@ -385,7 +395,12 @@
 }
 
 .enhanced-group-list {
-    height: 220px !important;
+    padding: 0 15px 0 15px;
+    margin-bottom: 0px;
+
+    .list-group-item {
+        max-height: 160px;
+    }
 }
 
 @media only screen and (min-width: $screen-sm) {
@@ -396,6 +411,9 @@
         }
         .form-group {
             width: 80%;
+            margin-left: 10%;
+        }
+        .create-title {
             margin-left: 10%;
         }
     }
@@ -463,6 +481,17 @@
     .following-list-container {
         margin-top: 25px;
     }
+
+    hr {
+        margin: 10px 0 15px 0;
+    }
+
+    .create-title {
+        font-size: 1.6em;
+        font-weight: bold;
+        margin-left: 10%;
+        margin-bottom: 25px;
+    }
 }
 
 @media only screen and (min-width: $screen-md) {
@@ -474,6 +503,12 @@
         .form-group {
             width: 70%;
             margin-left: 15%;
+        }
+        .create-title {
+            font-size: 2em;
+            font-weight: bold;
+            margin-left: 15%;
+            margin-bottom: 25px;
         }
     }
 
@@ -538,14 +573,14 @@
         width: 140px;
         height: 140px;
         display: inline-block;
-        position: fixed;
+        position: relative;
     }
 
     .cart-option-container {
         margin-top: 50px;
     }
 
-    .cart-list-container {
-
+    hr {
+        margin: 22px 0 22px 0;
     }
 }

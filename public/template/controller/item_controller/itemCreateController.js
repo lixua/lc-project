@@ -24,7 +24,6 @@
 
         }
 
-
         if(currentUser.role === 'BUYER'){
                 $location.url('/');
             } else {

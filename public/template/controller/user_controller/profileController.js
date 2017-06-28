@@ -104,7 +104,7 @@
         }
 
         model.itemClick = (function (item) {
-            $location.url('/i/' + item._id)
+            $location.url('/user/i/edit/' + item._id)
         })
 
         model.userClick = (function (user) {

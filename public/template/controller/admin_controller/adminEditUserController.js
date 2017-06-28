@@ -10,10 +10,10 @@
             .findUserById(model.userId)
             .then(function (found) {
                 model.user = found;
+                var date = model.user.dob.substring(0, model.user.dob.indexOf('T'))
+                model.user.dob = new Date(date.split("/"))
                 console.log(model.user);
             })
-        var date = model.user.dob.substring(0, model.user.dob.indexOf('T'))
-        model.user.dob = new Date(date.split("/"))
         model.admin = adminService
             .findAdminById(model.adminId)
             .then(function (found) {

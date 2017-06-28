@@ -37,15 +37,12 @@
 
         getTerm()
 
-
-
         function logout() {
             userService
                 .logout()
                 .then(function () {
                     $location.url('/login')
                 })
-
         }
 
         function search(input){
@@ -65,6 +62,7 @@
             });
         model.selectItem = selectItem;
         function selectItem(item) {
+            console.log(item)
             $location.url('/i/' + item)
         }
     }

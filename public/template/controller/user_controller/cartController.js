@@ -63,8 +63,6 @@
         function removeCart(item) {
             model.list.splice(model.list.indexOf(item), 1);
             userService.removeCart(model.user._id, item)
-
-
         }
 
         function addCart(item) {
