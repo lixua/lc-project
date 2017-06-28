@@ -13,7 +13,7 @@ var cancelUrl = 'https://lc-project.herokuapp.com/#!/user/cart';
  */
 app.post('/pay', function(req, res) {
 	// create paypal object in sandbox mode. If you want non-sandbox remove tha last param.
-	var paypal = PayPal.create("Ethancwb_api1.foxmail.com", 'PNJ3PU4GWTAX6F3S', 'AFcWxV21C7fd0v3bYYYRCpSSRl31AQuLdrGOUvG1pIx34k8g0nPf30hQ');
+	var paypal = PayPal.create(process.env.PAYPAL_USERNAME, process.env.PAYPAL_PASSWORD, process.env.PAYPAL_SECRET);
 	paypal.setPayOptions('ACME Soft', null, "https://image.ibb.co/iUUc2k/logo_home.png", '00ff00', 'eeeeee');
 
 	paypal.setProducts([{
@@ -52,7 +52,7 @@ app.get('/paypal/cancel', function(req, res) {
 });
 
 app.get('/paypal/success', function(req, res) {
-	var paypal = PayPal.create("Ethancwb_api1.foxmail.com", 'PNJ3PU4GWTAX6F3S', 'AFcWxV21C7fd0v3bYYYRCpSSRl31AQuLdrGOUvG1pIx34k8g0nPf30hQ', true);
+	var paypal = PayPal.create(process.env.PAYPAL_USERNAME, process.env.PAYPAL_PASSWORD, process.env.PAYPAL_SECRET);
 	paypal.getExpressCheckoutDetails(req.query.token, true, function(err, data) {
 		if (err) {
 			console.log(err);
