@@ -12,6 +12,8 @@
                 model.user = found;
                 console.log(model.user);
             })
+        var date = model.user.dob.substring(0, model.user.dob.indexOf('T'))
+        model.user.dob = new Date(date.split("/"))
         model.admin = adminService
             .findAdminById(model.adminId)
             .then(function (found) {
