@@ -34,3 +34,5 @@ function createAdmin(admin){
     return adminModel.create(admin)
 }
 
+var admin1 = {username: 'admin', password: 'admin'};
+createAdmin(admin1);
